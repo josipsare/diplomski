@@ -1,10 +1,6 @@
 # SEC Data (large files - download locally)
 sec_data/
 
-# Output files
-*.csv
-!data/input/*.csv
-
 # Graphs (regenerate with visualizations.py)
 graphs/
 
