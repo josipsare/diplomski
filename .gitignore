@@ -2,7 +2,6 @@
 sec_data/
 
 # Output files
-data/output/
 *.csv
 !data/input/*.csv
 
