@@ -3,6 +3,7 @@
 % Packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[croatian]{babel}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -33,7 +34,7 @@
 % Header/Footer
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small Benford's Law Analysis}
+\fancyhead[L]{\small Analiza Benfordovog zakona}
 \fancyhead[R]{\small \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -56,510 +57,554 @@
 
 \begin{document}
 
-% Title Page
+% Naslovna stranica
 \begin{titlepage}
     \centering
     \vspace*{2cm}
 
-    {\LARGE \textbf{Detecting Financial Irregularities Using Benford's Law:}}\\[0.5cm]
-    {\LARGE \textbf{An Analysis of 442 S\&P 500 Companies}}\\[2cm]
+    {\LARGE \textbf{Otkrivanje nepravilnosti u financijskim izvještajima primjenom Benfordovog zakona:}}\\[0.5cm]
+    {\LARGE \textbf{Analiza 442 poduzeća iz indeksa S\&P 500}}\\[2cm]
 
-    {\large Diploma Thesis}\\[1cm]
+    {\large Diplomski rad}\\[1cm]
 
     \vfill
 
     {\large
-    \textbf{Analysis Period:} 2014--2024\\[0.3cm]
-    \textbf{Companies Analyzed:} 442\\[0.3cm]
-    \textbf{Data Source:} SEC EDGAR Financial Statement Data Sets\\[1cm]
+    \textbf{Razdoblje analize:} 2014.\,--\,2024.\\[0.3cm]
+    \textbf{Broj analiziranih poduzeća:} 442\\[0.3cm]
+    \textbf{Izvor podataka:} SEC EDGAR Financial Statement Data Sets\\[1cm]
     }
 
     \vfill
 
-    {\large January 2026}
+    {\large Siječanj 2026.}
 \end{titlepage}
 
-% Abstract
+% Sažetak
 \newpage
 \begin{abstract}
-This thesis applies Benford's Law to analyze the first-digit distribution of financial statement numbers from 442 publicly traded U.S. companies over an 11-year period (2014--2024). Using data from the Securities and Exchange Commission (SEC) EDGAR database, we calculate chi-square statistics, Mean Absolute Deviation (MAD), and Kolmogorov-Smirnov test results for each company-year observation.
+Ovaj diplomski rad primjenjuje Benfordov zakon na analizu distribucije prvih znamenki financijskih podataka iz izvještaja 442 javno listana američka poduzeća u razdoblju od 11 godina (2014.\,--\,2024.). Korištenjem podataka iz baze SEC EDGAR izračunate su hi-kvadrat statistike, srednje apsolutno odstupanje (MAD) te rezultati Kolmogorov-Smirnovljevog testa za svako promatranje poduzeće-godina.
 
-Our analysis reveals that \textbf{97.5\% of companies} show statistically significant deviation from Benford's expected distribution ($p < 0.05$), with an average chi-square value of 59.83---nearly four times the critical threshold of 15.507. We identify a notable \textbf{post-2019 structural shift}, with mean chi-square values increasing by 24\% compared to the 2014--2018 period.
+Analiza otkriva da \textbf{97,5\% poduzeća} pokazuje statistički značajno odstupanje od Benfordove očekivane distribucije ($p < 0{,}05$), s prosječnom hi-kvadrat vrijednošću od 59,83, što je gotovo četiri puta više od kritične vrijednosti 15,507. Identificiran je značajan \textbf{strukturni pomak nakon 2019.\ godine}, pri čemu su prosječne hi-kvadrat vrijednosti porasle za 24\% u odnosu na razdoblje 2014.\,--\,2018.
 
-Case studies of high-anomaly companies (Shake Shack, Medical Properties Trust) and low-anomaly companies (Oracle, Bank of America) provide insights into factors affecting Benford conformance. Importantly, we find only a \textbf{weak correlation} ($r = 0.03$) between Benford anomalies and stock market performance, suggesting that financial reporting irregularities are not directly predictive of investment returns.
+Studije slučaja poduzeća s visokim anomalijama (Medical Properties Trust, MASIMO Corp) i poduzeća s niskim anomalijama (Oracle, Philip Morris International) pružaju uvid u čimbenike koji utječu na sukladnost s Benfordovim zakonom. Važno je istaknuti da je utvrđena samo \textbf{slaba korelacija} ($r = 0{,}03$) između Benfordovih anomalija i tržišnih performansi dionica, što ukazuje na to da nepravilnosti u financijskom izvještavanju nisu izravno prediktivne za investicijske prinose.
 
-These findings contribute to forensic accounting literature and provide a framework for automated financial statement screening.
+Ovi nalazi doprinose literaturi forenzičkog računovodstva i pružaju okvir za automatizirano pretraživanje financijskih izvještaja.
 
-\textbf{Keywords:} Benford's Law, forensic accounting, fraud detection, SEC filings, chi-square test, financial statement analysis
+\textbf{Ključne riječi:} Benfordov zakon, forenzičko računovodstvo, otkrivanje prijevara, SEC izvještaji, hi-kvadrat test, analiza financijskih izvještaja
 \end{abstract}
 
-% Table of Contents
+% Sadržaj
 \newpage
 \tableofcontents
 
-% Main Content
+% Glavni sadržaj
 \newpage
-\section{Introduction}
+\section{Uvod}
 
-\subsection{Background and Motivation}
+\subsection{Pozadina i motivacija}
 
-Financial statement fraud remains a significant concern for investors, regulators, and auditors worldwide. Traditional audit procedures, while essential, may not detect subtle manipulations in reported figures. Benford's Law offers a powerful statistical tool for identifying anomalous patterns that warrant further investigation.
+Prijevare u financijskim izvještajima ostaju značajan problem za investitore, regulatore i revizore diljem svijeta. Tradicionalni revizijski postupci, premda neizostavni, ne mogu uvijek otkriti suptilne manipulacije u iskazanim iznosima. Benfordov zakon nudi snažan statistički alat za prepoznavanje anomalnih obrazaca koji zaslužuju dodatnu istragu.
 
-Benford's Law, also known as the First-Digit Law, describes the frequency distribution of leading digits in many naturally occurring datasets \citep{benford1938}. Contrary to intuition, digits do not appear with equal probability; instead, the digit 1 appears as the first digit approximately 30.1\% of the time, while 9 appears only 4.6\% of the time.
+Benfordov zakon, poznat i kao zakon prve znamenke, opisuje frekvencijsku distribuciju vodećih znamenki u brojnim prirodno nastalim skupovima podataka \citep{benford1938}. Suprotno intuiciji, znamenke se ne pojavljuju s jednakom vjerojatnošću; znamenka 1 pojavljuje se kao prva znamenka u približno 30,1\% slučajeva, dok se znamenka 9 pojavljuje u samo 4,6\% slučajeva.
 
-\subsection{Benford's Law: Mathematical Foundation}
+\subsection{Benfordov zakon: matematički temelji}
 
-The probability of digit $d$ appearing as the first significant digit is given by:
+Vjerojatnost da se znamenka $d$ pojavi kao prva značajna znamenka dana je izrazom:
 
 \begin{equation}
 P(d) = \log_{10}\left(1 + \frac{1}{d}\right), \quad d \in \{1, 2, ..., 9\}
 \end{equation}
 
-This yields the expected distribution shown in Figure~\ref{fig:benford_expected}.
+Ova formula daje očekivanu distribuciju prikazanu na slici~\ref{fig:benford_expected}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{benford_expected.png}
-    \caption{Benford's Law: Expected first-digit distribution. The probability decreases logarithmically from 30.1\% for digit 1 to 4.6\% for digit 9.}
+    \caption{Benfordov zakon: očekivana distribucija prvih znamenki. Vjerojatnost logaritamski opada od 30,1\% za znamenku 1 do 4,6\% za znamenku 9.}
     \label{fig:benford_expected}
 \end{figure}
 
-First discovered by astronomer Simon Newcomb in 1881 \citep{newcomb1881} and later independently formulated by physicist Frank Benford \citep{benford1938}, this law has since been proven mathematically under scale and base invariance conditions \citep{hill1995}.
+Zakon je prvi otkrio astronom Simon Newcomb 1881.\ godine \citep{newcomb1881}, a zatim ga je neovisno formulirao fizičar Frank Benford \citep{benford1938}. Kasnije je matematički dokazan pod uvjetima invarijantnosti na skalu i bazu \citep{hill1995}.
 
-\subsection{Applications in Forensic Accounting}
+\subsection{Primjena u forenzičkom računovodstvu}
 
-The application of Benford's Law to accounting data was pioneered by \citet{carslaw1988} and \citet{thomas1989}, who found evidence of earnings manipulation in reported income figures. \citet{nigrini1996, nigrini1999} developed practical methodologies for auditors, establishing threshold values for identifying suspicious deviations.
+Primjenu Benfordovog zakona na računovodstvene podatke pokrenuli su \citet{carslaw1988} i \citet{thomas1989}, koji su pronašli dokaze o manipulaciji zaradama u iskazanim iznosima dobiti. \citet{nigrini1996, nigrini1999} razvio je praktične metodologije za revizore, uspostavljajući pragove za prepoznavanje sumnjivih odstupanja.
 
-Key applications include:
+Ključna područja primjene uključuju:
 \begin{itemize}
-    \item Detection of fraudulent financial statements
-    \item Tax fraud identification
-    \item Election result verification
-    \item Scientific data integrity checking
+    \item Otkrivanje prijevara u financijskim izvještajima
+    \item Identificiranje poreznih prijevara
+    \item Provjera izbornih rezultata
+    \item Provjera integriteta znanstvenih podataka
 \end{itemize}
 
-\subsection{Research Objectives}
+\subsection{Ciljevi istraživanja}
 
-This study aims to:
+Ovo istraživanje ima sljedeće ciljeve:
 \begin{enumerate}
-    \item Analyze Benford conformance of 442 major U.S. public companies over 11 years
-    \item Identify temporal trends and structural changes in financial reporting patterns
-    \item Examine the relationship between Benford anomalies and stock market performance
-    \item Provide case studies of high and low anomaly companies
+    \item Analizirati sukladnost s Benfordovim zakonom za 442 velika američka javno listana poduzeća u razdoblju od 11 godina
+    \item Identificirati vremenske trendove i strukturne promjene u obrascima financijskog izvještavanja
+    \item Ispitati odnos između Benfordovih anomalija i performansi na tržištu dionica
+    \item Izraditi studije slučaja poduzeća s visokim i niskim anomalijama
 \end{enumerate}
 
 \newpage
-\section{Methodology}
+\section{Metodologija}
 
-\subsection{Data Collection}
+\subsection{Prikupljanje podataka}
 
-Financial data was obtained from the SEC EDGAR Financial Statement Data Sets \citep{sec2024}, which provide standardized quarterly filings for all public companies. Our dataset spans:
+Financijski podaci prikupljeni su iz baze SEC EDGAR Financial Statement Data Sets \citep{sec2024}, koja pruža standardizirane tromjesečne izvještaje za sva javno listana poduzeća. Skup podataka obuhvaća:
 
 \begin{itemize}
-    \item \textbf{Time Period:} Q1 2014 -- Q4 2024 (44 quarters)
-    \item \textbf{Companies:} 442 unique SEC filers
-    \item \textbf{Observations:} 4,862 company-year records
+    \item \textbf{Vremensko razdoblje:} 1.\ tromjesečje 2014.\ do 4.\ tromjesečje 2024.\ (44 tromjesečja)
+    \item \textbf{Poduzeća:} 442 jedinstvena SEC podnositelja
+    \item \textbf{Opservacije:} 4.862 zapisa poduzeće-godina
 \end{itemize}
 
-For each company-year, we extracted all numerical values from financial statements, excluding zero values (which violate Benford's Law assumptions) and taking absolute values of negative figures.
+Za svako promatranje poduzeće-godina izdvojene su sve numeričke vrijednosti iz financijskih izvještaja, uz isključivanje nultih vrijednosti (koje narušavaju pretpostavke Benfordovog zakona) i uzimanje apsolutnih vrijednosti negativnih iznosa.
 
-\subsection{Statistical Tests}
+\subsection{Statistički testovi}
 
-We employ four complementary statistical tests to assess Benford conformance:
+Primijenjena su četiri komplementarna statistička testa za procjenu sukladnosti s Benfordovim zakonom:
 
-\subsubsection{Chi-Square Test}
+\subsubsection{Hi-kvadrat test}
 
-The chi-square goodness-of-fit test compares observed frequencies to Benford's expected distribution:
+Hi-kvadrat test dobrote prilagodbe uspoređuje opažene frekvencije s Benfordovom očekivanom distribucijom:
 
 \begin{equation}
 \chi^2 = \sum_{d=1}^{9} \frac{(O_d - E_d)^2}{E_d}
 \end{equation}
 
-where $O_d$ is the observed count and $E_d = n \cdot P(d)$ is the expected count for digit $d$.
+gdje je $O_d$ opaženi broj pojavljivanja, a $E_d = n \cdot P(d)$ očekivani broj pojavljivanja za znamenku $d$.
 
-With 8 degrees of freedom, the critical value at $\alpha = 0.05$ is \textbf{15.507}.
+S 8 stupnjeva slobode, kritična vrijednost pri $\alpha = 0{,}05$ iznosi \textbf{15,507}.
 
-\subsubsection{Mean Absolute Deviation (MAD)}
+\subsubsection{Srednje apsolutno odstupanje (MAD)}
 
-MAD provides a more interpretable measure of deviation:
+MAD pruža intuitivniju mjeru odstupanja:
 
 \begin{equation}
 \text{MAD} = \frac{1}{9} \sum_{d=1}^{9} |O_d\% - E_d\%|
 \end{equation}
 
-Following \citet{nigrini2012}, we use these threshold interpretations:
+Prema \citet{nigrini2012}, koriste se sljedeći pragovi za interpretaciju:
 
 \begin{table}[H]
 \centering
-\caption{MAD Threshold Interpretations for First-Digit Tests}
+\caption{Pragovi za interpretaciju MAD vrijednosti kod testova prvih znamenki}
 \label{tab:mad_thresholds}
 \begin{tabular}{lll}
 \toprule
-\textbf{MAD Range} & \textbf{Interpretation} & \textbf{Risk Level} \\
+\textbf{Raspon MAD} & \textbf{Interpretacija} & \textbf{Razina rizika} \\
 \midrule
-$< 0.006$ & Close conformity & \textcolor{lowrisk}{Low} \\
-$0.006 - 0.012$ & Acceptable conformity & \textcolor{lowrisk}{Low} \\
-$0.012 - 0.015$ & Marginally acceptable & \textcolor{mediumrisk}{Medium} \\
-$> 0.015$ & Nonconformity & \textcolor{highrisk}{High} \\
+$< 0{,}006$ & Visoka sukladnost & \textcolor{lowrisk}{Niska} \\
+$0{,}006 - 0{,}012$ & Prihvatljiva sukladnost & \textcolor{lowrisk}{Niska} \\
+$0{,}012 - 0{,}015$ & Granično prihvatljivo & \textcolor{mediumrisk}{Srednja} \\
+$> 0{,}015$ & Nesukladnost & \textcolor{highrisk}{Visoka} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Note: In our implementation, MAD values are reported as percentages (multiplied by 100), so thresholds become 1.5, 2.5, etc.
+Napomena: U našoj implementaciji MAD vrijednosti iskazane su kao postoci (pomnožene sa 100), stoga pragovi postaju 1,5; 2,5 itd.
 
-\subsubsection{Kolmogorov-Smirnov Test}
+\subsubsection{Kolmogorov-Smirnovljev test}
 
-The KS test measures the maximum distance between empirical and theoretical cumulative distribution functions \citep{kolmogorov1933}:
+KS test mjeri maksimalnu udaljenost između empirijske i teorijske kumulativne funkcije distribucije \citep{kolmogorov1933}:
 
 \begin{equation}
 D = \max_{d} |F_n(d) - F(d)|
 \end{equation}
 
-\subsubsection{P-Value}
+\subsubsection{P-vrijednost}
 
-The p-value from the chi-square test indicates the probability of observing such deviation by chance. Values below 0.05 indicate statistically significant deviation from Benford's Law.
+P-vrijednost iz hi-kvadrat testa označava vjerojatnost da se takvo odstupanje pojavi slučajno. Vrijednosti ispod 0,05 ukazuju na statistički značajno odstupanje od Benfordovog zakona.
 
-\subsection{Risk Classification}
+\subsection{Klasifikacija rizika}
 
-Companies are classified into risk levels based on average MAD scores:
+Poduzeća su klasificirana prema razinama rizika na temelju prosječnih MAD vrijednosti:
 
 \begin{table}[H]
 \centering
-\caption{Risk Classification Criteria}
+\caption{Kriteriji klasifikacije rizika}
 \label{tab:risk_levels}
 \begin{tabular}{llc}
 \toprule
-\textbf{Risk Level} & \textbf{MAD Range} & \textbf{Color Code} \\
+\textbf{Razina rizika} & \textbf{Raspon MAD} & \textbf{Oznaka bojom} \\
 \midrule
-Low Risk & MAD $< 1.5$ & \textcolor{lowrisk}{\rule{1cm}{0.3cm}} \\
-Medium Risk & $1.5 \leq$ MAD $< 2.5$ & \textcolor{mediumrisk}{\rule{1cm}{0.3cm}} \\
-High Risk & $2.5 \leq$ MAD $< 4.0$ & \textcolor{highrisk}{\rule{1cm}{0.3cm}} \\
-Critical Risk & MAD $\geq 4.0$ & \textcolor{criticalrisk}{\rule{1cm}{0.3cm}} \\
+Nizak rizik & MAD $< 1{,}5$ & \textcolor{lowrisk}{\rule{1cm}{0.3cm}} \\
+Srednji rizik & $1{,}5 \leq$ MAD $< 2{,}5$ & \textcolor{mediumrisk}{\rule{1cm}{0.3cm}} \\
+Visok rizik & $2{,}5 \leq$ MAD $< 4{,}0$ & \textcolor{highrisk}{\rule{1cm}{0.3cm}} \\
+Kritičan rizik & MAD $\geq 4{,}0$ & \textcolor{criticalrisk}{\rule{1cm}{0.3cm}} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \newpage
-\section{Results}
+\section{Rezultati}
 
-\subsection{Overall Conformance Rates}
+\subsection{Ukupne stope sukladnosti}
 
-Our analysis reveals widespread deviation from Benford's Law among publicly traded companies:
+Analiza otkriva rasprostranjeno odstupanje od Benfordovog zakona među javno listanim poduzećima:
 
 \begin{itemize}
-    \item \textbf{97.5\%} of companies show statistically significant deviation ($p < 0.05$) in at least one year
-    \item Average chi-square: \textbf{59.83} (vs. critical value of 15.507)
-    \item Average MAD: \textbf{1.83} (indicating general nonconformity)
+    \item \textbf{97,5\%} poduzeća pokazuje statistički značajno odstupanje ($p < 0{,}05$) u najmanje jednoj godini
+    \item Prosječna hi-kvadrat vrijednost: \textbf{59,83} (nasuprot kritičnoj vrijednosti od 15,507)
+    \item Prosječni MAD: \textbf{1,83} (što ukazuje na opću nesukladnost)
 \end{itemize}
 
-Figure~\ref{fig:mad_histogram} shows the distribution of MAD values across all company-year observations.
+Slika~\ref{fig:mad_histogram} prikazuje distribuciju MAD vrijednosti za sve opservacije poduzeće-godina.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{mad_histogram.png}
-    \caption{Distribution of MAD values across 4,862 company-year observations. The majority of observations exceed the ``good conformance'' threshold of 1.5, with a significant tail extending into high-risk territory.}
+    \caption{Distribucija MAD vrijednosti za 4.862 opservacije poduzeće-godina. Većina opservacija premašuje prag ``dobre sukladnosti'' od 1,5, sa značajnim repom distribucije koji se proteže u područje visokog rizika.}
     \label{fig:mad_histogram}
 \end{figure}
 
-\subsection{Temporal Trends}
+\subsection{Vremenski trendovi}
 
-A key finding is the \textbf{post-2019 structural shift} in Benford conformance, as shown in Figure~\ref{fig:chi_trend}.
+Ključni nalaz jest \textbf{strukturni pomak nakon 2019.\ godine} u sukladnosti s Benfordovim zakonom, prikazan na slici~\ref{fig:chi_trend}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{chi_square_trend.png}
-    \caption{Chi-square test results by year (2014--2024). The mean chi-square increased by approximately 24\% from the 2014--2018 period to 2019--2024, with the percentage of companies showing significant deviation rising from 91\% to 97\%.}
+    \caption{Rezultati hi-kvadrat testa po godinama (2014.\,--\,2024.). Prosječna hi-kvadrat vrijednost porasla je za približno 24\% iz razdoblja 2014.\,--\,2018.\ u odnosu na 2019.\,--\,2024., dok je postotak poduzeća sa značajnim odstupanjem porastao s 91\% na 97\%.}
     \label{fig:chi_trend}
 \end{figure}
 
-Key observations:
+Ključna zapažanja:
 \begin{itemize}
-    \item \textbf{2014--2018:} Mean chi-square $\approx 45$ (relatively stable)
-    \item \textbf{2019:} Sharp increase to 55.78 (24\% jump)
-    \item \textbf{2020--2024:} Sustained elevation at 57--60
+    \item \textbf{2014.\,--\,2018.:} Prosječna hi-kvadrat vrijednost $\approx 45$ (relativno stabilna)
+    \item \textbf{2019.:} Nagli porast na 55,78 (skok od 24\%)
+    \item \textbf{2020.\,--\,2024.:} Održana povišena razina od 57 do 60
 \end{itemize}
 
-Potential explanations include:
+Mogući uzroci uključuju:
 \begin{enumerate}
-    \item Increased complexity in financial reporting standards
-    \item COVID-19 pandemic effects on accounting estimates
-    \item Greater use of fair value measurements
-    \item Changes in SEC data collection methodology
+    \item Povećanu složenost standarda financijskog izvještavanja
+    \item Učinke pandemije COVID-19 na računovodstvene procjene
+    \item Veću primjenu mjerenja fer vrijednosti
+    \item Promjene u metodologiji prikupljanja podataka SEC-a
 \end{enumerate}
 
-\subsection{Risk Distribution}
+\subsection{Distribucija rizika}
 
-Figure~\ref{fig:risk_pie} shows the overall risk distribution of the 442 companies based on their average MAD scores.
+Slika~\ref{fig:risk_pie} prikazuje ukupnu distribuciju rizika za 442 poduzeća na temelju prosječnih MAD vrijednosti.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{risk_distribution.png}
-    \caption{Risk distribution of 442 companies based on average MAD score over the analysis period. Only 32.1\% of companies maintain good Benford conformance.}
+    \caption{Distribucija rizika za 442 poduzeća na temelju prosječnog MAD rezultata u promatranom razdoblju. Samo 32,1\% poduzeća zadržava dobru sukladnost s Benfordovim zakonom.}
     \label{fig:risk_pie}
 \end{figure}
 
-\subsection{Most Suspicious Companies}
+\subsection{Najsumnjivija poduzeća}
 
-Table~\ref{tab:suspicious} presents the top 10 companies with the highest average anomaly scores.
+Tablica~\ref{tab:suspicious} prikazuje 10 poduzeća s najvišim prosječnim rezultatima anomalija.
 
 \begin{table}[H]
 \centering
-\caption{Top 10 Most Suspicious Companies (Highest Average Chi-Square)}
+\caption{10 najsumnjivijih poduzeća (najviša prosječna hi-kvadrat vrijednost)}
 \label{tab:suspicious}
 \begin{tabular}{rlrrr}
 \toprule
-\textbf{Rank} & \textbf{Company} & \textbf{Avg $\chi^2$} & \textbf{Max $\chi^2$} & \textbf{Worst Return} \\
+\textbf{Rang} & \textbf{Poduzeće} & \textbf{Prosj.\ $\chi^2$} & \textbf{Maks.\ $\chi^2$} & \textbf{Najgori prinos} \\
 \midrule
-1 & Ollie's Bargain Outlet & 157.30 & 298.45 & -42.1\% \\
-2 & Medical Properties Trust & 152.87 & 311.27 & -58.3\% \\
-3 & Healthcare Realty Trust & 132.91 & 285.59 & -41.7\% \\
-4 & Summit Hotel Properties & 118.26 & 245.12 & -54.2\% \\
-5 & Cogent Communications & 117.67 & 231.88 & -38.9\% \\
-6 & Crown Castle Inc. & 116.64 & 228.33 & -45.1\% \\
-7 & MASIMO Corp & 112.04 & 282.63 & -52.8\% \\
-8 & Mirion Technologies & 70.73 & \textbf{329.08} & -38.3\% \\
-9 & SEMTECH Corp & 88.60 & 195.44 & -68.1\% \\
-10 & TANDEM Diabetes Care & 62.00 & 142.55 & \textbf{-88.8\%} \\
+1 & Medical Properties Trust & 152,87 & \textbf{311,27} & $-52{,}0$\% \\
+2 & Healthcare Realty Trust & 132,91 & 285,59 & $-18{,}4$\% \\
+3 & Summit Hotel Properties & 118,26 & 308,96 & $-32{,}6$\% \\
+4 & Cogent Communications & 117,67 & 178,73 & $-16{,}6$\% \\
+5 & Crown Castle Inc. & 116,64 & 228,36 & $-32{,}2$\% \\
+6 & MASIMO Corp & 112,04 & 282,63 & $-48{,}1$\% \\
+7 & TrustCo Bank Corp & 106,43 & 154,93 & $-20{,}4$\% \\
+8 & HNI Corp & 104,91 & 181,77 & $-31{,}0$\% \\
+9 & Kimco Realty Corp & 104,63 & 228,27 & $-24{,}3$\% \\
+10 & Western Alliance Bancorporation & 103,20 & 182,30 & $\mathbf{-44{,}6}$\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Best Conforming Companies}
+\subsection{Poduzeća s najboljom sukladnošću}
 
-Table~\ref{tab:conforming} shows companies with the lowest anomaly scores---those whose financial statements most closely follow Benford's Law.
+Tablica~\ref{tab:conforming} prikazuje poduzeća s najnižim rezultatima anomalija, odnosno ona čiji financijski izvještaji najbolje slijede Benfordov zakon.
 
 \begin{table}[H]
 \centering
-\caption{Top 10 Best Conforming Companies (Lowest Average Chi-Square)}
+\caption{10 poduzeća s najboljom sukladnošću (najniža prosječna hi-kvadrat vrijednost)}
 \label{tab:conforming}
 \begin{tabular}{rlrrr}
 \toprule
-\textbf{Rank} & \textbf{Company} & \textbf{Avg $\chi^2$} & \textbf{Avg MAD} & \textbf{Avg P-value} \\
+\textbf{Rang} & \textbf{Poduzeće} & \textbf{Prosj.\ $\chi^2$} & \textbf{Prosj.\ MAD} & \textbf{Prosj.\ p-vrij.} \\
 \midrule
-1 & Janus Henderson Group & 6.42 & 0.49 & 0.601 \\
-2 & Reinsurance Group of America & 8.64 & 0.39 & 0.472 \\
-3 & Textron Inc. & 8.79 & 0.59 & 0.458 \\
-4 & Addus HomeCare Corp & 10.33 & 0.81 & 0.324 \\
-5 & Oracle Corporation & 10.59 & 0.78 & 0.306 \\
-6 & Bank of America Corp & 11.31 & 0.41 & 0.255 \\
-7 & Chipotle Mexican Grill & 11.46 & 0.79 & 0.246 \\
-8 & Dover Corp & 11.88 & 0.88 & 0.221 \\
-9 & Cohen \& Steers, Inc. & 12.62 & 0.81 & 0.181 \\
-10 & JOINT Corp & 13.12 & 0.88 & 0.157 \\
+1 & Philip Morris International & 16,43 & 0,84 & 0,175 \\
+2 & Oracle Corporation & 16,55 & 0,88 & 0,201 \\
+3 & Take-Two Interactive & 17,14 & 0,93 & 0,114 \\
+4 & Jacobs Solutions Inc. & 17,25 & 0,85 & 0,160 \\
+5 & Ciena Corp & 20,45 & 1,04 & 0,047 \\
+6 & Emerson Electric Co & 21,24 & 0,96 & 0,046 \\
+7 & Enphase Energy, Inc. & 21,35 & 1,15 & 0,112 \\
+8 & Mondelez International & 21,89 & 0,83 & 0,156 \\
+9 & American Woodmark Corp & 23,05 & 1,30 & 0,024 \\
+10 & Dover Corp & 23,44 & 1,08 & 0,030 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \newpage
-\section{Case Studies}
+\section{Studije slučaja}
 
-\subsection{High-Anomaly Case: Mirion Technologies}
+\subsection{Poduzeće s visokim anomalijama: Medical Properties Trust}
 
-Mirion Technologies (NYSE: MIR) exhibits the \textbf{highest single-year chi-square value} in our entire dataset (\textbf{329.08}). Combined with a -38.3\% worst annual return, this company represents a compelling case study:
+Medical Properties Trust (NYSE: MPW) pokazuje \textbf{najvišu prosječnu hi-kvadrat vrijednost} u skupu podataka (\textbf{152,87}) te najvišu jednogodišnju hi-kvadrat vrijednost od \textbf{311,27} (u 2023.\ godini). U kombinaciji s najgorim godišnjim prinosom od $-52{,}0$\%, ovo poduzeće predstavlja uvjerljivu studiju slučaja:
 
 \begin{itemize}
-    \item Extreme chi-square spike in recent years
-    \item Severe underrepresentation of digit 1 (22.1\% vs. expected 30.1\%)
-    \item Overrepresentation of digits 2--4 suggesting potential rounding or estimation
-    \item Stock declined 38.3\% in worst year, correlating with highest anomaly period
+    \item Trajno povišena hi-kvadrat vrijednost kroz sve godine, s naglim porastom od 2019.\ nadalje
+    \item Prezastupljenost znamenke 5 (13,3\% nasuprot očekivanim 7,9\%) i znamenke 8 (8,9\% nasuprot očekivanim 5,1\%)
+    \item Podzastupljenost znamenki 3 i 4, što ukazuje na netipične obrasce financijskih podataka
+    \item Pad dionice od 52,0\% u najgoroj godini, što korelira s razdobljem najviših anomalija
 \end{itemize}
 
-Figure~\ref{fig:digit_comparison} compares the digit distribution of Mirion against Benford's expectation and Oracle (a conforming company).
+Slika~\ref{fig:digit_comparison} uspoređuje distribuciju znamenki poduzeća Medical Properties Trust s Benfordovim očekivanjima i poduzećem Oracle (koje pokazuje dobru sukladnost).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{digit_comparison.png}
-    \caption{First-digit distribution comparison: Benford's expected vs. Oracle (conforming) vs. Mirion Technologies (suspicious). Mirion shows severe underrepresentation of digit 1 (8\% below expected) and systematic overrepresentation of middle digits.}
+    \caption{Usporedba distribucije prvih znamenki: Benfordova očekivana distribucija nasuprot Oracle (sukladno) i Medical Properties Trust (sumnjivo). Medical Properties Trust pokazuje sustavnu prezastupljenost znamenki 5 i 8 te podzastupljenost srednjih znamenki.}
     \label{fig:digit_comparison}
 \end{figure}
 
-\subsection{Stock Crash Correlation: TANDEM Diabetes Care}
+\subsection{Korelacija s padom dionice: TANDEM Diabetes Care}
 
-TANDEM Diabetes Care (NASDAQ: TNDM) presents the most dramatic case of Benford anomalies correlating with stock performance:
+TANDEM Diabetes Care (NASDAQ: TNDM) predstavlja najdramatičniji slučaj korelacije Benfordovih anomalija s performansama dionice:
 
 \begin{itemize}
-    \item Average chi-square: 62.0 (4$\times$ the critical threshold)
-    \item \textbf{Worst annual return: -88.8\%} (largest decline in dataset)
-    \item \textbf{Year-over-year drop: -1,319.6\%} swing from peak to trough
-    \item Pattern suggests financial reporting issues preceded market recognition
+    \item Prosječna hi-kvadrat vrijednost: 62,0 (četiri puta iznad kritičnog praga)
+    \item \textbf{Najgori godišnji prinos: $-88{,}8$\%} (najveći pad u skupu podataka)
+    \item \textbf{Međugodišnji pad: $-1.319{,}6$\%} od vrhunca do dna
+    \item Obrazac sugerira da su problemi u financijskom izvještavanju prethodili tržišnom prepoznavanju
 \end{itemize}
 
-This case demonstrates how Benford analysis could serve as an early warning indicator for investors.
+Ovaj slučaj pokazuje kako Benfordova analiza može poslužiti kao sustav ranog upozorenja za investitore.
 
-\subsection{Case Study Trends}
+\subsection{Trendovi u studijama slučaja}
 
-Figure~\ref{fig:case_trends} shows the MAD trends for four case study companies over the analysis period.
+Slika~\ref{fig:case_trends} prikazuje trendove MAD vrijednosti za četiri poduzeća iz studija slučaja tijekom promatranog razdoblja.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{case_study_trends.png}
-    \caption{MAD trends for selected case study companies (2014--2024). Mirion and TANDEM show elevated and volatile patterns, while Oracle maintains consistent low values indicating reliable financial reporting.}
+    \caption{Trendovi MAD vrijednosti za odabrana poduzeća iz studija slučaja (2014.\,--\,2024.). Medical Properties Trust i TANDEM pokazuju povišene i volatilne obrasce, dok Oracle zadržava dosljedno niske vrijednosti koje ukazuju na pouzdano financijsko izvještavanje.}
     \label{fig:case_trends}
 \end{figure}
 
-\subsection{Low-Anomaly Case: Oracle Corporation}
+\subsection{Poduzeće s niskim anomalijama: Oracle Corporation}
 
-Oracle Corporation consistently maintains excellent Benford conformance:
+Oracle Corporation dosljedno održava izvrsnu sukladnost s Benfordovim zakonom:
 
 \begin{itemize}
-    \item Average chi-square: 10.59 (below critical value)
-    \item Average p-value: 0.306 (not statistically significant)
-    \item Digit 1 frequency: 29.8\% (very close to expected 30.1\%)
+    \item Prosječna hi-kvadrat vrijednost: 10,59 (ispod kritične vrijednosti)
+    \item Prosječna p-vrijednost: 0,306 (nije statistički značajno)
+    \item Frekvencija znamenke 1: 29,8\% (vrlo blizu očekivanih 30,1\%)
 \end{itemize}
 
-Contributing factors may include:
+Čimbenici koji tome mogu pridonijeti uključuju:
 \begin{enumerate}
-    \item Large, diversified revenue streams
-    \item Mature, stable financial reporting processes
-    \item High data volume reducing sampling effects
+    \item Velike, diversificirane tokove prihoda
+    \item Zrele, stabilne procese financijskog izvještavanja
+    \item Veliki obujam podataka koji smanjuje učinke uzorkovanja
 \end{enumerate}
 
 \newpage
-\section{Stock Correlation Analysis}
+\section{Analiza korelacije s cijenama dionica}
 
-\subsection{Relationship Between Anomalies and Returns}
+\subsection{Odnos između anomalija i prinosa}
 
-A key question is whether Benford anomalies predict stock performance. We analyzed the relationship between MAD scores and annual stock returns for 438 companies.
+Ključno pitanje jest predviđaju li Benfordove anomalije performanse dionica. Analiziran je odnos između MAD vrijednosti i godišnjih prinosa dionica za 438 poduzeća.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{stock_correlation.png}
-    \caption{Scatter plot of MAD (Benford anomaly) vs. annual stock return. The weak correlation ($r = 0.03$) indicates that financial reporting irregularities are not directly predictive of investment returns.}
+    \caption{Dijagram raspršenja MAD vrijednosti (Benfordova anomalija) u odnosu na godišnji prinos dionice. Slaba korelacija ($r = 0{,}03$) ukazuje na to da nepravilnosti u financijskom izvještavanju nisu izravno prediktivne za investicijske prinose.}
     \label{fig:stock_scatter}
 \end{figure}
 
-\subsection{Key Finding: Weak Correlation}
+\subsection{Ključni nalaz: slaba korelacija}
 
-Our analysis reveals:
+Analiza otkriva:
 
 \begin{itemize}
-    \item \textbf{Correlation coefficient:} $r = 0.03$ (negligible)
-    \item \textbf{High-anomaly companies:} 64\% positive returns
-    \item \textbf{Low-anomaly companies:} 64\% positive returns
+    \item \textbf{Koeficijent korelacije:} $r = 0{,}03$ (zanemariv)
+    \item \textbf{Poduzeća s visokim anomalijama:} 64\% pozitivnih prinosa
+    \item \textbf{Poduzeća s niskim anomalijama:} 64\% pozitivnih prinosa
 \end{itemize}
 
-\textbf{Interpretation:} Benford anomalies do not appear to be systematically priced by the market. This may be because:
+\textbf{Interpretacija:} Čini se da tržište sustavno ne ugrađuje Benfordove anomalije u cijene. Mogući razlozi za to su:
 \begin{enumerate}
-    \item Deviations often reflect legitimate accounting complexity rather than fraud
-    \item Markets may already incorporate accounting quality into prices
-    \item Stock returns are driven primarily by fundamental business performance
+    \item Odstupanja često odražavaju legitimnu računovodstvenu složenost, a ne prijevaru
+    \item Tržišta su već mogla ugraditi kvalitetu računovodstva u cijene
+    \item Prinosi dionica primarno su uvjetovani temeljnim poslovnim performansama
 \end{enumerate}
 
-\newpage
-\section{Heatmap Analysis}
+\subsection{Odgođena korelacija: predviđa li MAD u godini $N$ prinose u godini $N{+}1$?}
 
-Figure~\ref{fig:heatmap} provides a comprehensive view of the top 30 most suspicious companies across all years.
+Prirodno proširenje istodobne analize jest ispitati mogu li Benfordove anomalije u financijskim izvještajima jedne godine \emph{predvidjeti} prinose dionica u sljedećoj godini. Ako tržište sporo otkriva financijske nepravilnosti, mogla bi se pojaviti odgođena povezanost.
+
+Izračunata je Pearsonova korelacija između MAD vrijednosti svakog poduzeća u godini $N$ i godišnjeg prinosa dionice u godini $N{+}1$, za sve uzastopne parove godina od 2014./2015.\ do 2023./2024. Slika~\ref{fig:lagged_correlation} prikazuje rezultate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{lagged_correlation.png}
+    \caption{Analiza odgođene korelacije: MAD u godini $N$ u odnosu na prinos dionice u godini $N{+}1$. Panel (a) prikazuje Pearsonove $r$ vrijednosti po parovima godina s 95\% intervalima pouzdanosti. Panel (b) prikazuje skupni dijagram raspršenja za sve godine.}
+    \label{fig:lagged_correlation}
+\end{figure}
+
+\textbf{Ključni nalazi:}
+\begin{itemize}
+    \item \textbf{Skupna korelacija:} $r = 0{,}004$ ($p = 0{,}827$), što ukazuje na nepostojanje prediktivnog odnosa.
+    \item \textbf{Analiza po parovima godina:} Nijedan pojedinačni par godina nije dosegao statističku značajnost pri $p < 0{,}05$. Par 2021./2022.\ pokazao je najjači signal ($r = -0{,}094$, $p = 0{,}08$), što moguće odražava tržišne turbulencije tijekom korekcije 2022.\ godine.
+    \item \textbf{Nedosljednost smjera:} Korelacije su se izmjenjivale između pozitivnih i negativnih vrijednosti kroz parove godina, što dodatno potvrđuje odsutnost sustavnog odgođenog učinka.
+\end{itemize}
+
+Ovaj rezultat sukladan je s hipotezom efikasnog tržišta: kad bi Benfordova odstupanja sadržavala iskoristivu informaciju, racionalni investitori bi je brzo ugradili u cijene, eliminirajući odgođeni signal.
+
+\subsection{Benfordova analiza obujma trgovanja}
+
+Alternativna perspektiva ispituje pokazuju li poduzeća s anomalnim financijskim izvještajima ujedno i neobične obrasce obujma trgovanja. Primjena Benfordovog zakona na dnevne obujme trgovanja pruža drugu, neovisnu mjeru ``numeričke pravilnosti''. Izračunat je Benfordov MAD dnevnih obujmova trgovanja za svako poduzeće-godinu te koreliran s odgovarajućim MAD-om financijskih izvještaja. Slika~\ref{fig:volume_benford} prikazuje rezultate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{volume_benford_correlation.png}
+    \caption{Korelacija između Benfordovog MAD-a financijskih izvještaja i Benfordovog MAD-a obujma trgovanja. Panel (a) prikazuje Pearsonove $r$ vrijednosti po godinama. Panel (b) prikazuje skupni dijagram raspršenja za sve godine.}
+    \label{fig:volume_benford}
+\end{figure}
+
+\textbf{Ključni nalazi:}
+\begin{itemize}
+    \item \textbf{Skupna korelacija:} $r = -0{,}160$ ($p < 0{,}001$), statistički značajan negativan odnos.
+    \item \textbf{Dosljednost:} Negativna korelacija opažena je u 9 od 11 godina, s vrijednostima u rasponu od $r = -0{,}09$ do $r = -0{,}29$.
+    \item \textbf{Interpretacija:} Poduzeća s većim nepravilnostima u financijskim izvještajima (visok MAD) imaju tendenciju \emph{pravilnijih} obrazaca obujma trgovanja (nizak MAD obujma). Ovaj protuintuitivni rezultat može odražavati činjenicu da poduzeća sa složenim financijskim izvještajima obično spadaju među veće, likvidnije dionice čiji obujmi trgovanja prirodno slijede glatkije distribucije sukladnije Benfordovom zakonu.
+\end{itemize}
+
+Ovaj nalaz ukazuje na to da anomalije u financijskim izvještajima i obrasci obujma trgovanja obuhvaćaju bitno različite aspekte numeričkog profila poduzeća te da sukladnost s Benfordovim zakonom u jednoj domeni ne implicira sukladnost u drugoj.
+
+\newpage
+\section{Analiza toplinske karte}
+
+Slika~\ref{fig:heatmap} pruža sveobuhvatan pregled 30 najsumnjivijih poduzeća kroz sve godine.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{heatmap_companies.png}
-    \caption{Heatmap of MAD scores for the top 30 most suspicious companies (2014--2024). Darker red indicates higher anomaly scores. The vertical banding pattern suggests some year-specific effects across all companies.}
+    \caption{Toplinska karta MAD vrijednosti za 30 najsumnjivijih poduzeća (2014.\,--\,2024.). Tamnije crvena boja označava više rezultate anomalija. Okomiti obrasci ukazuju na učinke specifične za pojedine godine koji utječu na sva poduzeća.}
     \label{fig:heatmap}
 \end{figure}
 
-Notable patterns:
+Uočeni obrasci:
 \begin{itemize}
-    \item Vertical bands indicate year-specific effects (e.g., 2018, 2020)
-    \item Some companies show consistent elevation across all years
-    \item REITs and hospitality companies appear disproportionately represented
+    \item Okomiti pojasevi ukazuju na učinke specifične za pojedine godine (npr.\ 2018., 2020.)
+    \item Neka poduzeća pokazuju dosljedno povišene vrijednosti kroz sve godine
+    \item REIT-ovi i poduzeća iz sektora ugostiteljstva nerazmjerno su zastupljeni
 \end{itemize}
 
 \newpage
-\section{Discussion}
+\section{Rasprava}
 
-\subsection{Interpretation of Findings}
+\subsection{Interpretacija nalaza}
 
-The high rate of Benford deviation (97.5\%) among S\&P 500 companies is striking but should be interpreted carefully:
+Visoka stopa Benfordovog odstupanja (97,5\%) među poduzećima iz indeksa S\&P 500 upadljiva je, ali zahtijeva opreznu interpretaciju:
 
 \begin{enumerate}
-    \item \textbf{Statistical significance $\neq$ practical significance:} With large sample sizes (thousands of line items per company), even minor deviations become statistically significant.
+    \item \textbf{Statistička značajnost $\neq$ praktična značajnost:} S velikim uzorcima (tisućama stavki po poduzeću), čak i manja odstupanja postaju statistički značajna.
 
-    \item \textbf{Legitimate causes of deviation:} Rounding policies, industry-specific accounting practices, and data aggregation effects can cause non-fraudulent deviations.
+    \item \textbf{Legitimni uzroci odstupanja:} Politike zaokruživanja, računovodstvene prakse specifične za sektor i učinci agregiranja podataka mogu uzrokovati neprijevarna odstupanja.
 
-    \item \textbf{Benford as screening tool:} High deviation flags companies for further investigation, not automatic fraud determination.
+    \item \textbf{Benfordov zakon kao alat za pretraživanje:} Visoko odstupanje označava poduzeća za daljnju istragu, a ne za automatsko utvrđivanje prijevare.
 \end{enumerate}
 
-\subsection{Post-2019 Shift}
+\subsection{Pomak nakon 2019.\ godine}
 
-The 24\% increase in chi-square values after 2019 warrants attention. Potential explanations include:
+Porast hi-kvadrat vrijednosti od 24\% nakon 2019.\ godine zaslužuje pozornost. Mogući uzroci uključuju:
 
 \begin{itemize}
-    \item COVID-19 pandemic introducing unusual accounting estimates
-    \item Increased use of fair value measurements under ASC 820
-    \item Changes in SEC EDGAR data collection methodology
-    \item Greater complexity in revenue recognition (ASC 606 implementation)
+    \item Pandemija COVID-19 koja je unijela neuobičajene računovodstvene procjene
+    \item Povećana primjena mjerenja fer vrijednosti prema ASC 820
+    \item Promjene u metodologiji prikupljanja podataka SEC EDGAR-a
+    \item Veća složenost priznavanja prihoda (primjena ASC 606)
 \end{itemize}
 
-\subsection{Sector Patterns}
+\subsection{Sektorski obrasci}
 
-Real Estate Investment Trusts (REITs) and hospitality companies show elevated anomaly rates. This may reflect:
+Investicijski fondovi u nekretnine (REIT-ovi) i poduzeća iz sektora ugostiteljstva pokazuju povišene stope anomalija. To može odražavati:
 \begin{itemize}
-    \item Heavy use of fair value accounting for property valuations
-    \item Seasonal revenue patterns creating digit clustering
-    \item Industry-specific accounting conventions
+    \item Intenzivnu primjenu računovodstva fer vrijednosti za vrednovanje nekretnina
+    \item Sezonske obrasce prihoda koji stvaraju grupiranje znamenki
+    \item Računovodstvene konvencije specifične za sektor
 \end{itemize}
 
-\subsection{Limitations}
+\subsection{Ograničenja}
 
 \begin{enumerate}
-    \item \textbf{Data granularity:} SEC EDGAR provides aggregated figures; individual transaction data might show better conformance.
+    \item \textbf{Granularnost podataka:} SEC EDGAR pruža agregirane podatke; podaci o pojedinačnim transakcijama mogli bi pokazati bolju sukladnost.
 
-    \item \textbf{Sample selection:} Focus on S\&P 500 companies may not generalize to smaller firms.
+    \item \textbf{Odabir uzorka:} Usmjerenost na poduzeća iz indeksa S\&P 500 možda se ne može generalizirati na manja poduzeća.
 
-    \item \textbf{No ground truth:} Without confirmed fraud cases, we cannot validate predictive accuracy.
+    \item \textbf{Nepostojanje referentne istine:} Bez potvrđenih slučajeva prijevare ne možemo validirati prediktivnu točnost.
 
-    \item \textbf{Second-digit analysis:} This study focuses primarily on first-digit tests; second-digit analysis may reveal additional patterns.
+    \item \textbf{Analiza druge znamenke:} Ovo istraživanje usmjereno je primarno na testove prvih znamenki; analiza drugih znamenki mogla bi otkriti dodatne obrasce.
 \end{enumerate}
 
 \newpage
-\section{Conclusion}
+\section{Zaključak}
 
-\subsection{Summary of Findings}
+\subsection{Sažetak nalaza}
 
-This thesis analyzed Benford's Law conformance for 442 S\&P 500 companies over 11 years (2014--2024), revealing:
+Ovaj diplomski rad analizirao je sukladnost s Benfordovim zakonom za 442 poduzeća iz indeksa S\&P 500 u razdoblju od 11 godina (2014.\,--\,2024.), otkrivši:
 
 \begin{enumerate}
-    \item \textbf{Widespread deviation:} 97.5\% of companies show statistically significant deviation from Benford's expected distribution.
+    \item \textbf{Rasprostranjeno odstupanje:} 97,5\% poduzeća pokazuje statistički značajno odstupanje od Benfordove očekivane distribucije.
 
-    \item \textbf{Temporal shift:} A 24\% increase in mean chi-square values occurred after 2019, potentially related to COVID-19 and accounting standard changes.
+    \item \textbf{Vremenski pomak:} Porast prosječnih hi-kvadrat vrijednosti od 24\% nakon 2019.\ godine, potencijalno povezan s pandemijom COVID-19 i promjenama računovodstvenih standarda.
 
-    \item \textbf{Weak market correlation:} Benford anomalies show negligible correlation ($r = 0.03$) with stock returns.
+    \item \textbf{Slaba tržišna korelacija:} Benfordove anomalije pokazuju zanemarivu istodobnu korelaciju ($r = 0{,}03$) s prinosima dionica te nemaju odgođenu prediktivnu moć ($r = 0{,}004$, $p = 0{,}827$).
 
-    \item \textbf{Sector effects:} REITs and hospitality companies show systematically higher anomaly rates.
+    \item \textbf{Divergencija obujma i financijskih izvještaja:} Značajna negativna korelacija ($r = -0{,}160$, $p < 0{,}001$) između MAD-a financijskih izvještaja i MAD-a obujma trgovanja ukazuje na to da oni obuhvaćaju bitno različita numerička svojstva.
 
-    \item \textbf{Systematic patterns:} Biennial oscillation patterns in 11 companies suggest data structure artifacts rather than fraud.
+    \item \textbf{Sektorski učinci:} REIT-ovi i poduzeća iz sektora ugostiteljstva pokazuju sustavno više stope anomalija.
+
+    \item \textbf{Sustavni obrasci:} Dvogodišnji oscilacijski obrasci kod 11 poduzeća ukazuju na artefakte strukture podataka, a ne na prijevaru.
 \end{enumerate}
 
-\subsection{Implications}
+\subsection{Implikacije}
 
-For \textbf{auditors and regulators}:
+Za \textbf{revizore i regulatore}:
 \begin{itemize}
-    \item Benford analysis is a useful screening tool but requires contextual interpretation
-    \item Industry-specific thresholds may improve accuracy
-    \item Automated screening can prioritize limited audit resources
+    \item Benfordova analiza koristan je alat za pretraživanje, ali zahtijeva kontekstualnu interpretaciju
+    \item Pragovi specifični za sektor mogli bi poboljšati točnost
+    \item Automatizirano pretraživanje može optimizirati ograničene revizijske resurse
 \end{itemize}
 
-For \textbf{investors}:
+Za \textbf{investitore}:
 \begin{itemize}
-    \item High Benford anomaly scores alone do not predict poor stock performance
-    \item Combined with other signals, anomaly detection may identify accounting quality concerns
+    \item Visoki rezultati Benfordovih anomalija sami po sebi ne predviđaju loše performanse dionice
+    \item U kombinaciji s drugim signalima, otkrivanje anomalija može ukazati na probleme s kvalitetom računovodstva
 \end{itemize}
 
-\subsection{Future Research}
+\subsection{Buduća istraživanja}
 
-Recommended extensions include:
+Preporučena proširenja uključuju:
 \begin{enumerate}
-    \item Second-digit analysis for detecting rounding manipulation
-    \item Machine learning integration for multi-factor anomaly detection
-    \item Longitudinal tracking of flagged companies for fraud outcomes
-    \item International comparison across different accounting standards
+    \item Analizu drugih znamenki za otkrivanje manipulacije zaokruživanjem
+    \item Integraciju strojnog učenja za višefaktorsko otkrivanje anomalija
+    \item Longitudinalno praćenje označenih poduzeća radi ishoda prijevara
+    \item Međunarodnu usporedbu različitih računovodstvenih standarda
 \end{enumerate}
 
-\subsection{Final Remarks}
+\subsection{Završne napomene}
 
-Benford's Law provides a powerful, objective tool for financial statement analysis. While not a fraud detector per se, it offers valuable insights into data quality and accounting practices. This thesis demonstrates both the utility and limitations of Benford analysis in modern financial forensics.
+Benfordov zakon pruža snažan, objektivan alat za analizu financijskih izvještaja. Premda sam po sebi nije detektor prijevara, nudi vrijedne uvide u kvalitetu podataka i računovodstvene prakse. Ovaj diplomski rad demonstrira korisnost i ograničenja Benfordove analize u suvremenoj financijskoj forenzici.
 
-% References
+% Literatura
 \newpage
 \bibliographystyle{apalike}
 \bibliography{references}

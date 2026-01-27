@@ -271,12 +271,12 @@ def figure5_case_study_trends(df, output_dir):
     """Figure 5: Case Study Companies MAD Trends Over Time."""
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    # Select case study companies - REAL suspicious ones with stock correlation
+    # Select case study companies with complete data (2014-2024)
     case_studies = [
-        ('Mirion', 'MIR'),           # Max chi=329, suspicious
-        ('TANDEM DIABETES', 'TNDM'), # Chi=62, -88% return
-        ('SEMTECH', 'SMTC'),         # Chi=88.6, -68% return
-        ('Oracle', 'ORCL'),          # Best conforming for contrast
+        ('MEDICAL PROPERTIES', 'MPW'),  # Highest avg chi-square (152.87)
+        ('TANDEM DIABETES', 'TNDM'),    # Volatile pattern, -88% return
+        ('SEMTECH', 'SMTC'),            # Chi=88.6, -68% return
+        ('Oracle', 'ORCL'),             # Best conforming for contrast
     ]
 
     years = range(2014, 2025)
@@ -323,14 +323,14 @@ def figure6_digit_comparison(output_dir):
     """Figure 6: Observed vs Expected Digit Distribution (Example Company)."""
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Mirion Technologies - Max Chi-Square 329.08 (highly suspicious)
-    # Pattern shows severe digit 1 underrepresentation
+    # Medical Properties Trust - Highest avg chi-square (152.87), max 311.27 in 2023
+    # Pattern shows overrepresentation of digits 5 and 8
     observed_suspicious = {
-        1: 22.1, 2: 20.8, 3: 14.9, 4: 11.2,
-        5: 9.4, 6: 7.9, 7: 6.1, 8: 4.5, 9: 3.1
+        1: 30.1, 2: 15.7, 3: 9.5, 4: 7.7,
+        5: 13.3, 6: 5.8, 7: 5.3, 8: 8.9, 9: 3.7
     }
 
-    # Oracle - conforming company (Chi=10.59)
+    # Oracle - conforming company (avg Chi=16.55)
     observed_conforming = {
         1: 29.8, 2: 17.9, 3: 12.3, 4: 9.9,
         5: 7.7, 6: 6.9, 7: 5.6, 8: 5.2, 9: 4.7
@@ -348,7 +348,7 @@ def figure6_digit_comparison(output_dir):
                    color='steelblue', edgecolor='black', linewidth=0.5)
     bars2 = ax.bar(x, conforming, width, label='Conforming Company (Oracle)',
                    color='#28a745', edgecolor='black', linewidth=0.5)
-    bars3 = ax.bar(x + width, suspicious, width, label='Suspicious Company (Mirion Tech)',
+    bars3 = ax.bar(x + width, suspicious, width, label='Suspicious Company (Medical Properties Trust)',
                    color='#dc3545', edgecolor='black', linewidth=0.5)
 
     ax.set_xlabel('First Digit')
