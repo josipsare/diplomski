@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    {% if interactive %}
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    {% endif %}
+
+    <style>
+        {{ styles }}
+    </style>
+</head>
+<body>
+    <header class="report-header">
+        <div class="container">
+            <h1>{{ title }}</h1>
+            <p class="subtitle">Generated: {{ generated_date }}</p>
+            <p class="subtitle">Analysis Period: {{ summary.analysis_period }}</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="report-section">
+            <h2>Executive Summary</h2>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Companies Analyzed</h3>
+                    <span class="big-number">{{ summary.total_companies }}</span>
+                </div>
+                <div class="summary-card" style="border-color: {{ '#dc3545' if summary.companies_above_threshold > 0 else '#28a745' }}">
+                    <h3>High Risk Companies</h3>
+                    <span class="big-number" style="color: {{ '#dc3545' if summary.companies_above_threshold > 0 else '#28a745' }}">
+                        {{ summary.companies_above_threshold }}
+                    </span>
+                </div>
+                <div class="summary-card">
+                    <h3>Average MAD</h3>
+                    <span class="big-number">{{ "%.3f"|format(summary.avg_mad) }}</span>
+                </div>
+                <div class="summary-card" style="border-color: {{ '#28a745' if summary.yoy_trend == 'improving' else '#ffc107' if summary.yoy_trend == 'stable' else '#dc3545' }}">
+                    <h3>Year-over-Year Trend</h3>
+                    <span class="big-number {{ 'text-success' if summary.yoy_trend == 'improving' else 'text-warning' if summary.yoy_trend == 'stable' else 'text-danger' }}">
+                        {{ summary.yoy_trend|title }}
+                    </span>
+                </div>
+            </div>
+
+            {% if charts.risk_pie %}
+            <div class="chart-container">
+                {% if interactive and charts.risk_pie_json %}
+                <div id="risk-pie-chart"></div>
+                <script>
+                    Plotly.newPlot('risk-pie-chart', {{ charts.risk_pie_json|safe }});
+                </script>
+                {% else %}
+                <img src="{{ charts.risk_pie }}" alt="Risk Distribution">
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="key-findings">
+                <h3>Key Findings</h3>
+                <ul>
+                {% for finding in summary.key_findings %}
+                    <li>{{ finding }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- Benford Analysis Section -->
+        <section id="benford-analysis" class="report-section">
+            <h2>Benford's Law Analysis Results</h2>
+
+            <div class="methodology-box">
+                <h3>Methodology</h3>
+                <p>Benford's Law predicts the frequency distribution of first digits in naturally occurring
+                numerical datasets. Financial data that deviates significantly from this distribution may
+                warrant further investigation for potential data quality issues or manipulation.</p>
+
+                <h4>Risk Classification Thresholds:</h4>
+                <table class="threshold-table">
+                    <thead>
+                        <tr>
+                            <th>Risk Level</th>
+                            <th>MAD Range</th>
+                            <th>Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>&lt; 1.5</td>
+                            <td>Good conformance - No action needed</td>
+                        </tr>
+                        <tr>
+                            <td><span class="risk-badge risk-medium">Medium</span></td>
+                            <td>1.5 - 2.5</td>
+                            <td>Monitor - Review if resources allow</td>
+                        </tr>
+                        <tr>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>2.5 - 3.5</td>
+                            <td>Concerning - Should be investigated</td>
+                        </tr>
+                        <tr>
+                            <td><span class="risk-badge risk-critical">Critical</span></td>
+                            <td>&gt; 3.5</td>
+                            <td>Immediate investigation recommended</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            {% if charts.mad_histogram %}
+            <h3>MAD Distribution</h3>
+            <div class="chart-container">
+                {% if interactive and charts.mad_histogram_json %}
+                <div id="mad-histogram-chart"></div>
+                <script>
+                    Plotly.newPlot('mad-histogram-chart', {{ charts.mad_histogram_json|safe }});
+                </script>
+                {% else %}
+                <img src="{{ charts.mad_histogram }}" alt="MAD Distribution">
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if charts.trend %}
+            <h3>Conformance Trend Over Time</h3>
+            <div class="chart-container">
+                {% if interactive and charts.trend_json %}
+                <div id="trend-chart"></div>
+                <script>
+                    Plotly.newPlot('trend-chart', {{ charts.trend_json|safe }});
+                </script>
+                {% else %}
+                <img src="{{ charts.trend }}" alt="Trend Analysis">
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- Top Suspicious Companies -->
+            <h3>Top {{ top_companies|length }} Companies by Risk Score</h3>
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Company</th>
+                        <th>CIK</th>
+                        <th>Avg MAD</th>
+                        <th>Risk Level</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for company in top_companies %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ company.company_name[:50] }}{% if company.company_name|length > 50 %}...{% endif %}</td>
+                        <td>{{ company.cik }}</td>
+                        <td>{{ "%.3f"|format(company.avg_mad) }}</td>
+                        <td><span class="risk-badge risk-{{ company.risk_level }}">{{ company.risk_level|title }}</span></td>
+                        <td class="{{ 'text-success' if company.trend_direction == 'improving' else 'text-danger' if company.trend_direction == 'worsening' else '' }}">
+                            {{ company.trend_direction|title }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Company Breakdown Section -->
+        {% if show_company_details %}
+        <section id="company-breakdown" class="report-section">
+            <h2>Company-by-Company Analysis</h2>
+
+            {% for company in companies %}
+            <div class="company-card no-break">
+                <div class="company-header">
+                    <h3>{{ company.company_name }}</h3>
+                    <span class="risk-badge risk-{{ company.risk_level }}">{{ company.risk_level|title }} Risk</span>
+                </div>
+
+                <div class="company-meta">
+                    <span><strong>CIK:</strong> {{ company.cik }}</span>
+                    {% if company.symbol %}
+                    <span><strong>Ticker:</strong> {{ company.symbol }}</span>
+                    {% endif %}
+                    <span><strong>Anomaly Score:</strong> {{ "%.1f"|format(company.anomaly_score) }}/100</span>
+                </div>
+
+                {% if company.years %}
+                <table class="metric-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            {% for year in company.years[-7:] %}
+                            <th>{{ year }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MAD</strong></td>
+                            {% for year in company.years[-7:] %}
+                            <td class="{{ 'highlight-danger' if company.mad_values.get(year, 0) > 2.5 else '' }}">
+                                {{ "%.2f"|format(company.mad_values.get(year, 0)) if company.mad_values.get(year) else '-' }}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><strong>Chi-Square</strong></td>
+                            {% for year in company.years[-7:] %}
+                            <td>{{ "%.2f"|format(company.chi_square_values.get(year, 0)) if company.chi_square_values.get(year) else '-' }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% if company.stock_returns %}
+                        <tr>
+                            <td><strong>Stock Return</strong></td>
+                            {% for year in company.years[-7:] %}
+                            <td class="{{ 'text-success' if (company.stock_returns.get(year) or 0) > 0 else 'text-danger' if (company.stock_returns.get(year) or 0) < 0 else '' }}">
+                                {% if company.stock_returns.get(year) is not none %}
+                                {{ "%.1f"|format(company.stock_returns.get(year)) }}%
+                                {% else %}-{% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+                <div class="company-observations">
+                    <strong>Observations:</strong>
+                    <ul>
+                        {% if company.trend_direction == 'worsening' %}
+                        <li class="text-danger">MAD values show worsening trend over the analysis period</li>
+                        {% elif company.trend_direction == 'improving' %}
+                        <li class="text-success">MAD values show improving trend over the analysis period</li>
+                        {% endif %}
+                        {% if company.avg_mad > 2.5 %}
+                        <li class="text-danger">Average MAD ({{ "%.2f"|format(company.avg_mad) }}) exceeds concerning threshold (2.5)</li>
+                        {% elif company.avg_mad > 1.5 %}
+                        <li class="text-warning">Average MAD ({{ "%.2f"|format(company.avg_mad) }}) is in the medium risk range</li>
+                        {% else %}
+                        <li class="text-success">Average MAD ({{ "%.2f"|format(company.avg_mad) }}) indicates good Benford conformance</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            {% if loop.index % 5 == 0 and not loop.last %}
+            <div class="page-break"></div>
+            {% endif %}
+            {% endfor %}
+        </section>
+        {% endif %}
+    </main>
+
+    <footer class="report-footer">
+        <p>Benford's Law Analysis Report | SEC Financial Data Analysis Tool v1.2.0</p>
+        <p>Generated with automated analysis - Results should be validated by domain experts</p>
+    </footer>
+
+    {% if interactive %}
+    <script>
+        // Add sortable table functionality
+        document.querySelectorAll('.sortable th').forEach(headerCell => {
+            headerCell.addEventListener('click', () => {
+                const table = headerCell.closest('table');
+                const headerIndex = Array.from(headerCell.parentElement.children).indexOf(headerCell);
+                const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+                const sortedRows = rows.sort((a, b) => {
+                    const aValue = a.children[headerIndex].textContent.trim();
+                    const bValue = b.children[headerIndex].textContent.trim();
+                    const aNum = parseFloat(aValue);
+                    const bNum = parseFloat(bValue);
+
+                    if (!isNaN(aNum) && !isNaN(bNum)) {
+                        return bNum - aNum;
+                    }
+                    return aValue.localeCompare(bValue);
+                });
+
+                const tbody = table.querySelector('tbody');
+                sortedRows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

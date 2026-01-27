@@ -825,6 +825,368 @@ def generate_all_visualizations(
     print(f"Total graphs generated: 13 (1 removed, 4 new added)")
 
 
+# =============================================================================
+# SECTOR COMPARISON VISUALIZATIONS
+# =============================================================================
+
+def plot_sector_comparison_boxplot(
+    comparisons_df: pd.DataFrame,
+    baselines_df: pd.DataFrame,
+    output_dir: Path,
+    year: Optional[int] = None
+) -> None:
+    """
+    Generate box plots comparing MAD across sectors.
+
+    Shows the distribution of Benford conformance within each industry sector,
+    allowing identification of sectors with systematically higher/lower MAD values.
+
+    Args:
+        comparisons_df: DataFrame with company-to-sector comparisons
+        baselines_df: DataFrame with sector baselines
+        output_dir: Directory to save the plot
+        year: Optional specific year to filter (if None, uses all years)
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if comparisons_df.empty:
+        print("  [SKIP] No comparison data available")
+        return
+
+    if year:
+        data = comparisons_df[comparisons_df['year'] == year].copy()
+        title_suffix = f" ({year})"
+        filename = f'sector_comparison_boxplot_{year}.png'
+    else:
+        data = comparisons_df.copy()
+        title_suffix = " (All Years)"
+        filename = 'sector_comparison_boxplot.png'
+
+    if data.empty:
+        print(f"  [SKIP] No data available for year {year}")
+        return
+
+    # Group by sector and calculate median for sorting
+    sector_medians = data.groupby('sector_name')['company_MAD'].median().sort_values()
+
+    # Filter to sectors with enough data points
+    sector_counts = data['sector_name'].value_counts()
+    valid_sectors = sector_counts[sector_counts >= 5].index
+    sector_medians = sector_medians[sector_medians.index.isin(valid_sectors)]
+
+    if len(sector_medians) == 0:
+        print("  [SKIP] Not enough sectors with sufficient data")
+        return
+
+    # Limit to top 20 sectors by count
+    top_sectors = sector_counts.nlargest(20).index
+    sector_medians = sector_medians[sector_medians.index.isin(top_sectors)]
+    sorted_sectors = sector_medians.index.tolist()
+
+    # Filter data to these sectors
+    plot_data = data[data['sector_name'].isin(sorted_sectors)]
+
+    fig, ax = plt.subplots(figsize=(14, 10))
+
+    # Create box plot
+    bp = ax.boxplot(
+        [plot_data[plot_data['sector_name'] == s]['company_MAD'].values for s in sorted_sectors],
+        labels=[s[:25] + '...' if len(s) > 25 else s for s in sorted_sectors],
+        patch_artist=True,
+        vert=True
+    )
+
+    # Color boxes by median MAD
+    colors = plt.cm.RdYlGn_r(np.linspace(0.2, 0.8, len(sorted_sectors)))
+    for patch, color in zip(bp['boxes'], colors):
+        patch.set_facecolor(color)
+        patch.set_alpha(0.7)
+
+    # Add reference lines
+    ax.axhline(y=1.5, color='orange', linestyle='--', linewidth=2, label='Moderate threshold (1.5)')
+    ax.axhline(y=2.5, color='red', linestyle='--', linewidth=2, label='High deviation (2.5)')
+
+    plt.xticks(rotation=45, ha='right', fontsize=9)
+    ax.set_xlabel('Sector', fontsize=12)
+    ax.set_ylabel('MAD Value', fontsize=12)
+    ax.set_title(f"Benford's Law Conformance by Industry Sector{title_suffix}\n"
+                 "(Sorted by Median MAD - Green=Good, Red=Poor)",
+                 fontsize=14, fontweight='bold')
+    ax.legend(loc='upper right')
+
+    plt.tight_layout()
+    plt.savefig(output_dir / filename, dpi=150, bbox_inches='tight')
+    plt.close()
+
+
+def plot_sector_outliers(
+    comparisons_df: pd.DataFrame,
+    output_dir: Path,
+    n_outliers: int = 25
+) -> None:
+    """
+    Generate chart showing companies deviating most from their sector peers.
+
+    Identifies companies whose Benford conformance is significantly different
+    from their industry peers, based on z-score analysis.
+
+    Args:
+        comparisons_df: DataFrame with company-to-sector comparisons
+        output_dir: Directory to save the plot
+        n_outliers: Number of top outliers to display
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if comparisons_df.empty:
+        print("  [SKIP] No comparison data available")
+        return
+
+    # Get worst outliers (highest positive z-score = worse than peers)
+    worst_outliers = comparisons_df.nlargest(n_outliers, 'z_score_vs_sector')
+
+    if worst_outliers.empty:
+        print("  [SKIP] No outliers found")
+        return
+
+    fig, ax = plt.subplots(figsize=(14, 12))
+
+    # Color bars by z-score intensity
+    colors = plt.cm.Reds(np.linspace(0.3, 0.9, len(worst_outliers)))
+    y_pos = range(len(worst_outliers))
+
+    bars = ax.barh(y_pos, worst_outliers['z_score_vs_sector'], color=colors)
+
+    # Create labels with company name and sector
+    labels = [f"{row['company_name'][:30]}... ({row['sector_name'][:20]})"
+              for _, row in worst_outliers.iterrows()]
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(labels, fontsize=9)
+
+    # Add vertical threshold lines
+    ax.axvline(x=2, color='orange', linestyle='--', linewidth=2, label='Outlier threshold (z=2)')
+    ax.axvline(x=3, color='red', linestyle='--', linewidth=2, label='Extreme outlier (z=3)')
+
+    ax.set_xlabel('Z-Score vs Sector Peers', fontsize=12)
+    ax.set_title('Companies Deviating Most from Sector Peers\n'
+                 '(Higher Z-Score = Worse Conformance than Industry Average)',
+                 fontsize=14, fontweight='bold')
+    ax.legend(loc='lower right')
+    ax.invert_yaxis()
+
+    # Add annotations for extreme cases
+    for i, (_, row) in enumerate(worst_outliers.iterrows()):
+        z = row['z_score_vs_sector']
+        if z > 3:
+            ax.annotate(f"MAD: {row['company_MAD']:.2f}",
+                       (z, i), textcoords="offset points",
+                       xytext=(5, 0), ha='left', fontsize=8, color='darkred')
+
+    plt.tight_layout()
+    plt.savefig(output_dir / 'sector_outliers.png', dpi=150, bbox_inches='tight')
+    plt.close()
+
+
+def plot_sector_heatmap(
+    baselines_df: pd.DataFrame,
+    output_dir: Path
+) -> None:
+    """
+    Generate heatmap of sector baselines over time.
+
+    Shows how each sector's typical Benford conformance has changed over the years,
+    helping identify sectors with improving or deteriorating data quality.
+
+    Args:
+        baselines_df: DataFrame with sector baselines
+        output_dir: Directory to save the plot
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if baselines_df.empty:
+        print("  [SKIP] No baseline data available")
+        return
+
+    # Filter to sectors with data across multiple years
+    sector_years = baselines_df.groupby('sector_name')['year'].nunique()
+    valid_sectors = sector_years[sector_years >= 3].index
+
+    plot_data = baselines_df[baselines_df['sector_name'].isin(valid_sectors)]
+
+    if plot_data.empty:
+        print("  [SKIP] Not enough multi-year sector data")
+        return
+
+    # Pivot to create matrix
+    pivot = plot_data.pivot(
+        index='sector_name',
+        columns='year',
+        values='median_MAD'
+    )
+
+    # Sort by average MAD
+    pivot['avg'] = pivot.mean(axis=1)
+    pivot = pivot.sort_values('avg', ascending=False).drop('avg', axis=1)
+
+    # Limit to top 25 sectors
+    if len(pivot) > 25:
+        pivot = pivot.head(25)
+
+    fig, ax = plt.subplots(figsize=(14, 12))
+
+    im = ax.imshow(pivot.values, aspect='auto', cmap='RdYlGn_r', vmin=0, vmax=3)
+
+    # Set labels
+    ax.set_xticks(range(len(pivot.columns)))
+    ax.set_xticklabels(pivot.columns, rotation=45, fontsize=10)
+    ax.set_yticks(range(len(pivot.index)))
+    ax.set_yticklabels([s[:35] + '...' if len(s) > 35 else s for s in pivot.index], fontsize=9)
+
+    # Add colorbar
+    cbar = plt.colorbar(im, ax=ax, shrink=0.8)
+    cbar.set_label('Median MAD', fontsize=11)
+
+    # Add value annotations
+    for i in range(len(pivot.index)):
+        for j in range(len(pivot.columns)):
+            val = pivot.iloc[i, j]
+            if not pd.isna(val):
+                color = 'white' if val > 1.5 else 'black'
+                ax.text(j, i, f'{val:.2f}', ha='center', va='center',
+                       color=color, fontsize=8)
+
+    ax.set_xlabel('Year', fontsize=12)
+    ax.set_ylabel('Sector', fontsize=12)
+    ax.set_title("Sector Benford Conformance Over Time\n"
+                 "(Median MAD: Green=Good Conformance, Red=Poor)",
+                 fontsize=14, fontweight='bold')
+
+    plt.tight_layout()
+    plt.savefig(output_dir / 'sector_heatmap.png', dpi=150, bbox_inches='tight')
+    plt.close()
+
+
+def plot_company_vs_sector_scatter(
+    comparisons_df: pd.DataFrame,
+    output_dir: Path
+) -> None:
+    """
+    Scatter plot: Company MAD vs Sector Median MAD.
+
+    Shows how each company compares to its sector's typical conformance level.
+    Points above the diagonal line indicate companies performing worse than
+    their sector average.
+
+    Args:
+        comparisons_df: DataFrame with company-to-sector comparisons
+        output_dir: Directory to save the plot
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if comparisons_df.empty:
+        print("  [SKIP] No comparison data available")
+        return
+
+    # Sample if too many points
+    if len(comparisons_df) > 3000:
+        plot_data = comparisons_df.sample(3000, random_state=42)
+    else:
+        plot_data = comparisons_df
+
+    fig, ax = plt.subplots(figsize=(12, 10))
+
+    # Color by z-score (deviation from sector)
+    scatter = ax.scatter(
+        plot_data['sector_median_MAD'],
+        plot_data['company_MAD'],
+        c=plot_data['z_score_vs_sector'],
+        cmap='RdYlGn_r',
+        alpha=0.5,
+        s=30,
+        vmin=-3,
+        vmax=3
+    )
+
+    # Add diagonal line (company = sector median)
+    max_val = max(plot_data['sector_median_MAD'].max(),
+                  plot_data['company_MAD'].max()) * 1.1
+    ax.plot([0, max_val], [0, max_val], 'k--', alpha=0.5,
+            linewidth=2, label='Equal to sector median')
+
+    # Add colorbar
+    cbar = plt.colorbar(scatter, ax=ax)
+    cbar.set_label('Z-Score vs Sector\n(Red=Worse, Green=Better)', fontsize=11)
+
+    # Calculate and annotate statistics
+    above_median = (plot_data['company_MAD'] > plot_data['sector_median_MAD']).sum()
+    below_median = (plot_data['company_MAD'] <= plot_data['sector_median_MAD']).sum()
+    pct_above = above_median / len(plot_data) * 100
+
+    stats_text = (f'Companies vs Sector Median:\n'
+                  f'  Above (worse): {above_median} ({pct_above:.1f}%)\n'
+                  f'  Below (better): {below_median} ({100-pct_above:.1f}%)\n'
+                  f'  Correlation: {plot_data["company_MAD"].corr(plot_data["sector_median_MAD"]):.3f}')
+
+    ax.text(0.02, 0.98, stats_text, transform=ax.transAxes, fontsize=10,
+            verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.9))
+
+    ax.set_xlabel('Sector Median MAD', fontsize=12)
+    ax.set_ylabel('Company MAD', fontsize=12)
+    ax.set_title('Company vs Sector Peer Performance\n'
+                 '(Above Diagonal = Worse than Sector Median)',
+                 fontsize=14, fontweight='bold')
+    ax.legend(loc='lower right')
+
+    ax.set_xlim(0, max_val)
+    ax.set_ylim(0, max_val)
+
+    plt.tight_layout()
+    plt.savefig(output_dir / 'company_vs_sector_scatter.png', dpi=150, bbox_inches='tight')
+    plt.close()
+
+
+def generate_sector_visualizations(
+    comparisons_df: pd.DataFrame,
+    baselines_df: pd.DataFrame,
+    output_dir: Union[str, Path]
+) -> None:
+    """
+    Generate all sector comparison visualizations.
+
+    Args:
+        comparisons_df: DataFrame with company-to-sector comparisons
+        baselines_df: DataFrame with sector baselines
+        output_dir: Directory to save graphs
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    print("\nGenerating sector visualizations...")
+    print("-" * 40)
+
+    print("Creating: Sector Comparison Box Plot...")
+    plot_sector_comparison_boxplot(comparisons_df, baselines_df, output_dir)
+    print("  Saved: sector_comparison_boxplot.png")
+
+    print("Creating: Sector Outliers Chart...")
+    plot_sector_outliers(comparisons_df, output_dir)
+    print("  Saved: sector_outliers.png")
+
+    print("Creating: Sector Heatmap...")
+    plot_sector_heatmap(baselines_df, output_dir)
+    print("  Saved: sector_heatmap.png")
+
+    print("Creating: Company vs Sector Scatter...")
+    plot_company_vs_sector_scatter(comparisons_df, output_dir)
+    print("  Saved: company_vs_sector_scatter.png")
+
+    print("-" * 40)
+    print("Sector visualization generation complete!")
+
+
 if __name__ == "__main__":
     generate_all_visualizations(
         data_file="data/output/results/benford_analysis.csv",

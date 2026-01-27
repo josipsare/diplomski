@@ -1,0 +1,353 @@
+/* Benford Analysis Report Styles */
+
+/* ========== Base Styles ========== */
+:root {
+    --color-low: #28a745;
+    --color-medium: #ffc107;
+    --color-high: #fd7e14;
+    --color-critical: #dc3545;
+    --color-text: #333;
+    --color-muted: #666;
+    --color-border: #dee2e6;
+    --color-bg-light: #f8f9fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* ========== Typography ========== */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2rem; color: #1a1a1a; }
+h2 { font-size: 1.5rem; color: #333; border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.25rem; color: #444; }
+h4 { font-size: 1rem; color: #555; }
+
+p { margin-bottom: 1rem; }
+
+/* ========== Layout ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.report-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.report-header h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.report-header .subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.report-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== Summary Cards ========== */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    background: var(--color-bg-light);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    border-left: 4px solid #007bff;
+}
+
+.summary-card h3 {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-card .big-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    display: block;
+}
+
+/* ========== Risk Badges ========== */
+.risk-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.risk-low { background-color: var(--color-low); color: white; }
+.risk-medium { background-color: var(--color-medium); color: #333; }
+.risk-high { background-color: var(--color-high); color: white; }
+.risk-critical { background-color: var(--color-critical); color: white; }
+.risk-unknown { background-color: #6c757d; color: white; }
+
+/* ========== Tables ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    background-color: var(--color-bg-light);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.metric-table {
+    font-size: 0.85rem;
+}
+
+.metric-table th {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.metric-table td {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.highlight-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--color-critical);
+    font-weight: 600;
+}
+
+/* ========== Charts ========== */
+.chart-container {
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--color-bg-light);
+    border-radius: 8px;
+}
+
+.chart-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* ========== Company Cards ========== */
+.company-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: white;
+}
+
+.company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.company-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.company-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.company-observations {
+    background: var(--color-bg-light);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.company-observations ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+}
+
+.company-observations li {
+    margin-bottom: 0.25rem;
+}
+
+/* ========== Key Findings ========== */
+.key-findings {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+.key-findings h3 {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.key-findings ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.key-findings li {
+    margin-bottom: 0.5rem;
+}
+
+/* ========== Methodology Box ========== */
+.methodology-box {
+    background: #e7f3ff;
+    border: 1px solid #b6d4fe;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.methodology-box h3 {
+    margin-top: 0;
+    color: #0d6efd;
+}
+
+.threshold-table {
+    margin-top: 1rem;
+}
+
+.threshold-table th {
+    background: #cfe2ff;
+}
+
+/* ========== Text Utilities ========== */
+.text-success { color: var(--color-low) !important; }
+.text-warning { color: var(--color-medium) !important; }
+.text-danger { color: var(--color-critical) !important; }
+.text-muted { color: var(--color-muted) !important; }
+
+/* ========== Footer ========== */
+.report-footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 0.85rem;
+}
+
+/* ========== Print / PDF Styles ========== */
+@media print {
+    body {
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+    .report-header {
+        background: #1a1a2e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    .no-break {
+        page-break-inside: avoid;
+    }
+
+    .company-card {
+        page-break-inside: avoid;
+    }
+
+    .summary-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .risk-badge {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ========== Interactive Elements (HTML only) ========== */
+.sortable th {
+    cursor: pointer;
+}
+
+.sortable th:hover {
+    background-color: #e9ecef;
+}
+
+.expandable-section {
+    cursor: pointer;
+}
+
+.expandable-section .toggle-icon {
+    transition: transform 0.2s;
+}
+
+.expandable-section.expanded .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.collapsible-content {
+    display: none;
+    padding: 1rem 0;
+}
+
+.collapsible-content.show {
+    display: block;
+}

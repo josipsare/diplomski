@@ -407,6 +407,70 @@ class SECDataParser:
 
         return stats
 
+    def get_company_sic_codes(self, ciks: Optional[List[str]] = None) -> pd.DataFrame:
+        """
+        Get SIC codes for companies from submissions data.
+
+        The SIC (Standard Industrial Classification) code is used to classify
+        companies by industry sector for peer comparison analysis.
+
+        Args:
+            ciks: Optional list of CIKs to filter (if None, returns all)
+
+        Returns:
+            DataFrame with columns: cik, company_name, sic_code
+        """
+        sub_df = self.load_submissions()
+
+        # Get unique company-SIC mappings
+        # Use most recent filing's SIC code per company (sorted by filed date)
+        company_sic = sub_df.sort_values('filed', ascending=False).drop_duplicates(
+            subset=['cik'], keep='first'
+        )[['cik', 'name', 'sic']].copy()
+
+        company_sic.columns = ['cik', 'company_name', 'sic_code']
+
+        # Pad CIK to 10 digits (standard SEC format)
+        company_sic['cik'] = company_sic['cik'].apply(
+            lambda x: str(int(x)).zfill(10) if pd.notna(x) else ''
+        )
+
+        # Filter by specific CIKs if provided
+        if ciks is not None:
+            # Normalize input CIKs to 10-digit format
+            ciks_normalized = [str(c).zfill(10) for c in ciks]
+            company_sic = company_sic[company_sic['cik'].isin(ciks_normalized)]
+
+        return company_sic
+
+    def get_companies_by_sic(self, sic_prefix: str) -> pd.DataFrame:
+        """
+        Get all companies with SIC codes starting with given prefix.
+
+        Useful for finding all companies in a specific industry sector.
+
+        Args:
+            sic_prefix: SIC code prefix (e.g., '73' for Business Services,
+                       '36' for Electronic Equipment)
+
+        Returns:
+            DataFrame with matching companies
+        """
+        sub_df = self.load_submissions()
+
+        # Filter by SIC prefix
+        mask = sub_df['sic'].astype(str).str.startswith(str(sic_prefix))
+
+        result = sub_df[mask][['cik', 'name', 'sic', 'form', 'period']].drop_duplicates('cik')
+
+        # Format CIK
+        result = result.copy()
+        result['cik'] = result['cik'].apply(
+            lambda x: str(int(x)).zfill(10) if pd.notna(x) else ''
+        )
+
+        return result
+
 
 # Example usage
 if __name__ == "__main__":

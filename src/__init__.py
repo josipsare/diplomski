@@ -44,8 +44,28 @@ from .stock_visualization import (
     plot_correlation_summary,
     generate_all_stock_visualizations
 )
+from .sector import (
+    classify_company,
+    calculate_sector_baselines,
+    compare_company_to_sector,
+    run_sector_comparison,
+    identify_sector_outliers,
+    get_sector_summary,
+    get_sic_division,
+    get_sic_major_group,
+    SIC_DIVISIONS,
+    SIC_MAJOR_GROUPS
+)
+from .report_generator import (
+    ReportDataCollector,
+    CompanyReport,
+    PortfolioSummary,
+    ReportChartGenerator,
+    HTMLReportGenerator,
+    PDFReportGenerator
+)
 
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 __author__ = "Diploma Thesis Project"
 
 __all__ = [
@@ -84,5 +104,23 @@ __all__ = [
     "plot_volume_benford_heatmap",
     "plot_combined_time_series",
     "plot_correlation_summary",
-    "generate_all_stock_visualizations"
+    "generate_all_stock_visualizations",
+    # Sector Analysis
+    "classify_company",
+    "calculate_sector_baselines",
+    "compare_company_to_sector",
+    "run_sector_comparison",
+    "identify_sector_outliers",
+    "get_sector_summary",
+    "get_sic_division",
+    "get_sic_major_group",
+    "SIC_DIVISIONS",
+    "SIC_MAJOR_GROUPS",
+    # Report Generation
+    "ReportDataCollector",
+    "CompanyReport",
+    "PortfolioSummary",
+    "ReportChartGenerator",
+    "HTMLReportGenerator",
+    "PDFReportGenerator"
 ]
