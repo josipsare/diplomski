@@ -1,8 +1,13 @@
 # SEC Data (large files - download locally)
 sec_data/
 
-# Large CSV files generated
+# Output files
+data/output/
 *.csv
+!data/input/*.csv
+
+# Graphs (regenerate with visualizations.py)
+graphs/
 
 # Python
 __pycache__/
@@ -10,9 +15,27 @@ __pycache__/
 *$py.class
 *.so
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
 env/
 venv/
 ENV/
+.venv/
 
 # IDE
 .vscode/
@@ -20,7 +43,37 @@ ENV/
 *.swp
 *.swo
 *~
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
 
 # OS
 .DS_Store
 Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+
+# Documentation builds
+docs/_build/
+
+# mypy
+.mypy_cache/
+
+# Local config (with sensitive data)
+config.local.yaml
+.env
+.env.local
+
+# Logs
+*.log
+logs/
