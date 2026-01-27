@@ -1,0 +1,57 @@
+\begin{thebibliography}{}
+
+\bibitem[Benford, 1938]{benford1938}
+Benford, F. (1938).
+\newblock The law of anomalous numbers.
+\newblock {\em Proceedings of the American Philosophical Society},
+  78(4):551--572.
+
+\bibitem[Carslaw, 1988]{carslaw1988}
+Carslaw, C. A. P.~N. (1988).
+\newblock Anomalies in income numbers: Evidence of goal oriented behavior.
+\newblock {\em The Accounting Review}, 63(2):321--327.
+
+\bibitem[Hill, 1995]{hill1995}
+Hill, T.~P. (1995).
+\newblock A statistical derivation of the significant-digit law.
+\newblock {\em Statistical Science}, 10(4):354--363.
+
+\bibitem[Kolmogorov, 1933]{kolmogorov1933}
+Kolmogorov, A. (1933).
+\newblock Sulla determinazione empirica di una legge di distribuzione.
+\newblock {\em Giornale dell'Istituto Italiano degli Attuari}, 4:83--91.
+
+\bibitem[Newcomb, 1881]{newcomb1881}
+Newcomb, S. (1881).
+\newblock Note on the frequency of use of the different digits in natural
+  numbers.
+\newblock {\em American Journal of Mathematics}, 4(1):39--40.
+
+\bibitem[Nigrini, 1996]{nigrini1996}
+Nigrini, M.~J. (1996).
+\newblock A taxpayer compliance application of benford's law.
+\newblock {\em Journal of the American Taxation Association}, 18(1):72--91.
+
+\bibitem[Nigrini, 2012]{nigrini2012}
+Nigrini, M.~J. (2012).
+\newblock {\em Benford's Law: Applications for Forensic Accounting, Auditing,
+  and Fraud Detection}.
+\newblock John Wiley \& Sons, Hoboken, NJ.
+
+\bibitem[Nigrini and Mittermaier, 1997]{nigrini1999}
+Nigrini, M.~J. and Mittermaier, L.~J. (1997).
+\newblock The use of benford's law as an aid in analytical procedures.
+\newblock {\em Auditing: A Journal of Practice \& Theory}, 16(2):52--67.
+
+\bibitem[Thomas, 1989]{thomas1989}
+Thomas, J.~K. (1989).
+\newblock Unusual patterns in reported earnings.
+\newblock {\em The Accounting Review}, 64(4):773--787.
+
+\bibitem[{U.S. Securities and Exchange Commission}, 2024]{sec2024}
+{U.S. Securities and Exchange Commission} (2024).
+\newblock Financial statement data sets.
+\newblock \url{https://www.sec.gov/dera/data/financial-statement-data-sets}.
+\newblock Accessed: 2024.
+
+\end{thebibliography}
