@@ -1,0 +1,438 @@
+cik,company_name,sic_code,sic_division,division_name,sic_major_group,major_group_name,sic_industry_group
+0001090872,"AGILENT TECHNOLOGIES, INC.",3826,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0000936395,CIENA CORP,3661,D,Manufacturing,36,Electronic & Electrical Equipment,366
+0000107687,WINNEBAGO INDUSTRIES INC,3716,D,Manufacturing,37,Transportation Equipment,371
+0001048911,FEDEX CORP,4513,E,Transportation & Utilities,45,Transportation by Air,451
+0000771497,ABM INDUSTRIES INC /DE/,7340,I,Services,73,Business Services,734
+0001645590,HEWLETT PACKARD ENTERPRISE CO,3570,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0002011286,"AMENTUM HOLDINGS, INC.",7389,I,Services,73,Business Services,738
+0000006951,APPLIED MATERIALS INC /DE,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000885245,BUCKLE INC,5651,G,Retail Trade,56,Apparel & Accessory Stores,565
+0000014707,CALERES INC,3140,D,Manufacturing,31,Leather & Leather Products,314
+0001964738,SOLVENTUM CORP,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001639300,"OLLIE'S BARGAIN OUTLET HOLDINGS, INC.",5331,G,Retail Trade,53,General Merchandise Stores,533
+0001525769,"DAVE & BUSTER'S ENTERTAINMENT, INC.",5812,G,Retail Trade,58,Eating & Drinking Places,581
+0000821002,G III APPAREL GROUP LTD /DE/,2300,D,Manufacturing,23,Apparel & Other Finished Products,230
+0001817358,"ACADEMY SPORTS & OUTDOORS, INC.",5940,G,Retail Trade,59,Miscellaneous Retail,594
+0001341439,ORACLE CORP,7372,I,Services,73,Business Services,737
+0001428336,"HEALTHEQUITY, INC.",7389,I,Services,73,Business Services,738
+0000711404,"COOPER COMPANIES, INC.",3851,D,Manufacturing,38,Measuring & Analyzing Instruments,385
+0000029534,DOLLAR GENERAL CORP,5331,G,Retail Trade,53,General Merchandise Stores,533
+0001397187,LULULEMON ATHLETICA INC.,2300,D,Manufacturing,23,Apparel & Other Finished Products,230
+0001571123,SCIENCE APPLICATIONS INTERNATIONAL CORP,7373,I,Services,73,Business Services,737
+0001368622,AEROVIRONMENT INC,3721,D,Manufacturing,37,Transportation Equipment,372
+0000069891,NATIONAL BEVERAGE CORP,2086,D,Manufacturing,20,Food & Kindred Products,208
+0000016732,CAMPBELL'S CO,2000,D,Manufacturing,20,Food & Kindred Products,200
+0001067294,"CRACKER BARREL OLD COUNTRY STORE, INC",5812,G,Retail Trade,58,Eating & Drinking Places,581
+0000088941,SEMTECH CORP,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000887733,CENTRAL GARDEN & PET CO,5190,F,Wholesale Trade,51,Wholesale Trade - Nondurable Goods,519
+0001490906,"CAPITOL FEDERAL FINANCIAL, INC.",6035,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),603
+0000060667,LOWES COMPANIES INC,5211,G,Retail Trade,52,Building Materials & Hardware,521
+0000701985,"BATH & BODY WORKS, INC.",5990,G,Retail Trade,59,Miscellaneous Retail,599
+0000794619,AMERICAN WOODMARK CORP,2430,D,Manufacturing,24,Lumber & Wood Products,243
+0000900075,COPART INC,5500,G,Retail Trade,55,Automotive Dealers & Gas Stations,550
+0000356309,NEW JERSEY RESOURCES CORP,4924,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0001002047,"NETAPP, INC.",3572,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000052988,JACOBS SOLUTIONS INC.,1600,C,Construction,16,Heavy Construction,160
+0000854775,DIGI INTERNATIONAL INC,3576,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000063296,MATTHEWS INTERNATIONAL CORP,3360,D,Manufacturing,33,Primary Metal Industries,336
+0000719955,WILLIAMS SONOMA INC,5700,G,Retail Trade,57,Home Furniture & Equipment Stores,570
+0001674910,VALVOLINE INC,2990,D,Manufacturing,29,Petroleum Refining & Related,299
+0001319161,WARNER MUSIC GROUP CORP.,7900,I,Services,79,Amusement & Recreation Services,790
+0000002969,"AIR PRODUCTS & CHEMICALS, INC.",2810,D,Manufacturing,28,Chemicals & Allied Products,281
+0000807882,JACK IN THE BOX INC,5812,G,Retail Trade,58,Eating & Drinking Places,581
+0001327567,PALO ALTO NETWORKS INC,3577,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000067215,DYCOM INDUSTRIES INC,1623,C,Construction,16,Heavy Construction,162
+0001126956,SPIRE INC,4924,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0001045810,NVIDIA CORP,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000080420,POWELL INDUSTRIES INC,3613,D,Manufacturing,36,Electronic & Electrical Equipment,361
+0000829224,STARBUCKS CORP,5810,G,Retail Trade,58,Eating & Drinking Places,581
+0000936528,WAFD INC,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000833444,JOHNSON CONTROLS INTERNATIONAL PLC,3585,D,Manufacturing,35,Industrial Machinery & Equipment,358
+0000868857,AECOM,8711,I,Services,87,Engineering & Management Services,871
+0001417398,"HILLENBRAND, INC.",3990,D,Manufacturing,39,Miscellaneous Manufacturing,399
+0001772016,"BELLRING BRANDS, INC.",2000,D,Manufacturing,20,Food & Kindred Products,200
+0001670541,ADIENT PLC,3714,D,Manufacturing,37,Transportation Equipment,371
+0001744489,WALT DISNEY CO,7990,I,Services,79,Amusement & Recreation Services,799
+0000834365,BIOLIFE SOLUTIONS INC,3845,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001295810,"SUNSTONE HOTEL INVESTORS, INC.",7011,I,Services,70,Hotels & Lodging Places,701
+0001661181,ORGANOGENESIS HOLDINGS INC.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000714310,VALLEY NATIONAL BANCORP,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000100493,"TYSON FOODS, INC.",2015,D,Manufacturing,20,Food & Kindred Products,201
+0000923796,GEO GROUP INC,1520,C,Construction,15,Building Construction,152
+0001507605,"MARA HOLDINGS, INC.",6199,H,"Finance, Insurance & Real Estate",61,Non-Depository Credit Institutions,619
+0001335258,"LIVE NATION ENTERTAINMENT, INC.",7900,I,Services,79,Amusement & Recreation Services,790
+0001158172,"COMSCORE, INC.",7389,I,Services,73,Business Services,738
+0001287865,MEDICAL PROPERTIES TRUST INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000920371,"SIMPSON MANUFACTURING CO., INC.",3420,D,Manufacturing,34,Fabricated Metal Products,342
+0001389050,"ARCHROCK, INC.",4922,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0000032604,EMERSON ELECTRIC CO,3600,D,Manufacturing,36,Electronic & Electrical Equipment,360
+0001635088,ROIVANT SCIENCES LTD.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000883984,ICU MEDICAL INC/DE,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001803696,ADEIA INC.,4841,E,Transportation & Utilities,48,Communications,484
+0000712537,FIRST COMMONWEALTH FINANCIAL CORP /PA/,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000038777,FRANKLIN RESOURCES INC,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000311094,WESTAMERICA BANCORPORATION,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001175454,"CORPAY, INC.",7389,I,Services,73,Business Services,738
+0001612630,JOINT CORP,6794,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001069183,"AXON ENTERPRISE, INC.",3480,D,Manufacturing,34,Fabricated Metal Products,348
+0001561550,"DATADOG, INC.",7372,I,Services,73,Business Services,737
+0000926326,"OMNICELL, INC.",3571,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0001057706,FIRST BANCORP /PR/,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001965040,FORTREA HOLDINGS INC.,8071,I,Services,80,Health Services,807
+0001569187,"ARMADA HOFFLER PROPERTIES, INC.",6500,H,"Finance, Insurance & Real Estate",65,Real Estate,650
+0001632127,"CABLE ONE, INC.",4841,E,Transportation & Utilities,48,Communications,484
+0001142750,AMN HEALTHCARE SERVICES INC,7363,I,Services,73,Business Services,736
+0002005951,SMURFIT WESTROCK PLC,2650,D,Manufacturing,26,Paper & Allied Products,265
+0001570827,"VICTORY CAPITAL HOLDINGS, INC.",6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0001284812,"COHEN & STEERS, INC.",6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000912728,FORWARD AIR CORP,4731,E,Transportation & Utilities,47,Transportation Services,473
+0001767258,"XPEL, INC.",3470,D,Manufacturing,34,Fabricated Metal Products,347
+0000351569,AMERIS BANCORP,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000357301,TRUSTCO BANK CORP N Y,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000729986,UNITED BANKSHARES INC/WV,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000799167,MARTEN TRANSPORT LTD,4213,E,Transportation & Utilities,42,Motor Freight Transportation,421
+0001063761,SIMON PROPERTY GROUP INC /DE/,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001084048,"ZIFF DAVIS, INC.",4822,E,Transportation & Utilities,48,Communications,482
+0000078814,PITNEY BOWES INC /DE/,3579,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000080172,NATIONAL PRESTO INDUSTRIES INC,3480,D,Manufacturing,34,Fabricated Metal Products,348
+0000899923,MYRIAD GENETICS INC,2835,D,Manufacturing,28,Chemicals & Allied Products,283
+0001298946,DIAMONDROCK HOSPITALITY CO,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001364250,DOUGLAS EMMETT INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000831259,FREEPORT-MCMORAN INC,1000,B,Mining,10,Metal Mining,100
+0001688568,DXC TECHNOLOGY CO,7374,I,Services,73,Business Services,737
+0001578732,"MARCUS & MILLICHAP, INC.",6531,H,"Finance, Insurance & Real Estate",65,Real Estate,653
+0001564708,NEWS CORP,2711,D,Manufacturing,27,"Printing, Publishing & Allied",271
+0001803737,"ENHABIT, INC.",8082,I,Services,80,Health Services,808
+0001685040,"BRIGHTHOUSE FINANCIAL, INC.",6311,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,631
+0001596532,"ARISTA NETWORKS, INC.",3576,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000719413,HECLA MINING CO/DE/,1400,B,Mining,14,Mining of Nonmetallic Minerals,140
+0000849869,SILGAN HOLDINGS INC,3411,D,Manufacturing,34,Fabricated Metal Products,341
+0000874238,"STERLING INFRASTRUCTURE, INC.",1600,C,Construction,16,Heavy Construction,160
+0001471265,"NORTHWEST BANCSHARES, INC.",6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000913144,RENAISSANCERE HOLDINGS LTD,6331,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,633
+0001049502,MKS INSTRUMENTS INC,3823,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0001029142,DYNAVAX TECHNOLOGIES CORP,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001005757,CSG SYSTEMS INTERNATIONAL INC,7374,I,Services,73,Business Services,737
+0001474098,PEBBLEBROOK HOTEL TRUST,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000930236,REDWOOD TRUST INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000821189,EOG RESOURCES INC,1311,B,Mining,13,Oil & Gas Extraction,131
+0000036966,FIRST HORIZON CORP,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001359841,HANESBRANDS INC.,5600,G,Retail Trade,56,Apparel & Accessory Stores,560
+0001873923,ORION OFFICE REIT INC.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000935036,"ACI WORLDWIDE, INC.",7372,I,Services,73,Business Services,737
+0001368514,"ADMA BIOLOGICS, INC.",2836,D,Manufacturing,28,Chemicals & Allied Products,283
+0001451809,SITIME CORP,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000916365,TRACTOR SUPPLY CO /DE/,5200,G,Retail Trade,52,Building Materials & Hardware,520
+0001020710,DXP ENTERPRISES INC,5084,F,Wholesale Trade,50,Wholesale Trade - Durable Goods,508
+0001559720,"AIRBNB, INC.",7340,I,Services,73,Business Services,734
+0001671933,"TRADE DESK, INC.",7370,I,Services,73,Business Services,737
+0000354647,CVB FINANCIAL CORP,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000901491,PAPA JOHNS INTERNATIONAL INC,5812,G,Retail Trade,58,Eating & Drinking Places,581
+0001677576,INNOVATIVE INDUSTRIAL PROPERTIES INC,6500,H,"Finance, Insurance & Real Estate",65,Real Estate,650
+0000821483,"PAR PACIFIC HOLDINGS, INC.",1311,B,Mining,13,Oil & Gas Extraction,131
+0000910406,HAIN CELESTIAL GROUP INC,2000,D,Manufacturing,20,Food & Kindred Products,200
+0001658566,PERMIAN RESOURCES CORP,1311,B,Mining,13,Oil & Gas Extraction,131
+0001867072,"KYNDRYL HOLDINGS, INC.",7373,I,Services,73,Business Services,737
+0001823529,"ENACT HOLDINGS, INC.",6411,H,"Finance, Insurance & Real Estate",64,Insurance Agents & Brokers,641
+0000946581,TAKE TWO INTERACTIVE SOFTWARE INC,7372,I,Services,73,Business Services,737
+0001061983,CYTOKINETICS INC,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001295947,PRESTIGE CONSUMER HEALTHCARE INC.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001206264,"TEMPUR SEALY INTERNATIONAL, INC.",2510,D,Manufacturing,25,Furniture & Fixtures,251
+0000354963,SHENANDOAH TELECOMMUNICATIONS CO/VA/,4813,E,Transportation & Utilities,48,Communications,481
+0001767042,"KODIAK GAS SERVICES, INC.",4922,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0000076605,PATRICK INDUSTRIES INC,3714,D,Manufacturing,37,Transportation Equipment,371
+0001001316,"TG THERAPEUTICS, INC.",2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000058492,LEGGETT & PLATT INC,2510,D,Manufacturing,25,Furniture & Fixtures,251
+0001513761,NORWEGIAN CRUISE LINE HOLDINGS LTD.,4400,E,Transportation & Utilities,44,Water Transportation,440
+0000792987,ASTEC INDUSTRIES INC,3531,D,Manufacturing,35,Industrial Machinery & Equipment,353
+0000763744,LCI INDUSTRIES,3714,D,Manufacturing,37,Transportation Equipment,371
+0001070985,"CORECIVIC, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001665918,US FOODS HOLDING CORP.,5140,F,Wholesale Trade,51,Wholesale Trade - Nondurable Goods,514
+0001336917,"UNDER ARMOUR, INC.",2300,D,Manufacturing,23,Apparel & Other Finished Products,230
+0000717423,MURPHY OIL CORP,1311,B,Mining,13,Oil & Gas Extraction,131
+0001759655,"PRIVIA HEALTH GROUP, INC.",8000,I,Services,80,Health Services,800
+0000063908,MCDONALDS CORP,5812,G,Retail Trade,58,Eating & Drinking Places,581
+0001929561,"RXO, INC.",4700,E,Transportation & Utilities,47,Transportation Services,470
+0000005272,"AMERICAN INTERNATIONAL GROUP, INC.",6331,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,633
+0001512673,"BLOCK, INC.",7372,I,Services,73,Business Services,737
+0001158324,"COGENT COMMUNICATIONS HOLDINGS, INC.",4899,E,Transportation & Utilities,48,Communications,489
+0000110471,WOLVERINE WORLD WIDE INC /DE/,3140,D,Manufacturing,31,Leather & Leather Products,314
+0001580808,"A10 NETWORKS, INC.",3576,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0001841666,APA CORP,1311,B,Mining,13,Oil & Gas Extraction,131
+0001600033,"E.L.F. BEAUTY, INC.",2844,D,Manufacturing,28,Chemicals & Allied Products,284
+0000818479,DENTSPLY SIRONA INC.,3843,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001296445,"ORMAT TECHNOLOGIES, INC.",4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001115055,PINNACLE FINANCIAL PARTNERS INC,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001674168,HILTON GRAND VACATIONS INC.,7000,I,Services,70,Hotels & Lodging Places,700
+0001811074,TEXAS PACIFIC LAND CORP,6792,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001618673,PERFORMANCE FOOD GROUP CO,5141,F,Wholesale Trade,51,Wholesale Trade - Nondurable Goods,514
+0001341766,"CELSIUS HOLDINGS, INC.",2086,D,Manufacturing,20,Food & Kindred Products,208
+0000811589,FIRST BANCORP /NC/,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000072741,EVERSOURCE ENERGY,4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001941365,"MASTERBRAND, INC.",2511,D,Manufacturing,25,Furniture & Fixtures,251
+0000004904,AMERICAN ELECTRIC POWER CO INC,4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0000814547,FAIR ISAAC CORP,7389,I,Services,73,Business Services,738
+0001434588,"GRAND CANYON EDUCATION, INC.",8200,I,Services,82,Educational Services,820
+0001512762,"COHERUS BIOSCIENCES, INC.",2836,D,Manufacturing,28,Chemicals & Allied Products,283
+0000910108,LXP INDUSTRIAL TRUST,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001822993,JACKSON FINANCIAL INC.,6311,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,631
+0000916540,DARLING INGREDIENTS INC.,2070,D,Manufacturing,20,Food & Kindred Products,207
+0001080014,"INNOVIVA, INC.",2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000091576,KEYCORP /NEW/,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000886346,KADANT INC,3550,D,Manufacturing,35,Industrial Machinery & Equipment,355
+0000937556,MASIMO CORP,3845,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0000022356,COMMERCE BANCSHARES INC /MO/,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001046025,HERITAGE FINANCIAL CORP /WA/,6036,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),603
+0001438133,TANDEM DIABETES CARE INC,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001396814,"PACIRA BIOSCIENCES, INC.",2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001005817,TOMPKINS FINANCIAL CORP,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000078890,BRINKS CO,4731,E,Transportation & Utilities,47,Transportation Services,473
+0001410384,"Q2 HOLDINGS, INC.",7372,I,Services,73,Business Services,737
+0001465128,"STARWOOD PROPERTY TRUST, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000105319,"WW INTERNATIONAL, INC.",7200,I,Services,72,Personal Services,720
+0001099800,EDWARDS LIFESCIENCES CORP,3842,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001999001,SIX FLAGS ENTERTAINMENT CORPORATION/NEW,7900,I,Services,79,Amusement & Recreation Services,790
+0001369568,"CATALYST PHARMACEUTICALS, INC.",2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001104485,"NORTHERN OIL & GAS, INC.",1311,B,Mining,13,Oil & Gas Extraction,131
+0001761312,"PALOMAR HOLDINGS, INC.",6331,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,633
+0001326732,XENCOR INC,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000064803,CVS HEALTH CORP,5912,G,Retail Trade,59,Miscellaneous Retail,591
+0001585364,PERRIGO CO PLC,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001525221,BRISTOW GROUP INC.,4522,E,Transportation & Utilities,45,Transportation by Air,452
+0001743759,"CORSAIR GAMING, INC.",3577,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0001528129,"VITAL ENERGY, INC.",1311,B,Mining,13,Oil & Gas Extraction,131
+0001095073,"EVEREST GROUP, LTD.",6331,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,633
+0001116942,TTM TECHNOLOGIES INC,3672,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0001580670,"LGI HOMES, INC.",1531,C,Construction,15,Building Construction,153
+0001037540,"BXP, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000076334,PARKER HANNIFIN CORP,3490,D,Manufacturing,34,Fabricated Metal Products,349
+0001590560,UNIQURE N.V.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001404912,KKR & CO. INC.,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000098362,TIMKEN CO,3562,D,Manufacturing,35,Industrial Machinery & Equipment,356
+0001316835,"BUILDERS FIRSTSOURCE, INC.",5211,G,Retail Trade,52,Building Materials & Hardware,521
+0001666700,"DUPONT DE NEMOURS, INC.",2821,D,Manufacturing,28,Chemicals & Allied Products,282
+0000037808,FNB CORP/PA/,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000018926,"LUMEN TECHNOLOGIES, INC.",4813,E,Transportation & Utilities,48,Communications,481
+0001281761,REGIONS FINANCIAL CORP,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000715787,INTERFACE INC,2273,D,Manufacturing,22,Textile Mill Products,227
+0001389170,TARGA RESOURCES CORP.,4922,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0001122976,AVIENT CORP,2821,D,Manufacturing,28,Chemicals & Allied Products,282
+0000749251,GARTNER INC,8741,I,Services,87,Engineering & Management Services,874
+0001845815,PAYONEER GLOBAL INC.,7389,I,Services,73,Business Services,738
+0001468328,ADDUS HOMECARE CORP,8082,I,Services,80,Health Services,808
+0001555280,ZOETIS INC.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001551152,ABBVIE INC.,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000788784,PUBLIC SERVICE ENTERPRISE GROUP INC,4931,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",493
+0000731766,UNITEDHEALTH GROUP INC,6324,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,632
+0001038074,SILICON LABORATORIES INC.,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0001013488,BJS RESTAURANTS INC,5812,G,Retail Trade,58,Eating & Drinking Places,581
+0000805676,PARK NATIONAL CORP /OH/,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001955520,KNIFE RIVER CORP,1400,B,Mining,14,Mining of Nonmetallic Minerals,140
+0000755001,UNITIL CORP,4931,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",493
+0001418121,"APPLE HOSPITALITY REIT, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001497645,"SUMMIT HOTEL PROPERTIES, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000018349,SYNOVUS FINANCIAL CORP,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001609550,"INSPIRE MEDICAL SYSTEMS, INC.",3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001066605,HEIDRICK & STRUGGLES INTERNATIONAL INC,7361,I,Services,73,Business Services,736
+0000895421,MORGAN STANLEY,6211,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,621
+0001627223,CHEMOURS CO,2800,D,Manufacturing,28,Chemicals & Allied Products,280
+0001434621,"LENDINGTREE, INC.",6163,H,"Finance, Insurance & Real Estate",61,Non-Depository Credit Institutions,616
+0000860546,COPT DEFENSE PROPERTIES,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000034088,EXXON MOBIL CORP,2911,D,Manufacturing,29,Petroleum Refining & Related,291
+0001754301,FOX CORP,4833,E,Transportation & Utilities,48,Communications,483
+0000906107,EQUITY RESIDENTIAL,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001390777,BANK OF NEW YORK MELLON CORP,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000715957,"DOMINION ENERGY, INC",4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001517302,ARTISAN PARTNERS ASSET MANAGEMENT INC.,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000898174,REINSURANCE GROUP OF AMERICA INC,6311,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,631
+0000892553,CHART INDUSTRIES INC,3443,D,Manufacturing,34,Fabricated Metal Products,344
+0000723612,"AVIS BUDGET GROUP, INC.",7510,I,Services,75,Automotive Repair & Services,751
+0000097745,THERMO FISHER SCIENTIFIC INC.,3829,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0001500217,"AMERICAN ASSETS TRUST, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001273685,NEW YORK MORTGAGE TRUST INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001078075,NETSCOUT SYSTEMS INC,7373,I,Services,73,Business Services,737
+0001018724,AMAZON COM INC,5961,G,Retail Trade,59,Miscellaneous Retail,596
+0000008670,AUTOMATIC DATA PROCESSING INC,7374,I,Services,73,Business Services,737
+0000712515,ELECTRONIC ARTS INC.,7372,I,Services,73,Business Services,737
+0000910606,REGENCY CENTERS CORP,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001424929,FOX FACTORY HOLDING CORP,3751,D,Manufacturing,37,Transportation Equipment,375
+0001099219,METLIFE INC,6311,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,631
+0001489393,LYONDELLBASELL INDUSTRIES N.V.,2860,D,Manufacturing,28,Chemicals & Allied Products,286
+0000310354,STANDEX INTERNATIONAL CORP/DE/,3580,D,Manufacturing,35,Industrial Machinery & Equipment,358
+0000024741,CORNING INC /NY,3357,D,Manufacturing,33,Primary Metal Industries,335
+0000352541,ALLIANT ENERGY CORP,4931,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",493
+0000097134,TENNANT CO,3580,D,Manufacturing,35,Industrial Machinery & Equipment,358
+0000065984,ENTERGY CORP /DE/,4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001219601,"CROWN HOLDINGS, INC.",3411,D,Manufacturing,34,Fabricated Metal Products,341
+0000355811,GENTEX CORP,3714,D,Manufacturing,37,Transportation Equipment,371
+0000320193,APPLE INC,3571,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0001704715,"ALPHA METALLURGICAL RESOURCES, INC.",1221,B,Mining,12,Coal Mining,122
+0001374310,"CBOE GLOBAL MARKETS, INC.",6200,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,620
+0001849253,"RYAN SPECIALTY HOLDINGS, INC.",6411,H,"Finance, Insurance & Real Estate",64,Insurance Agents & Brokers,641
+0001597033,SABRE CORP,7370,I,Services,73,Business Services,737
+0000059558,LINCOLN NATIONAL CORP,6311,H,"Finance, Insurance & Real Estate",63,Insurance Carriers,631
+0000030697,WENDY'S CO,5810,G,Retail Trade,58,Eating & Drinking Places,581
+0000092122,SOUTHERN CO,4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0000927628,CAPITAL ONE FINANCIAL CORP,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001944013,CRANE CO,3490,D,Manufacturing,34,Fabricated Metal Products,349
+0000074208,"UDR, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001159036,"HALOZYME THERAPEUTICS, INC.",2836,D,Manufacturing,28,Chemicals & Allied Products,283
+0000099780,TRINITY INDUSTRIES INC,3743,D,Manufacturing,37,Transportation Equipment,374
+0001123360,GLOBAL PAYMENTS INC,7389,I,Services,73,Business Services,738
+0000860730,"HCA HEALTHCARE, INC.",8062,I,Services,80,Health Services,806
+0001370637,ETSY INC,7389,I,Services,73,Business Services,738
+0001675149,ALCOA CORP,3334,D,Manufacturing,33,Primary Metal Industries,333
+0000704532,ONTO INNOVATION INC.,3829,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0001045450,EPR PROPERTIES,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001212545,WESTERN ALLIANCE BANCORPORATION,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0001274173,JANUS HENDERSON GROUP PLC,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000874761,AES CORP,4991,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",499
+0001796209,API GROUP CORP,7340,I,Services,73,Business Services,734
+0000066004,MIDDLESEX WATER CO,4941,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",494
+0000059527,LINCOLN ELECTRIC HOLDINGS INC,3540,D,Manufacturing,35,Industrial Machinery & Equipment,354
+0001705696,VICI PROPERTIES INC.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001591698,PAYLOCITY HOLDING CORP,7372,I,Services,73,Business Services,737
+0001326801,"META PLATFORMS, INC.",7370,I,Services,73,Business Services,737
+0000879101,KIMCO REALTY CORP,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001626115,PJT PARTNERS INC.,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0000277509,FEDERAL SIGNAL CORP /DE/,3711,D,Manufacturing,37,Transportation Equipment,371
+0001057877,IDACORP INC,4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001620533,SHAKE SHACK INC.,5810,G,Retail Trade,58,Eating & Drinking Places,581
+0001915657,HF SINCLAIR CORP,4610,E,Transportation & Utilities,46,Pipelines,461
+0000910521,DECKERS OUTDOOR CORP,3021,D,Manufacturing,30,Rubber & Miscellaneous Plastics,302
+0001707925,LINDE PLC,2810,D,Manufacturing,28,Chemicals & Allied Products,281
+0000003453,"MATSON, INC.",4400,E,Transportation & Utilities,44,Water Transportation,440
+0001783879,"ROBINHOOD MARKETS, INC.",6211,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,621
+0001000753,"INSPERITY, INC.",7363,I,Services,73,Business Services,736
+0001596993,DORIAN LPG LTD.,4412,E,Transportation & Utilities,44,Water Transportation,441
+0001324404,"CF INDUSTRIES HOLDINGS, INC.",2870,D,Manufacturing,28,Chemicals & Allied Products,287
+0001408198,MSCI INC.,7389,I,Services,73,Business Services,738
+0000026324,CURTISS WRIGHT CORP,3590,D,Manufacturing,35,Industrial Machinery & Equipment,359
+0000906553,BOYD GAMING CORP,7011,I,Services,70,Hotels & Lodging Places,701
+0001058090,CHIPOTLE MEXICAN GRILL INC,5812,G,Retail Trade,58,Eating & Drinking Places,581
+0001025378,W. P. CAREY INC.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000103379,V F CORP,2320,D,Manufacturing,23,Apparel & Other Finished Products,232
+0000095029,STURM RUGER & CO INC,3480,D,Manufacturing,34,Fabricated Metal Products,348
+0001996862,BUNGE GLOBAL SA,2070,D,Manufacturing,20,Food & Kindred Products,207
+0001623925,ANTERO MIDSTREAM CORP,4922,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0001809987,"MIRION TECHNOLOGIES, INC.",3829,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0000896156,ETHAN ALLEN INTERIORS INC,2511,D,Manufacturing,25,Furniture & Fixtures,251
+0001373670,"GREEN BRICK PARTNERS, INC.",1531,C,Construction,15,Building Construction,153
+0001567683,"CLEARWAY ENERGY, INC.",4911,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",491
+0001659166,FORTIVE CORP,3823,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0001679788,"COINBASE GLOBAL, INC.",6199,H,"Finance, Insurance & Real Estate",61,Non-Depository Credit Institutions,619
+0000315213,ROBERT HALF INC.,7363,I,Services,73,Business Services,736
+0000051143,INTERNATIONAL BUSINESS MACHINES CORP,3570,D,Manufacturing,35,Industrial Machinery & Equipment,357
+0000927003,ADVANCED ENERGY INDUSTRIES INC,3679,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000895417,EQUITY LIFESTYLE PROPERTIES INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001718512,GATES INDUSTRIAL CORP PLC,3560,D,Manufacturing,35,Industrial Machinery & Equipment,356
+0001109357,EXELON CORP,4931,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",493
+0001088856,CORCEPT THERAPEUTICS INC,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0001467760,"APOLLO COMMERCIAL REAL ESTATE FINANCE, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000093389,"STANDARD MOTOR PRODUCTS, INC.",3714,D,Manufacturing,37,Transportation Equipment,371
+0001360604,HEALTHCARE REALTY TRUST INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000899751,TITAN INTERNATIONAL INC,3312,D,Manufacturing,33,Primary Metal Industries,331
+0001275014,"ULTRA CLEAN HOLDINGS, INC.",3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0001876588,ZIMVIE INC.,3843,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001297989,"EXLSERVICE HOLDINGS, INC.",7389,I,Services,73,Business Services,738
+0000856982,MERIT MEDICAL SYSTEMS INC,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0000894315,SITE CENTERS CORP.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001624794,"CSW INDUSTRIALS, INC.",2891,D,Manufacturing,28,Chemicals & Allied Products,289
+0001652044,ALPHABET INC.,7370,I,Services,73,Business Services,737
+0000912562,"GIBRALTAR INDUSTRIES, INC.",3310,D,Manufacturing,33,Primary Metal Industries,331
+0000033213,EQT CORP,1311,B,Mining,13,Oil & Gas Extraction,131
+0000014930,BRUNSWICK CORP,3510,D,Manufacturing,35,Industrial Machinery & Equipment,351
+0001442145,"VERISK ANALYTICS, INC.",7374,I,Services,73,Business Services,737
+0000703351,"BRINKER INTERNATIONAL, INC",5812,G,Retail Trade,58,Eating & Drinking Places,581
+0001005284,UNIVERSAL DISPLAY CORP PA,3670,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000775158,OSHKOSH CORP,3711,D,Manufacturing,37,Transportation Equipment,371
+0000275880,PARSONS CORP,7373,I,Services,73,Business Services,737
+0001051470,CROWN CASTLE INC.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001520697,"ACADIA HEALTHCARE COMPANY, INC.",8093,I,Services,80,Health Services,809
+0001274494,"FIRST SOLAR, INC.",3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000070318,TENET HEALTHCARE CORP,8062,I,Services,80,Health Services,806
+0001053507,AMERICAN TOWER CORP /MA/,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001334036,"CROCS, INC.",3021,D,Manufacturing,30,Rubber & Miscellaneous Plastics,302
+0000073124,NORTHERN TRUST CORP,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000732717,AT&T INC.,4813,E,Transportation & Utilities,48,Communications,481
+0000062996,MASCO CORP /DE/,3430,D,Manufacturing,34,Fabricated Metal Products,343
+0001158463,JETBLUE AIRWAYS CORP,4512,E,Transportation & Utilities,45,Transportation by Air,451
+0000048287,HNI CORP,2522,D,Manufacturing,25,Furniture & Fixtures,252
+0000914208,INVESCO LTD.,6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0001439288,ZURN ELKAY WATER SOLUTIONS CORP,3560,D,Manufacturing,35,Industrial Machinery & Equipment,356
+0000927066,DAVITA INC.,8090,I,Services,80,Health Services,809
+0001465740,TWO HARBORS INVESTMENT CORP.,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000090896,"CHAMPION HOMES, INC.",2451,D,Manufacturing,24,Lumber & Wood Products,245
+0001984060,ATLAS ENERGY SOLUTIONS INC.,1311,B,Mining,13,Oil & Gas Extraction,131
+0000354190,ARTHUR J. GALLAGHER & CO.,6411,H,"Finance, Insurance & Real Estate",64,Insurance Agents & Brokers,641
+0000070858,BANK OF AMERICA CORP /DE/,6021,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000093556,"STANLEY BLACK & DECKER, INC.",3420,D,Manufacturing,34,Fabricated Metal Products,342
+0001103982,"MONDELEZ INTERNATIONAL, INC.",2000,D,Manufacturing,20,Food & Kindred Products,200
+0001018963,ATI INC,3317,D,Manufacturing,33,Primary Metal Industries,331
+0001834622,"HAYWARD HOLDINGS, INC.",3580,D,Manufacturing,35,Industrial Machinery & Equipment,358
+0000899629,ACADIA REALTY TRUST,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001592386,"VIRTU FINANCIAL, INC.",6211,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,621
+0000823768,WASTE MANAGEMENT INC,4953,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",495
+0000814453,NEWELL BRANDS INC.,3089,D,Manufacturing,30,Rubber & Miscellaneous Plastics,308
+0000789460,WORLD KINECT CORP,5172,F,Wholesale Trade,51,Wholesale Trade - Nondurable Goods,517
+0000074303,OLIN CORP,2800,D,Manufacturing,28,Chemicals & Allied Products,280
+0001056288,"FEDERATED HERMES, INC.",6282,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,628
+0001265131,HILLTOP HOLDINGS INC.,6022,H,"Finance, Insurance & Real Estate",60,Depository Institutions (Banks),602
+0000896622,"APTARGROUP, INC.",3089,D,Manufacturing,30,Rubber & Miscellaneous Plastics,308
+0000350698,"AUTONATION, INC.",5500,G,Retail Trade,55,Automotive Dealers & Gas Stations,550
+0001045609,"PROLOGIS, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001021860,NOV INC.,3533,D,Manufacturing,35,Industrial Machinery & Equipment,353
+0001433195,APPFOLIO INC,7372,I,Services,73,Business Services,737
+0001783180,CARRIER GLOBAL CORP,3585,D,Manufacturing,35,Industrial Machinery & Equipment,358
+0000202058,"L3HARRIS TECHNOLOGIES, INC. /DE/",3812,D,Manufacturing,38,Measuring & Analyzing Instruments,381
+0000350894,SEI INVESTMENTS CO,6211,H,"Finance, Insurance & Real Estate",62,Security & Commodity Brokers,621
+0000021665,COLGATE PALMOLIVE CO,2844,D,Manufacturing,28,Chemicals & Allied Products,284
+0001751788,DOW INC.,2821,D,Manufacturing,28,Chemicals & Allied Products,282
+0000021344,COCA COLA CO,2080,D,Manufacturing,20,Food & Kindred Products,208
+0001114483,INTEGER HOLDINGS CORP,3845,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0001111335,VISTEON CORP,3714,D,Manufacturing,37,Transportation Equipment,371
+0001703056,ADT INC.,7381,I,Services,73,Business Services,738
+0000105770,WEST PHARMACEUTICAL SERVICES INC,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0000811596,KAISER ALUMINUM CORP,3350,D,Manufacturing,33,Primary Metal Industries,335
+0001092699,SPS COMMERCE INC,7372,I,Services,73,Business Services,737
+0000029905,DOVER CORP,3530,D,Manufacturing,35,Industrial Machinery & Equipment,353
+0001413329,PHILIP MORRIS INTERNATIONAL INC.,2111,D,Manufacturing,21,Tobacco Products,211
+0001318605,"TESLA, INC.",3711,D,Manufacturing,37,Transportation Equipment,371
+0001561680,"TRI POINTE HOMES, INC.",1531,C,Construction,15,Building Construction,153
+0000217346,TEXTRON INC,3720,D,Manufacturing,37,Transportation Equipment,372
+0001575965,"GAMING & LEISURE PROPERTIES, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001003078,MSC INDUSTRIAL DIRECT CO INC,5084,F,Wholesale Trade,50,Wholesale Trade - Durable Goods,508
+0001093557,DEXCOM INC,3841,D,Manufacturing,38,Measuring & Analyzing Instruments,384
+0000836157,LINDSAY CORP,3523,D,Manufacturing,35,Industrial Machinery & Equipment,352
+0000016058,CACI INTERNATIONAL INC /DE/,7373,I,Services,73,Business Services,737
+0001125376,"ENSIGN GROUP, INC",8051,I,Services,80,Health Services,805
+0000923120,GREENBRIER COMPANIES INC,3743,D,Manufacturing,37,Transportation Equipment,374
+0001157408,"STRIDE, INC.",8200,I,Services,82,Educational Services,820
+0001701605,BAKER HUGHES CO,3533,D,Manufacturing,35,Industrial Machinery & Equipment,353
+0001013857,PEGASYSTEMS INC,7374,I,Services,73,Business Services,737
+0001728951,"ESSENTIAL PROPERTIES REALTY TRUST, INC.",6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000051644,"INTERPUBLIC GROUP OF COMPANIES, INC.",7311,I,Services,73,Business Services,731
+0000200406,JOHNSON & JOHNSON,2834,D,Manufacturing,28,Chemicals & Allied Products,283
+0000097476,TEXAS INSTRUMENTS INC,3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0001996810,GE VERNOVA INC.,3600,D,Manufacturing,36,Electronic & Electrical Equipment,360
+0001032033,SLM CORP,6141,H,"Finance, Insurance & Real Estate",61,Non-Depository Credit Institutions,614
+0001808834,"PROG HOLDINGS, INC.",7359,I,Services,73,Business Services,735
+0001463101,"ENPHASE ENERGY, INC.",3674,D,Manufacturing,36,Electronic & Electrical Equipment,367
+0000822416,PULTEGROUP INC/MI/,1531,C,Construction,15,Building Construction,153
+0000936468,LOCKHEED MARTIN CORP,3760,D,Manufacturing,37,Transportation Equipment,376
+0000702165,NORFOLK SOUTHERN CORP,4011,E,Transportation & Utilities,40,Railroad Transportation,401
+0000040987,GENUINE PARTS CO,5013,F,Wholesale Trade,50,Wholesale Trade - Durable Goods,501
+0000313616,DANAHER CORP /DE/,3823,D,Manufacturing,38,Measuring & Analyzing Instruments,382
+0000917251,AGREE REALTY CORP,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0001506307,"KINDER MORGAN, INC.",4922,E,Transportation & Utilities,49,"Electric, Gas & Sanitary Services",492
+0000921825,FIRST INDUSTRIAL REALTY TRUST INC,6798,H,"Finance, Insurance & Real Estate",67,Holding & Investment Offices,679
+0000062709,"MARSH & MCLENNAN COMPANIES, INC.",6411,H,"Finance, Insurance & Real Estate",64,Insurance Agents & Brokers,641
+0000100517,"UNITED AIRLINES HOLDINGS, INC.",4512,E,Transportation & Utilities,45,Transportation by Air,451
+0001286681,DOMINOS PIZZA INC,5140,F,Wholesale Trade,51,Wholesale Trade - Nondurable Goods,514
+0000008947,AZZ INC,3470,D,Manufacturing,34,Fabricated Metal Products,347
+0000066382,"MILLERKNOLL, INC.",2520,D,Manufacturing,25,Furniture & Fixtures,252
+0000077476,PEPSICO INC,2080,D,Manufacturing,20,Food & Kindred Products,208
+0000876167,PROGRESS SOFTWARE CORP /MA,7372,I,Services,73,Business Services,737
+0000723254,CINTAS CORP,2320,D,Manufacturing,23,Apparel & Other Finished Products,232
+0000039368,FULLER H B CO,2891,D,Manufacturing,28,Chemicals & Allied Products,289

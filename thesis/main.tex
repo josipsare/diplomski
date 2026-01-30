@@ -87,7 +87,7 @@ Ovaj diplomski rad primjenjuje Benfordov zakon na analizu distribucije prvih zna
 
 Analiza otkriva da \textbf{97,5\% poduzeća} pokazuje statistički značajno odstupanje od Benfordove očekivane distribucije ($p < 0{,}05$), s prosječnom hi-kvadrat vrijednošću od 59,83, što je gotovo četiri puta više od kritične vrijednosti 15,507. Identificiran je značajan \textbf{strukturni pomak nakon 2019.\ godine}, pri čemu su prosječne hi-kvadrat vrijednosti porasle za 24\% u odnosu na razdoblje 2014.\,--\,2018.
 
-Studije slučaja poduzeća s visokim anomalijama (Medical Properties Trust, MASIMO Corp) i poduzeća s niskim anomalijama (Oracle, Philip Morris International) pružaju uvid u čimbenike koji utječu na sukladnost s Benfordovim zakonom. Važno je istaknuti da je utvrđena samo \textbf{slaba korelacija} ($r = 0{,}03$) između Benfordovih anomalija i tržišnih performansi dionica, što ukazuje na to da nepravilnosti u financijskom izvještavanju nisu izravno prediktivne za investicijske prinose.
+Studije slučaja poduzeća s visokim anomalijama (Medical Properties Trust, TANDEM Diabetes Care) i poduzeća s niskim anomalijama (Oracle) pružaju uvid u čimbenike koji utječu na sukladnost s Benfordovim zakonom. Važno je istaknuti da \textbf{nije utvrđen prediktivni odnos} ($r = 0{,}004$, $p = 0{,}827$) između Benfordovih anomalija u godini $N$ i prinosa dionica u godini $N{+}1$, što ukazuje na to da nepravilnosti u financijskom izvještavanju ne predviđaju buduće investicijske prinose.
 
 Ovi nalazi doprinose literaturi forenzičkog računovodstva i pružaju okvir za automatizirano pretraživanje financijskih izvještaja.
 
@@ -121,7 +121,7 @@ Ova formula daje očekivanu distribuciju prikazanu na slici~\ref{fig:benford_exp
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{benford_expected.png}
-    \caption{Benfordov zakon: očekivana distribucija prvih znamenki. Vjerojatnost logaritamski opada od 30,1\% za znamenku 1 do 4,6\% za znamenku 9.}
+    \caption{Stupčasti dijagram očekivane distribucije prvih znamenki prema Benfordovom zakonu za znamenke od 1 do 9. Svaki stupac prikazuje teorijsku vjerojatnost pojavljivanja pojedine znamenke kao prve značajne znamenke u prirodno nastalim podatcima. Znamenka 1 ima najveću očekivanu frekvenciju od 30,1\%, a svaka sljedeća znamenka ima progresivno manju vjerojatnost, sve do znamenke 9 koja se očekuje u samo 4,6\% slučajeva. Iznad svakog stupca navedena je točna postotna vrijednost. U gornjem desnom kutu prikazana je formula $P(d) = \log_{10}(1 + 1/d)$ koja definira ovu distribuciju.}
     \label{fig:benford_expected}
 \end{figure}
 
@@ -159,7 +159,7 @@ Financijski podaci prikupljeni su iz baze SEC EDGAR Financial Statement Data Set
 \begin{itemize}
     \item \textbf{Vremensko razdoblje:} 1.\ tromjesečje 2014.\ do 4.\ tromjesečje 2024.\ (44 tromjesečja)
     \item \textbf{Poduzeća:} 442 jedinstvena SEC podnositelja
-    \item \textbf{Opservacije:} 4.862 zapisa poduzeće-godina
+    \item \textbf{Opservacije:} 4862 zapisa poduzeće-godina
 \end{itemize}
 
 Za svako promatranje poduzeće-godina izdvojene su sve numeričke vrijednosti iz financijskih izvještaja, uz isključivanje nultih vrijednosti (koje narušavaju pretpostavke Benfordovog zakona) i uzimanje apsolutnih vrijednosti negativnih iznosa.
@@ -250,7 +250,7 @@ Analiza otkriva rasprostranjeno odstupanje od Benfordovog zakona među javno lis
 \begin{itemize}
     \item \textbf{97,5\%} poduzeća pokazuje statistički značajno odstupanje ($p < 0{,}05$) u najmanje jednoj godini
     \item Prosječna hi-kvadrat vrijednost: \textbf{59,83} (nasuprot kritičnoj vrijednosti od 15,507)
-    \item Prosječni MAD: \textbf{1,83} (što ukazuje na opću nesukladnost)
+    \item Prosječni MAD: \textbf{1,28} (što ukazuje na graničnu sukladnost)
 \end{itemize}
 
 Slika~\ref{fig:mad_histogram} prikazuje distribuciju MAD vrijednosti za sve opservacije poduzeće-godina.
@@ -258,7 +258,7 @@ Slika~\ref{fig:mad_histogram} prikazuje distribuciju MAD vrijednosti za sve opse
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{mad_histogram.png}
-    \caption{Distribucija MAD vrijednosti za 4.862 opservacije poduzeće-godina. Većina opservacija premašuje prag ``dobre sukladnosti'' od 1,5, sa značajnim repom distribucije koji se proteže u područje visokog rizika.}
+    \caption{Histogram distribucije MAD (srednje apsolutno odstupanje) vrijednosti za ukupno 4862 opservacije poduzeće-godina u razdoblju 2014.\,--\,2024. Svaki stupac predstavlja broj opservacija unutar određenog raspona MAD vrijednosti, pri čemu su stupci obojeni prema razini rizika: zeleno za nizak rizik (MAD $< 1{,}5$), žuto za srednji rizik ($1{,}5 \leq$ MAD $< 2{,}5$), narančasto za visok rizik ($2{,}5 \leq$ MAD $< 4{,}0$) i crveno za kritičan rizik (MAD $\geq 4{,}0$). Zelena isprekidana okomita linija označava prag dobre sukladnosti (MAD $= 1{,}5$), a narančasta isprekidana linija označava prag zabrinjavajućeg odstupanja (MAD $= 2{,}5$). U gornjem desnom kutu prikazane su deskriptivne statistike: ukupan broj opservacija ($n = 4862$), aritmetička sredina (1,28) i medijan (1,27). Distribucija pokazuje da većina poduzeća ima MAD vrijednosti između 0,5 i 2,0, s dugim repom koji se proteže prema višim vrijednostima.}
     \label{fig:mad_histogram}
 \end{figure}
 
@@ -269,7 +269,7 @@ Ključni nalaz jest \textbf{strukturni pomak nakon 2019.\ godine} u sukladnosti 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{chi_square_trend.png}
-    \caption{Rezultati hi-kvadrat testa po godinama (2014.\,--\,2024.). Prosječna hi-kvadrat vrijednost porasla je za približno 24\% iz razdoblja 2014.\,--\,2018.\ u odnosu na 2019.\,--\,2024., dok je postotak poduzeća sa značajnim odstupanjem porastao s 91\% na 97\%.}
+    \caption{Vremenski trendovi rezultata hi-kvadrat testa za 442 poduzeća po godinama od 2014.\ do 2024. Plava linija s kružnim markerima prikazuje prosječnu hi-kvadrat vrijednost svih poduzeća za svaku godinu, a zelena isprekidana linija prikazuje medijan. Svijetloplavo zasjenjeno područje oko prosjeka predstavlja raspon jedne standardne devijacije. Crvena vodoravna isprekidana linija označava kritičnu vrijednost hi-kvadrat testa od 15,507 (8 stupnjeva slobode, $\alpha = 0{,}05$), iznad koje odstupanje od Benfordovog zakona postaje statistički značajno. Sivi stupci na pozadini (desna os $y$) prikazuju postotak poduzeća čija je $p$-vrijednost manja od 0,05 u svakoj godini. Vidljiv je strukturni pomak nakon 2019.\ godine: prosječna hi-kvadrat vrijednost porasla je s otprilike 45 u razdoblju 2014.\,--\,2018.\ na 55\,--\,60 u razdoblju 2019.\,--\,2024.}
     \label{fig:chi_trend}
 \end{figure}
 
@@ -295,7 +295,7 @@ Slika~\ref{fig:risk_pie} prikazuje ukupnu distribuciju rizika za 442 poduzeća n
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{risk_distribution.png}
-    \caption{Distribucija rizika za 442 poduzeća na temelju prosječnog MAD rezultata u promatranom razdoblju. Samo 32,1\% poduzeća zadržava dobru sukladnost s Benfordovim zakonom.}
+    \caption{Tortni dijagram distribucije rizika za 442 poduzeća, klasificirana prema prosječnoj MAD vrijednosti kroz čitavo promatrano razdoblje 2014.\,--\,2024. Svaki isječak predstavlja jednu kategoriju rizika: zelena boja označava nizak rizik (MAD $< 1{,}5$), žuta srednji rizik ($1{,}5 \leq$ MAD $< 2{,}5$), narančasta visok rizik ($2{,}5 \leq$ MAD $< 4{,}0$) i crvena kritičan rizik (MAD $\geq 4{,}0$). Unutar svakog isječka naveden je postotak i apsolutni broj poduzeća. Najveći udio od 69,0\% (304 poduzeća) spada u kategoriju niskog rizika, dok 30,3\% (134 poduzeća) pripada srednjem riziku. Kategorije visokog i kritičnog rizika čine zanemariv udio ukupnog uzorka.}
     \label{fig:risk_pie}
 \end{figure}
 
@@ -370,7 +370,7 @@ Slika~\ref{fig:digit_comparison} uspoređuje distribuciju znamenki poduzeća Med
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{digit_comparison.png}
-    \caption{Usporedba distribucije prvih znamenki: Benfordova očekivana distribucija nasuprot Oracle (sukladno) i Medical Properties Trust (sumnjivo). Medical Properties Trust pokazuje sustavnu prezastupljenost znamenki 5 i 8 te podzastupljenost srednjih znamenki.}
+    \caption{Stupčasti dijagram koji uspoređuje distribuciju prvih znamenki (1\,--\,9) za tri skupa podataka, prikazanih kao tri stupca za svaku znamenku. Plavi stupci prikazuju Benfordovu teorijski očekivanu distribuciju, zeleni stupci prikazuju opaženu distribuciju za Oracle Corporation (poduzeće s najboljom sukladnošću, prosječni $\chi^2 = 16{,}55$), a crveni stupci prikazuju opaženu distribuciju za Medical Properties Trust (najsumnjivije poduzeće, prosječni $\chi^2 = 152{,}87$). Os $y$ prikazuje frekvenciju pojavljivanja u postotcima. Oracle gotovo savršeno prati Benfordovu krivulju, s frekvencijom znamenke 1 od 29,8\% (očekivano 30,1\%). Medical Properties Trust pokazuje značajna odstupanja: znamenka 5 pojavljuje se u 13,3\% slučajeva (očekivano 7,9\%), a znamenka 8 u 8,9\% (očekivano 5,1\%), dok su znamenke 3 i 4 podzastupljene.}
     \label{fig:digit_comparison}
 \end{figure}
 
@@ -380,8 +380,8 @@ TANDEM Diabetes Care (NASDAQ: TNDM) predstavlja najdramatičniji slučaj korelac
 
 \begin{itemize}
     \item Prosječna hi-kvadrat vrijednost: 62,0 (četiri puta iznad kritičnog praga)
-    \item \textbf{Najgori godišnji prinos: $-88{,}8$\%} (najveći pad u skupu podataka)
-    \item \textbf{Međugodišnji pad: $-1.319{,}6$\%} od vrhunca do dna
+    \item \textbf{Najgori godišnji prinos: $-88{,}8$\%} (2017.\ godina, jedan od najvećih padova u skupu podataka)
+    \item Ekstremna volatilnost: nakon pada od $-88{,}8$\% u 2017., dionica je zabilježila rast od $+1394{,}9$\% u 2018., a zatim ponovni pad od $-70{,}1$\% u 2022.
     \item Obrazac sugerira da su problemi u financijskom izvještavanju prethodili tržišnom prepoznavanju
 \end{itemize}
 
@@ -394,7 +394,7 @@ Slika~\ref{fig:case_trends} prikazuje trendove MAD vrijednosti za četiri poduze
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{case_study_trends.png}
-    \caption{Trendovi MAD vrijednosti za odabrana poduzeća iz studija slučaja (2014.\,--\,2024.). Medical Properties Trust i TANDEM pokazuju povišene i volatilne obrasce, dok Oracle zadržava dosljedno niske vrijednosti koje ukazuju na pouzdano financijsko izvještavanje.}
+    \caption{Linijski dijagram koji prikazuje trendove MAD vrijednosti kroz godine 2014.\,--\,2024.\ za četiri odabrana poduzeća iz studija slučaja. Svaka linija s kružnim markerima predstavlja jedno poduzeće: Medical Properties Trust (najviši prosječni $\chi^2 = 152{,}87$), TANDEM Diabetes Care (najgori prinos dionice od $-88{,}8$\%), Semtech Corp ($\chi^2 = 88{,}6$, prinos $-68$\%) i Oracle Corporation (referentno poduzeće s dobrom sukladnošću). Zelena vodoravna isprekidana linija označava prag dobre sukladnosti (MAD $= 1{,}5$), a crvena isprekidana linija označava prag zabrinjavajućeg odstupanja (MAD $= 2{,}5$). Medical Properties Trust dosljedno prelazi oba praga, dok Oracle ostaje ispod praga od 1,5 gotovo u svim godinama. TANDEM i Semtech pokazuju volatilne obrasce s naglim skokovima i padovima između godina.}
     \label{fig:case_trends}
 \end{figure}
 
@@ -403,8 +403,8 @@ Slika~\ref{fig:case_trends} prikazuje trendove MAD vrijednosti za četiri poduze
 Oracle Corporation dosljedno održava izvrsnu sukladnost s Benfordovim zakonom:
 
 \begin{itemize}
-    \item Prosječna hi-kvadrat vrijednost: 10,59 (ispod kritične vrijednosti)
-    \item Prosječna p-vrijednost: 0,306 (nije statistički značajno)
+    \item Prosječna hi-kvadrat vrijednost: 16,55 (blizu kritične vrijednosti od 15,507)
+    \item Prosječna p-vrijednost: 0,201 (nije statistički značajno)
     \item Frekvencija znamenke 1: 29,8\% (vrlo blizu očekivanih 30,1\%)
 \end{itemize}
 
@@ -418,55 +418,44 @@ Oracle Corporation dosljedno održava izvrsnu sukladnost s Benfordovim zakonom:
 \newpage
 \section{Analiza korelacije s cijenama dionica}
 
-\subsection{Odnos između anomalija i prinosa}
+\subsection{Odgođena korelacija: predviđa li MAD u godini $N$ prinose u godini $N{+}1$?}
 
-Ključno pitanje jest predviđaju li Benfordove anomalije performanse dionica. Analiziran je odnos između MAD vrijednosti i godišnjih prinosa dionica za 438 poduzeća.
+Ključno pitanje jest mogu li Benfordove anomalije u financijskim izvještajima jedne godine \emph{predvidjeti} prinose dionica u sljedećoj godini. Ako tržište sporo otkriva financijske nepravilnosti, mogla bi se pojaviti odgođena povezanost.
+
+Izračunata je Pearsonova korelacija između MAD vrijednosti svakog poduzeća u godini $N$ i godišnjeg prinosa dionice u godini $N{+}1$, za sve uzastopne parove godina od 2014./2015.\ do 2023./2024.\ (ukupno 3490 opservacija za 438 poduzeća). Slika~\ref{fig:stock_scatter} prikazuje skupni dijagram raspršenja.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{stock_correlation.png}
-    \caption{Dijagram raspršenja MAD vrijednosti (Benfordova anomalija) u odnosu na godišnji prinos dionice. Slaba korelacija ($r = 0{,}03$) ukazuje na to da nepravilnosti u financijskom izvještavanju nisu izravno prediktivne za investicijske prinose.}
+    \caption{Dijagram raspršenja koji prikazuje odgođenu korelaciju između MAD vrijednosti u godini $N$ (os $x$) i godišnjeg prinosa dionice u godini $N{+}1$ (os $y$) za ukupno 3490 opservacija poduzeće-godina u razdoblju 2014.\,--\,2024. Svaka točka predstavlja jedno poduzeće u jednoj godini, a boja točke odgovara njezinoj MAD vrijednosti prema skali boja s desne strane (zelena za nizak MAD, crvena za visok MAD). Crvena isprekidana linija prikazuje linearnu regresiju koja je gotovo potpuno vodoravna, potvrđujući zanemariv odnos ($r = 0{,}004$, $p = 0{,}827$). Zelena okomita isprekidana linija označava prag dobre sukladnosti (MAD $= 1{,}5$), a crvena okomita isprekidana linija prag zabrinjavajućeg odstupanja (MAD $= 2{,}5$). Crna vodoravna linija označava nulti prinos. Raspršenost točaka bez vidljivog obrasca potvrđuje da Benfordove anomalije u financijskim izvještajima ne predviđaju buduće prinose dionica.}
     \label{fig:stock_scatter}
 \end{figure}
 
-\subsection{Ključni nalaz: slaba korelacija}
+\subsection{Ključni nalaz: nepostojanje prediktivnog odnosa}
 
 Analiza otkriva:
 
-\begin{itemize}
-    \item \textbf{Koeficijent korelacije:} $r = 0{,}03$ (zanemariv)
-    \item \textbf{Poduzeća s visokim anomalijama:} 64\% pozitivnih prinosa
-    \item \textbf{Poduzeća s niskim anomalijama:} 64\% pozitivnih prinosa
-\end{itemize}
-
-\textbf{Interpretacija:} Čini se da tržište sustavno ne ugrađuje Benfordove anomalije u cijene. Mogući razlozi za to su:
-\begin{enumerate}
-    \item Odstupanja često odražavaju legitimnu računovodstvenu složenost, a ne prijevaru
-    \item Tržišta su već mogla ugraditi kvalitetu računovodstva u cijene
-    \item Prinosi dionica primarno su uvjetovani temeljnim poslovnim performansama
-\end{enumerate}
-
-\subsection{Odgođena korelacija: predviđa li MAD u godini $N$ prinose u godini $N{+}1$?}
-
-Prirodno proširenje istodobne analize jest ispitati mogu li Benfordove anomalije u financijskim izvještajima jedne godine \emph{predvidjeti} prinose dionica u sljedećoj godini. Ako tržište sporo otkriva financijske nepravilnosti, mogla bi se pojaviti odgođena povezanost.
-
-Izračunata je Pearsonova korelacija između MAD vrijednosti svakog poduzeća u godini $N$ i godišnjeg prinosa dionice u godini $N{+}1$, za sve uzastopne parove godina od 2014./2015.\ do 2023./2024. Slika~\ref{fig:lagged_correlation} prikazuje rezultate.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{lagged_correlation.png}
-    \caption{Analiza odgođene korelacije: MAD u godini $N$ u odnosu na prinos dionice u godini $N{+}1$. Panel (a) prikazuje Pearsonove $r$ vrijednosti po parovima godina s 95\% intervalima pouzdanosti. Panel (b) prikazuje skupni dijagram raspršenja za sve godine.}
-    \label{fig:lagged_correlation}
-\end{figure}
-
-\textbf{Ključni nalazi:}
 \begin{itemize}
     \item \textbf{Skupna korelacija:} $r = 0{,}004$ ($p = 0{,}827$), što ukazuje na nepostojanje prediktivnog odnosa.
     \item \textbf{Analiza po parovima godina:} Nijedan pojedinačni par godina nije dosegao statističku značajnost pri $p < 0{,}05$. Par 2021./2022.\ pokazao je najjači signal ($r = -0{,}094$, $p = 0{,}08$), što moguće odražava tržišne turbulencije tijekom korekcije 2022.\ godine.
     \item \textbf{Nedosljednost smjera:} Korelacije su se izmjenjivale između pozitivnih i negativnih vrijednosti kroz parove godina, što dodatno potvrđuje odsutnost sustavnog odgođenog učinka.
 \end{itemize}
 
-Ovaj rezultat sukladan je s hipotezom efikasnog tržišta: kad bi Benfordova odstupanja sadržavala iskoristivu informaciju, racionalni investitori bi je brzo ugradili u cijene, eliminirajući odgođeni signal.
+Slika~\ref{fig:lagged_bars} detaljnije prikazuje korelacije za svaki pojedinačni par uzastopnih godina.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{lagged_correlation.png}
+    \caption{Analiza odgođene korelacije po parovima godina. Panel (a) prikazuje Pearsonove $r$ koeficijente korelacije za svaki par uzastopnih godina (npr.\ MAD iz 2014.\ u odnosu na prinos u 2015.), pri čemu sivi stupci označavaju statistički neznačajne rezultate ($p \geq 0{,}05$), a crveni stupci bi označavali značajne ($p < 0{,}05$). Nijedan par godina nije dosegao statističku značajnost. Korelacije se izmjenjuju između pozitivnih i negativnih vrijednosti, pri čemu je najjači negativni signal zabilježen za par 2021./2022.\ ($r = -0{,}094$). Panel (b) prikazuje skupni dijagram raspršenja svih 3490 opservacija, gdje svaka točka predstavlja jedno poduzeće-godinu s MAD vrijednošću na osi $x$ i prinosom dionice sljedeće godine na osi $y$. Crvena linija regresije gotovo je potpuno vodoravna, potvrđujući zanemariv odnos ($r = 0{,}004$, $p = 0{,}827$).}
+    \label{fig:lagged_bars}
+\end{figure}
+
+\textbf{Interpretacija:} Ovaj rezultat sukladan je s hipotezom efikasnog tržišta: kad bi Benfordova odstupanja sadržavala iskoristivu informaciju, racionalni investitori bi je brzo ugradili u cijene, eliminirajući odgođeni signal. Mogući razlozi za odsutnost korelacije su:
+\begin{enumerate}
+    \item Odstupanja često odražavaju legitimnu računovodstvenu složenost, a ne prijevaru
+    \item Tržišta su već mogla ugraditi kvalitetu računovodstva u cijene
+    \item Prinosi dionica primarno su uvjetovani temeljnim poslovnim performansama
+\end{enumerate}
 
 \subsection{Benfordova analiza obujma trgovanja}
 
@@ -475,7 +464,7 @@ Alternativna perspektiva ispituje pokazuju li poduzeća s anomalnim financijskim
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{volume_benford_correlation.png}
-    \caption{Korelacija između Benfordovog MAD-a financijskih izvještaja i Benfordovog MAD-a obujma trgovanja. Panel (a) prikazuje Pearsonove $r$ vrijednosti po godinama. Panel (b) prikazuje skupni dijagram raspršenja za sve godine.}
+    \caption{Dvodijelna vizualizacija korelacije između Benfordovog MAD-a financijskih izvještaja i Benfordovog MAD-a dnevnih obujmova trgovanja. Panel (a) prikazuje stupčasti dijagram Pearsonovih $r$ koeficijenata korelacije za svaku godinu od 2014.\ do 2024., pri čemu crveni stupci označavaju statistički značajne rezultate ($p < 0{,}05$), a sivi neznačajne ($p \geq 0{,}05$). Negativna korelacija opažena je u 9 od 11 godina, s vrijednostima u rasponu od $r = -0{,}09$ do $r = -0{,}29$. Panel (b) prikazuje skupni dijagram raspršenja svih 3832 opservacije, gdje svaka točka predstavlja jedno poduzeće-godinu: os $x$ prikazuje MAD financijskih izvještaja, a os $y$ MAD obujma trgovanja. Crvena linija regresije ima negativan nagib, potvrđujući skupnu korelaciju od $r = -0{,}160$ ($p < 0{,}001$). Ovaj protuintuitivni rezultat sugerira da poduzeća s većim nepravilnostima u financijskim izvještajima imaju pravilnije obrasce obujma trgovanja.}
     \label{fig:volume_benford}
 \end{figure}
 
@@ -496,7 +485,7 @@ Slika~\ref{fig:heatmap} pruža sveobuhvatan pregled 30 najsumnjivijih poduzeća 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{heatmap_companies.png}
-    \caption{Toplinska karta MAD vrijednosti za 30 najsumnjivijih poduzeća (2014.\,--\,2024.). Tamnije crvena boja označava više rezultate anomalija. Okomiti obrasci ukazuju na učinke specifične za pojedine godine koji utječu na sva poduzeća.}
+    \caption{Toplinska karta (heatmap) MAD vrijednosti za 30 najsumnjivijih poduzeća u razdoblju 2014.\,--\,2024., rangiranih od vrha prema dnu po prosječnoj MAD vrijednosti. Svaka ćelija matrice prikazuje MAD vrijednost jednog poduzeća u jednoj godini, obojenu prema skali boja prikazanoj s desne strane: tamno zelena označava nisku MAD vrijednost (dobra sukladnost), žuta srednju, a tamno crvena visoku MAD vrijednost (sumnjivo odstupanje, MAD $> 4{,}0$). Okomita os prikazuje nazive poduzeća, a vodoravna os godine od 2014.\ do 2024. Okomiti pojasevi intenzivnije boje (npr.\ oko 2018.\ i 2020.) ukazuju na učinke specifične za pojedine godine koji istodobno utječu na više poduzeća. Među 30 najsumnjivijih nerazmjerno su zastupljeni REIT-ovi (investicijski fondovi u nekretnine) i poduzeća iz sektora ugostiteljstva.}
     \label{fig:heatmap}
 \end{figure}
 
@@ -566,7 +555,7 @@ Ovaj diplomski rad analizirao je sukladnost s Benfordovim zakonom za 442 poduze�
 
     \item \textbf{Vremenski pomak:} Porast prosječnih hi-kvadrat vrijednosti od 24\% nakon 2019.\ godine, potencijalno povezan s pandemijom COVID-19 i promjenama računovodstvenih standarda.
 
-    \item \textbf{Slaba tržišna korelacija:} Benfordove anomalije pokazuju zanemarivu istodobnu korelaciju ($r = 0{,}03$) s prinosima dionica te nemaju odgođenu prediktivnu moć ($r = 0{,}004$, $p = 0{,}827$).
+    \item \textbf{Nepostojanje prediktivnog odnosa:} Odgođena korelacija između Benfordovih anomalija u godini $N$ i prinosa dionica u godini $N{+}1$ iznosi $r = 0{,}004$ ($p = 0{,}827$), što ukazuje na potpunu odsutnost prediktivne moći.
 
     \item \textbf{Divergencija obujma i financijskih izvještaja:} Značajna negativna korelacija ($r = -0{,}160$, $p < 0{,}001$) između MAD-a financijskih izvještaja i MAD-a obujma trgovanja ukazuje na to da oni obuhvaćaju bitno različita numerička svojstva.
 

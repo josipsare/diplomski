@@ -1,0 +1,146 @@
+cik,company_name,year,sic_code,sector_name,company_MAD,sector_median_MAD,sector_mean_MAD,sector_std_MAD,z_score_vs_sector,percentile_in_sector,deviation_from_median,is_outlier,is_extreme_outlier,sector_company_count,sector_rank,deviation_direction
+0001707925,LINDE PLC,2017,2810,Chemicals & Allied Products,6.5648,1.425,1.5316,1.0874,4.6285,100.0,5.1398,True,True,31,31,worse_than_peers
+0001809987,"Mirion Technologies, Inc.",2020,3829,Measuring & Analyzing Instruments,7.2283,1.5232,1.7999,1.3383,4.0562,100.0,5.7051,True,True,20,20,worse_than_peers
+0001661181,Organogenesis Holdings Inc.,2016,2834,Chemicals & Allied Products,4.3012,1.34,1.4692,0.7809,3.6267,99.99,2.9612,True,True,28,28,worse_than_peers
+0001296445,"ORMAT TECHNOLOGIES, INC.",2014,4911,"Electric, Gas & Sanitary Services",2.1544,0.8028,0.8617,0.3582,3.6089,99.98,1.3516,True,True,20,20,worse_than_peers
+0001623925,Antero Midstream Corp,2017,4922,"Electric, Gas & Sanitary Services",2.7096,1.0483,0.9979,0.4896,3.496,99.98,1.6613,True,True,21,21,worse_than_peers
+0001326732,Xencor Inc,2014,2834,Chemicals & Allied Products,3.6966,1.4375,1.549,0.6206,3.4606,99.97,2.2592,True,True,24,24,worse_than_peers
+0001490906,"Capitol Federal Financial, Inc.",2020,6035,Depository Institutions (Banks),2.92,1.1194,1.2621,0.4954,3.3467,99.96,1.8006,True,True,28,28,worse_than_peers
+0001873923,Orion Properties Inc.,2023,6798,Holding & Investment Offices,3.6408,1.3933,1.527,0.635,3.3286,99.96,2.2474,True,True,38,38,worse_than_peers
+0000315213,ROBERT HALF INC.,2020,7363,Business Services,3.173,1.2848,1.4696,0.5263,3.2366,99.94,1.8882,True,True,41,41,worse_than_peers
+0001705696,VICI PROPERTIES INC.,2017,6798,Holding & Investment Offices,3.1856,1.266,1.3465,0.5684,3.2354,99.94,1.9196,True,True,35,35,worse_than_peers
+0001296445,"ORMAT TECHNOLOGIES, INC.",2015,4911,"Electric, Gas & Sanitary Services",2.0602,0.9302,0.9394,0.3465,3.2346,99.94,1.13,True,True,20,20,worse_than_peers
+0001490906,"Capitol Federal Financial, Inc.",2023,6035,Depository Institutions (Banks),2.6133,1.2453,1.2749,0.4176,3.2046,99.93,1.368,True,True,28,28,worse_than_peers
+0001451809,SITIME Corp,2023,3674,Electronic & Electrical Equipment,3.1125,1.223,1.4116,0.5561,3.0584,99.89,1.8895,True,True,15,15,worse_than_peers
+0001360604,Healthcare Realty Trust Inc,2021,6798,Holding & Investment Offices,3.1859,1.6365,1.6225,0.5162,3.0288,99.88,1.5494,True,True,38,38,worse_than_peers
+0001600033,"e.l.f. Beauty, Inc.",2022,2844,Chemicals & Allied Products,3.5444,1.5209,1.5771,0.6583,2.9883,99.86,2.0235,True,False,33,33,worse_than_peers
+0000315213,ROBERT HALF INC.,2018,7363,Business Services,2.6703,1.2725,1.3518,0.4458,2.9579,99.85,1.3978,True,False,37,37,worse_than_peers
+0001591698,Paylocity Holding Corp,2016,7372,Business Services,2.6466,1.2126,1.353,0.4438,2.9148,99.82,1.434,True,False,34,34,worse_than_peers
+0000936528,WAFD INC,2019,6021,Depository Institutions (Banks),2.4458,1.1102,1.1872,0.4375,2.8767,99.8,1.3357,True,False,28,28,worse_than_peers
+0000936528,WAFD INC,2018,6021,Depository Institutions (Banks),2.5195,1.1459,1.1929,0.4616,2.8737,99.8,1.3736,True,False,28,28,worse_than_peers
+0001561550,"Datadog, Inc.",2024,7372,Business Services,3.0601,1.6211,1.6381,0.498,2.8554,99.79,1.439,True,False,45,45,worse_than_peers
+0001561550,"Datadog, Inc.",2019,7372,Business Services,3.0079,1.4501,1.513,0.5256,2.8441,99.78,1.5578,True,False,39,39,worse_than_peers
+0000315213,ROBERT HALF INC.,2019,7363,Business Services,3.0062,1.4501,1.513,0.5256,2.8409,99.78,1.5561,True,False,39,38,worse_than_peers
+0001490906,"Capitol Federal Financial, Inc.",2022,6035,Depository Institutions (Banks),2.4404,1.2701,1.2824,0.4081,2.8376,99.77,1.1703,True,False,28,28,worse_than_peers
+0001873923,Orion Properties Inc.,2022,6798,Holding & Investment Offices,2.8851,1.5338,1.5203,0.4835,2.8225,99.76,1.3514,True,False,38,38,worse_than_peers
+0001327567,Palo Alto Networks Inc,2016,3577,Industrial Machinery & Equipment,2.2677,1.1902,1.2887,0.3486,2.8087,99.75,1.0775,True,False,23,23,worse_than_peers
+0001707925,LINDE PLC,2018,2810,Chemicals & Allied Products,3.8245,1.3473,1.4858,0.8341,2.8037,99.75,2.4772,True,False,31,31,worse_than_peers
+0001360604,Healthcare Realty Trust Inc,2020,6798,Holding & Investment Offices,3.083,1.603,1.6008,0.5311,2.7907,99.74,1.48,True,False,36,36,worse_than_peers
+0001661181,Organogenesis Holdings Inc.,2018,2834,Chemicals & Allied Products,3.7667,1.3473,1.4858,0.8341,2.7344,99.69,2.4194,True,False,31,30,worse_than_peers
+0001490906,"Capitol Federal Financial, Inc.",2021,6035,Depository Institutions (Banks),2.5575,1.2003,1.2948,0.4619,2.7338,99.69,1.3572,True,False,28,28,worse_than_peers
+0001051470,CROWN CASTLE INC.,2016,6798,Holding & Investment Offices,2.6997,1.2439,1.3544,0.4945,2.7204,99.67,1.4558,True,False,34,34,worse_than_peers
+0001600033,"e.l.f. Beauty, Inc.",2023,2844,Chemicals & Allied Products,3.2216,1.3508,1.5252,0.6247,2.7154,99.67,1.8708,True,False,33,33,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2021,2086,Food & Kindred Products,2.7182,1.1962,1.3668,0.5023,2.6907,99.64,1.522,True,False,10,10,worse_than_peers
+0000357301,TRUSTCO BANK CORP N Y,2017,6022,Depository Institutions (Banks),2.5212,1.2254,1.2671,0.4684,2.6776,99.63,1.2958,True,False,28,28,worse_than_peers
+0000926326,"OMNICELL, INC.",2021,3571,Industrial Machinery & Equipment,2.6951,1.3175,1.3714,0.4952,2.6731,99.62,1.3776,True,False,28,28,worse_than_peers
+0001761312,"Palomar Holdings, Inc.",2024,6331,Insurance Carriers,2.4554,0.9762,1.0935,0.5166,2.6361,99.58,1.4792,True,False,10,10,worse_than_peers
+0001600033,"e.l.f. Beauty, Inc.",2021,2844,Chemicals & Allied Products,3.2555,1.2714,1.5084,0.6653,2.6262,99.57,1.9841,True,False,33,33,worse_than_peers
+0000854775,DIGI INTERNATIONAL INC,2015,3576,Industrial Machinery & Equipment,2.2959,1.1545,1.2246,0.4116,2.6025,99.54,1.1414,True,False,23,23,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2019,2086,Food & Kindred Products,2.9993,1.165,1.3169,0.6475,2.5983,99.53,1.8343,True,False,9,9,worse_than_peers
+0000006951,APPLIED MATERIALS INC /DE,2017,3674,Electronic & Electrical Equipment,2.6926,1.5047,1.5486,0.4408,2.5952,99.53,1.1879,True,False,14,14,worse_than_peers
+0000755001,UNITIL CORP,2022,4931,"Electric, Gas & Sanitary Services",2.4307,1.1618,1.2285,0.4636,2.5932,99.52,1.2689,True,False,21,21,worse_than_peers
+0001298946,DiamondRock Hospitality Co,2018,6798,Holding & Investment Offices,2.6525,1.4241,1.4123,0.4786,2.5915,99.52,1.2284,True,False,36,36,worse_than_peers
+0001497645,"Summit Hotel Properties, Inc.",2016,6798,Holding & Investment Offices,2.6359,1.2439,1.3544,0.4945,2.5914,99.52,1.392,True,False,34,33,worse_than_peers
+0001284812,"COHEN & STEERS, INC.",2018,6282,Security & Commodity Brokers,2.2384,1.1867,1.2367,0.3883,2.5796,99.51,1.0517,True,False,13,13,worse_than_peers
+0001013488,BJs RESTAURANTS INC,2018,5812,Eating & Drinking Places,2.7294,1.2255,1.3533,0.5417,2.5406,99.45,1.5039,True,False,11,11,worse_than_peers
+0001591698,Paylocity Holding Corp,2015,7372,Business Services,2.4891,1.3992,1.445,0.4142,2.5206,99.41,1.0899,True,False,33,33,worse_than_peers
+0000755001,UNITIL CORP,2023,4931,"Electric, Gas & Sanitary Services",2.5058,1.0936,1.178,0.5297,2.5066,99.39,1.4122,True,False,22,22,worse_than_peers
+0001497645,"Summit Hotel Properties, Inc.",2015,6798,Holding & Investment Offices,2.8494,1.3685,1.5017,0.5406,2.4932,99.37,1.481,True,False,34,34,worse_than_peers
+0001088856,CORCEPT THERAPEUTICS INC,2024,2834,Chemicals & Allied Products,3.0668,1.6192,1.7101,0.5469,2.4807,99.34,1.4476,True,False,33,33,worse_than_peers
+0001761312,"Palomar Holdings, Inc.",2019,6331,Insurance Carriers,2.0859,0.9431,1.0763,0.4092,2.4673,99.32,1.1428,True,False,9,9,worse_than_peers
+0001451809,SITIME Corp,2024,3674,Electronic & Electrical Equipment,2.7392,1.2939,1.3686,0.5583,2.4549,99.3,1.4453,True,False,16,16,worse_than_peers
+0001670541,Adient plc,2018,3714,Transportation Equipment,2.4502,1.2809,1.2502,0.4894,2.452,99.29,1.1693,True,False,16,16,worse_than_peers
+0001298946,DiamondRock Hospitality Co,2024,6798,Holding & Investment Offices,2.7658,1.4158,1.4984,0.517,2.4515,99.29,1.35,True,False,38,38,worse_than_peers
+0001623925,Antero Midstream Corp,2020,4922,"Electric, Gas & Sanitary Services",2.1068,1.1442,1.1346,0.3967,2.4508,99.29,0.9626,True,False,21,21,worse_than_peers
+0001761312,"Palomar Holdings, Inc.",2023,6331,Insurance Carriers,1.9829,0.8348,0.9658,0.4156,2.4475,99.28,1.1482,True,False,10,10,worse_than_peers
+0001743759,"Corsair Gaming, Inc.",2022,3577,Industrial Machinery & Equipment,2.3751,1.4757,1.4179,0.3937,2.4311,99.25,0.8994,True,False,28,28,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2014,2086,Food & Kindred Products,3.2687,0.9761,1.2331,0.8383,2.4282,99.24,2.2926,True,False,8,8,worse_than_peers
+0000315213,ROBERT HALF INC.,2017,7363,Business Services,2.6553,1.4053,1.4205,0.5086,2.428,99.24,1.25,True,False,35,35,worse_than_peers
+0000854775,DIGI INTERNATIONAL INC,2019,3576,Industrial Machinery & Equipment,2.1867,1.334,1.2997,0.3705,2.3943,99.17,0.8527,True,False,25,25,worse_than_peers
+0001623925,Antero Midstream Corp,2018,4922,"Electric, Gas & Sanitary Services",1.9062,0.9015,0.9656,0.3937,2.3894,99.16,1.0047,True,False,21,21,worse_than_peers
+0000899923,MYRIAD GENETICS INC,2015,2835,Chemicals & Allied Products,2.6335,1.5709,1.5437,0.4576,2.3815,99.14,1.0626,True,False,26,26,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2022,2086,Food & Kindred Products,2.446,1.2169,1.3199,0.475,2.3705,99.11,1.2291,True,False,10,10,worse_than_peers
+0000038777,FRANKLIN RESOURCES INC,2016,6282,Security & Commodity Brokers,2.1239,1.2817,1.3073,0.3449,2.368,99.11,0.8422,True,False,11,11,worse_than_peers
+0000936528,WAFD INC,2015,6021,Depository Institutions (Banks),2.5385,1.1838,1.2697,0.5379,2.3587,99.08,1.3547,True,False,28,28,worse_than_peers
+0001561550,"Datadog, Inc.",2023,7372,Business Services,2.8783,1.4968,1.6082,0.54,2.3521,99.07,1.3815,True,False,44,44,worse_than_peers
+0001809987,"Mirion Technologies, Inc.",2021,3829,Measuring & Analyzing Instruments,3.2159,1.6722,1.7595,0.6198,2.35,99.06,1.5437,True,False,20,20,worse_than_peers
+0001327567,Palo Alto Networks Inc,2017,3577,Industrial Machinery & Equipment,2.2181,1.3544,1.3629,0.3658,2.3381,99.03,0.8637,True,False,24,24,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2015,2086,Food & Kindred Products,2.9134,0.9008,1.0946,0.7791,2.3346,99.02,2.0126,True,False,8,8,worse_than_peers
+0001497645,"Summit Hotel Properties, Inc.",2014,6798,Holding & Investment Offices,2.8905,1.3512,1.5222,0.5922,2.3104,98.96,1.5393,True,False,34,34,worse_than_peers
+0001390777,Bank of New York Mellon Corp,2014,6022,Depository Institutions (Banks),1.916,1.1132,1.1436,0.3362,2.2977,98.92,0.8028,True,False,28,28,worse_than_peers
+0000315213,ROBERT HALF INC.,2015,7363,Business Services,2.3944,1.3992,1.445,0.4142,2.292,98.9,0.9952,True,False,33,32,worse_than_peers
+0001061983,CYTOKINETICS INC,2023,2834,Chemicals & Allied Products,2.9543,1.3508,1.5252,0.6247,2.2875,98.89,1.6035,True,False,33,32,worse_than_peers
+0001490906,"Capitol Federal Financial, Inc.",2024,6035,Depository Institutions (Banks),2.2443,1.2788,1.259,0.433,2.2752,98.86,0.9655,True,False,28,28,worse_than_peers
+0001298946,DiamondRock Hospitality Co,2019,6798,Holding & Investment Offices,2.7456,1.489,1.565,0.5192,2.2738,98.85,1.2566,True,False,36,36,worse_than_peers
+0001671933,"Trade Desk, Inc.",2021,7370,Business Services,2.6725,1.554,1.5149,0.5094,2.2723,98.85,1.1184,True,False,44,44,worse_than_peers
+0001609550,"Inspire Medical Systems, Inc.",2022,3841,Measuring & Analyzing Instruments,2.8818,1.3692,1.583,0.573,2.2666,98.83,1.5126,True,False,21,21,worse_than_peers
+0001591698,Paylocity Holding Corp,2017,7372,Business Services,2.5659,1.4053,1.4205,0.5086,2.2522,98.78,1.1606,True,False,35,34,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2020,2086,Food & Kindred Products,3.1781,1.3404,1.5185,0.7374,2.2504,98.78,1.8378,True,False,10,10,worse_than_peers
+0000097134,TENNANT CO,2023,3580,Industrial Machinery & Equipment,2.4727,1.3986,1.4838,0.4421,2.2367,98.73,1.0742,True,False,28,28,worse_than_peers
+0001123360,GLOBAL PAYMENTS INC,2023,7389,Business Services,2.8131,1.4968,1.6082,0.54,2.2314,98.72,1.3163,True,False,44,43,worse_than_peers
+0001360604,Healthcare Realty Trust Inc,2015,6798,Holding & Investment Offices,2.7074,1.3685,1.5017,0.5406,2.2305,98.71,1.3389,True,False,34,33,worse_than_peers
+0001675149,Alcoa Corp,2016,3334,Primary Metal Industries,1.938,0.9798,1.1634,0.3474,2.2296,98.71,0.9582,True,False,7,7,worse_than_peers
+0001520697,"Acadia Healthcare Company, Inc.",2024,8093,Health Services,2.5947,1.5832,1.5433,0.4722,2.2264,98.7,1.0115,True,False,9,9,worse_than_peers
+0000854775,DIGI INTERNATIONAL INC,2018,3576,Industrial Machinery & Equipment,1.9047,1.1132,1.1874,0.3243,2.2116,98.65,0.7915,True,False,25,25,worse_than_peers
+0001626115,PJT Partners Inc.,2020,6282,Security & Commodity Brokers,2.0408,1.2248,1.2221,0.3722,2.1995,98.61,0.816,True,False,13,13,worse_than_peers
+0001759655,"Privia Health Group, Inc.",2021,8000,Health Services,2.4069,1.3234,1.5503,0.3905,2.1937,98.59,1.0835,True,False,7,7,worse_than_peers
+0000202058,"L3HARRIS TECHNOLOGIES, INC. /DE/",2016,3812,Measuring & Analyzing Instruments,2.8021,1.5224,1.6525,0.5242,2.1929,98.58,1.2797,True,False,18,18,worse_than_peers
+0000357301,TRUSTCO BANK CORP N Y,2016,6022,Depository Institutions (Banks),2.285,1.3085,1.2589,0.4684,2.1908,98.58,0.9765,True,False,28,28,worse_than_peers
+0001600033,"e.l.f. Beauty, Inc.",2024,2844,Chemicals & Allied Products,2.906,1.6192,1.7101,0.5469,2.1866,98.56,1.2868,True,False,33,32,worse_than_peers
+0000937556,MASIMO CORP,2021,3845,Measuring & Analyzing Instruments,3.1142,1.6722,1.7595,0.6198,2.1859,98.56,1.442,True,False,20,19,worse_than_peers
+0001596532,"Arista Networks, Inc.",2014,3576,Industrial Machinery & Equipment,2.1655,1.2464,1.2916,0.4001,2.184,98.55,0.9191,True,False,22,22,worse_than_peers
+0001092699,SPS COMMERCE INC,2018,7372,Business Services,2.323,1.2725,1.3518,0.4458,2.1788,98.53,1.0505,True,False,37,36,worse_than_peers
+0001761312,"Palomar Holdings, Inc.",2020,6331,Insurance Carriers,1.6351,1.1318,1.1348,0.2304,2.1716,98.51,0.5033,True,False,9,9,worse_than_peers
+0001418121,"Apple Hospitality REIT, Inc.",2014,6798,Holding & Investment Offices,2.8071,1.3512,1.5222,0.5922,2.1696,98.5,1.4559,True,False,34,33,worse_than_peers
+0001659166,Fortive Corp,2017,3823,Measuring & Analyzing Instruments,2.7913,1.5538,1.6043,0.5483,2.1649,98.48,1.2376,True,False,18,18,worse_than_peers
+0001659166,Fortive Corp,2016,3823,Measuring & Analyzing Instruments,2.7869,1.5224,1.6525,0.5242,2.1639,98.48,1.2645,True,False,18,17,worse_than_peers
+0001438133,TANDEM DIABETES CARE INC,2014,3841,Measuring & Analyzing Instruments,2.8468,1.4235,1.4778,0.6335,2.1611,98.47,1.4233,True,False,17,17,worse_than_peers
+0000069891,NATIONAL BEVERAGE CORP,2024,2086,Food & Kindred Products,2.4786,1.2741,1.4778,0.465,2.1522,98.43,1.2045,True,False,11,11,worse_than_peers
+0000059527,LINCOLN ELECTRIC HOLDINGS INC,2020,3540,Industrial Machinery & Equipment,2.2235,1.3772,1.4134,0.377,2.1492,98.42,0.8463,True,False,27,27,worse_than_peers
+0001013488,BJs RESTAURANTS INC,2017,5812,Eating & Drinking Places,2.5979,1.3633,1.4372,0.5411,2.145,98.4,1.2346,True,False,11,11,worse_than_peers
+0001658566,Permian Resources Corp,2023,1311,Oil & Gas Extraction,2.642,1.3004,1.4258,0.5692,2.1365,98.37,1.3416,True,False,9,9,worse_than_peers
+0001675149,Alcoa Corp,2017,3334,Primary Metal Industries,1.594,1.1275,1.1327,0.2165,2.1305,98.34,0.4665,True,False,7,7,worse_than_peers
+0001067294,"CRACKER BARREL OLD COUNTRY STORE, INC",2023,5812,Eating & Drinking Places,3.6,1.6944,1.6852,0.8994,2.1289,98.34,1.9056,True,False,11,11,worse_than_peers
+0001284812,"COHEN & STEERS, INC.",2017,6282,Security & Commodity Brokers,2.0017,1.235,1.2833,0.3377,2.1275,98.33,0.7667,True,False,12,12,worse_than_peers
+0001620533,Shake Shack Inc.,2020,5810,Eating & Drinking Places,2.6189,1.4718,1.5428,0.509,2.1141,98.27,1.1471,True,False,11,11,worse_than_peers
+0000357301,TRUSTCO BANK CORP N Y,2015,6022,Depository Institutions (Banks),2.4053,1.1838,1.2697,0.5379,2.1111,98.26,1.2216,True,False,28,27,worse_than_peers
+0000763744,LCI INDUSTRIES,2015,3714,Transportation Equipment,2.3365,1.2333,1.3462,0.4697,2.1084,98.25,1.1032,True,False,15,15,worse_than_peers
+0001104485,"NORTHERN OIL & GAS, INC.",2018,1311,Oil & Gas Extraction,2.4395,1.4031,1.4828,0.455,2.1027,98.23,1.0364,True,False,7,7,worse_than_peers
+0000006951,APPLIED MATERIALS INC /DE,2018,3674,Electronic & Electrical Equipment,2.2884,1.4438,1.4638,0.3925,2.1006,98.22,0.8446,True,False,14,14,worse_than_peers
+0000874761,AES CORP,2019,4991,"Electric, Gas & Sanitary Services",1.9624,1.0446,1.0865,0.4179,2.0961,98.2,0.9178,True,False,21,21,worse_than_peers
+0000024741,CORNING INC /NY,2020,3357,Primary Metal Industries,2.1025,1.3234,1.3823,0.3444,2.0909,98.17,0.7791,True,False,7,7,worse_than_peers
+0001675149,Alcoa Corp,2018,3334,Primary Metal Industries,1.5657,1.1541,1.2331,0.1596,2.0846,98.14,0.4116,True,False,7,7,worse_than_peers
+0001645590,Hewlett Packard Enterprise Co,2015,3570,Industrial Machinery & Equipment,2.0808,1.1545,1.2246,0.4116,2.08,98.12,0.9263,True,False,23,22,worse_than_peers
+0000836157,LINDSAY CORP,2020,3523,Industrial Machinery & Equipment,2.1957,1.3772,1.4134,0.377,2.0754,98.1,0.8185,True,False,27,26,worse_than_peers
+0001326732,Xencor Inc,2020,2834,Chemicals & Allied Products,2.8747,1.4028,1.5299,0.6516,2.0639,98.05,1.4718,True,False,32,32,worse_than_peers
+0000080172,NATIONAL PRESTO INDUSTRIES INC,2020,3480,Fabricated Metal Products,2.0209,1.2043,1.2072,0.395,2.0597,98.03,0.8166,True,False,12,12,worse_than_peers
+0001612630,JOINT Corp,2014,6794,Holding & Investment Offices,2.741,1.3512,1.5222,0.5922,2.058,98.02,1.3898,True,False,34,32,worse_than_peers
+0001111335,VISTEON CORP,2020,3714,Transportation Equipment,2.3027,1.2754,1.3659,0.4555,2.0569,98.02,1.0273,True,False,16,16,worse_than_peers
+0000886346,KADANT INC,2018,3550,Industrial Machinery & Equipment,1.8478,1.1132,1.1874,0.3243,2.0361,97.91,0.7346,True,False,25,24,worse_than_peers
+0000097476,TEXAS INSTRUMENTS INC,2014,3674,Electronic & Electrical Equipment,2.6091,1.5739,1.5907,0.5006,2.0341,97.9,1.0352,True,False,14,14,worse_than_peers
+0001158324,"COGENT COMMUNICATIONS HOLDINGS, INC.",2020,4899,Communications,2.6626,1.482,1.5028,0.5706,2.0324,97.89,1.1805,True,False,8,8,worse_than_peers
+0001632127,"Cable One, Inc.",2016,4841,Communications,3.3523,1.2624,1.5203,0.904,2.0266,97.86,2.09,True,False,6,6,worse_than_peers
+0001360604,Healthcare Realty Trust Inc,2014,6798,Holding & Investment Offices,2.7222,1.3512,1.5222,0.5922,2.0263,97.86,1.371,True,False,34,31,worse_than_peers
+0000059558,LINCOLN NATIONAL CORP,2015,6311,Insurance Carriers,1.7786,1.0524,1.0516,0.3588,2.0261,97.86,0.7262,True,False,7,7,worse_than_peers
+0001158324,"COGENT COMMUNICATIONS HOLDINGS, INC.",2018,4899,Communications,2.5588,1.3778,1.5733,0.4892,2.0145,97.8,1.181,True,False,6,6,worse_than_peers
+0000763744,LCI INDUSTRIES,2024,3714,Transportation Equipment,2.2381,1.5002,1.4398,0.3977,2.007,97.76,0.738,True,False,16,16,worse_than_peers
+0001369568,"CATALYST PHARMACEUTICALS, INC.",2020,2834,Chemicals & Allied Products,2.8376,1.4028,1.5299,0.6516,2.0069,97.76,1.4348,True,False,32,31,worse_than_peers
+0001001316,"TG THERAPEUTICS, INC.",2021,2834,Chemicals & Allied Products,2.8432,1.2714,1.5084,0.6653,2.0064,97.76,1.5718,True,False,33,32,worse_than_peers
+0000063908,MCDONALDS CORP,2016,5812,Eating & Drinking Places,0.64,1.2948,1.3519,0.3548,-2.0066,2.24,-0.6548,True,False,11,1,better_than_peers
+0001274173,JANUS HENDERSON GROUP PLC,2024,6282,Security & Commodity Brokers,0.4885,1.0825,1.0824,0.2948,-2.0144,2.2,-0.594,True,False,14,1,better_than_peers
+0001645590,Hewlett Packard Enterprise Co,2022,3570,Industrial Machinery & Equipment,0.6201,1.4757,1.4179,0.3937,-2.0263,2.14,-0.8556,True,False,28,1,better_than_peers
+0001025378,W. P. Carey Inc.,2019,6798,Holding & Investment Offices,0.5114,1.489,1.565,0.5192,-2.0294,2.12,-0.9776,True,False,36,1,better_than_peers
+0000004904,AMERICAN ELECTRIC POWER CO INC,2020,4911,"Electric, Gas & Sanitary Services",0.3265,1.1442,1.1346,0.3967,-2.037,2.08,-0.8177,True,False,21,1,better_than_peers
+0000004904,AMERICAN ELECTRIC POWER CO INC,2019,4911,"Electric, Gas & Sanitary Services",0.222,1.0446,1.0865,0.4179,-2.0689,1.93,-0.8226,True,False,21,1,better_than_peers
+0000070858,BANK OF AMERICA CORP /DE/,2023,6021,Depository Institutions (Banks),0.4104,1.2453,1.2749,0.4176,-2.07,1.92,-0.8349,True,False,28,1,better_than_peers
+0000829224,STARBUCKS CORP,2014,5810,Eating & Drinking Places,0.5442,1.2526,1.251,0.3349,-2.1106,1.74,-0.7084,True,False,10,1,better_than_peers
+0001341439,ORACLE CORP,2017,7372,Business Services,0.3384,1.4053,1.4205,0.5086,-2.1278,1.67,-1.0669,True,False,35,1,better_than_peers
+0000217346,TEXTRON INC,2024,3720,Transportation Equipment,0.5934,1.5002,1.4398,0.3977,-2.1282,1.67,-0.9068,True,False,16,1,better_than_peers
+0000005272,"AMERICAN INTERNATIONAL GROUP, INC.",2022,6331,Insurance Carriers,0.5077,1.1657,1.0807,0.2689,-2.1309,1.65,-0.658,True,False,10,1,better_than_peers
+0001116942,TTM TECHNOLOGIES INC,2018,3672,Electronic & Electrical Equipment,0.6207,1.4438,1.4638,0.3925,-2.1478,1.59,-0.8231,True,False,14,1,better_than_peers
+0000732717,AT&T INC.,2024,4813,Communications,0.8016,1.8392,1.7868,0.4513,-2.183,1.45,-1.0376,True,False,8,1,better_than_peers
+0000892553,CHART INDUSTRIES INC,2021,3443,Fabricated Metal Products,0.5462,1.2416,1.2188,0.3064,-2.1949,1.41,-0.6953,True,False,12,1,better_than_peers
+0000856982,MERIT MEDICAL SYSTEMS INC,2018,3841,Measuring & Analyzing Instruments,0.7363,1.5384,1.5315,0.3443,-2.3095,1.05,-0.8021,True,False,19,1,better_than_peers
+0000004904,AMERICAN ELECTRIC POWER CO INC,2021,4911,"Electric, Gas & Sanitary Services",0.2595,1.1401,1.1109,0.3647,-2.3349,0.98,-0.8806,True,False,21,1,better_than_peers
+0000005272,"AMERICAN INTERNATIONAL GROUP, INC.",2021,6331,Insurance Carriers,0.4331,1.2386,1.1457,0.3037,-2.3461,0.95,-0.8055,True,False,10,1,better_than_peers
+0000093556,"STANLEY BLACK & DECKER, INC.",2017,3420,Fabricated Metal Products,0.4437,1.4584,1.3643,0.367,-2.5086,0.61,-1.0147,True,False,11,1,better_than_peers
