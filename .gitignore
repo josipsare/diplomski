@@ -1,10 +1,35 @@
-# SEC Data (large files - download locally)
+# =============================================================================
+# DATA EXCLUDED FROM REPO (regenerate locally per scripts/)
+# =============================================================================
+
+# Raw SEC EDGAR data (44 quarterly archives, 20+ GB total)
 sec_data/
 
-# Graphs (regenerate with visualizations.py)
+# Daily stock price CSVs (2485 files, ~690 MB; download via yfinance)
+data/stock_data/
+
+# Derived panel parquets (regenerate via scripts/build_panel.py)
+data/output/panels/
+
+# Detector score parquets (regenerate via training scripts)
+data/output/scores/
+
+# Bachelor's / legacy / scratch data
+data/output/results/
+data/output/reports/
+data/output/graphs/
+legacy/old_outputs/
+legacy/scratch/
+
+# Legacy graphs from bachelor's project
 graphs/
 
+# Misc
+labels/
+
+# =============================================================================
 # Python
+# =============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -72,3 +97,30 @@ config.local.yaml
 # Logs
 *.log
 logs/
+
+# LaTeX build artifacts (keep .tex and .pdf, exclude intermediates)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.synctex.gz
+*.toc
+*.out
+
+# FER LaTeX template files (downloaded from FER GitHub on demand)
+thesis/fer.cls
+thesis/fer_*.bst
+
+# Windows-reserved filenames (yfinance downloaded tickers with these names)
+data/stock_data/CON.csv
+data/stock_data/PRN.csv
+data/stock_data/AUX.csv
+data/stock_data/NUL.csv
+data/stock_data/COM[0-9].csv
+data/stock_data/LPT[0-9].csv
+
+# Reserved Windows device name
+/nul

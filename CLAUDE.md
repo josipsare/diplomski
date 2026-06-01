@@ -4,113 +4,138 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SEC Financial Data Downloader and Benford's Law Analysis Tool - a Python project for downloading public company financial statements from SEC EDGAR and analyzing them for conformance to Benford's Law (a statistical method for detecting potential financial irregularities).
+**Master's thesis:** Identifikacija financijskih anomalija primjenom dubokih neuronskih mreža te utjecaj identificiranih anomalija na poslovanje kompanije.
 
-**Python 3.8+ required.**
+**Author:** Josip Sare (started 2026-05-08)
 
-## Common Commands
+Builds on a prior bachelor's thesis (Benford's Law analysis of 442 S&P 500 firms 2014–2024) that found ~97.5% statistically-deviating firms but only r=0.03 correlation between deviation and stock returns. The master's thesis replaces the linear statistical methods with deep neural networks and rigorously quantifies the impact of detected anomalies on company business outcomes.
+
+- Full project plan and roadmap: [THESIS_PLAN.md](THESIS_PLAN.md)
+- Prior bachelor's thesis code (kept for reference / baseline reproduction): `legacy/`
+- Persistent project memory: `~/.claude/projects/c--Users-Korisnik-Desktop-diplomski/memory/`
+
+**Python 3.10+ required.**
+
+---
+
+## CRITICAL RULE — Dual Review After Every Meaningful Progress
+
+After completing any meaningful unit of progress, launch **two subagents IN PARALLEL** (single message, two `Agent` tool calls) to review the work BEFORE moving on.
+
+### Reviewer 1 — Local check ("Does the new piece make sense?")
+- **Subagent type:** `feature-dev:code-reviewer`
+- **Question it answers:** Does this specific thing I just built make sense on its own?
+- **Looks for:** correctness, logic errors, edge cases, missing handling, code quality, security, fit-for-purpose
+- **Brief it on:** what was just built (file paths, what changed), what it should do, the immediate surrounding context
+
+### Reviewer 2 — Holistic check ("Does it all still hang together?")
+- **Subagent type:** `general-purpose`
+- **Question it answers:** Does the new piece combined with everything we've built so far still make coherent sense as a whole?
+- **Looks for:** architectural fit, conceptual coherence, research-question alignment, contradictions with prior decisions, scope drift, drift from `THESIS_PLAN.md` goals
+- **Brief it on:** the thesis topic + research questions, prior design decisions (in `memory/thesis_design_decisions.md`), full project structure, what was just added, why
+
+### After both reviewers respond
+1. **Surface their findings verbatim to the user** — including any disagreement between them
+2. **Do NOT silently fix issues.** Let the user decide what to address.
+3. **Block on user response** for any non-trivial flag.
+
+### When this rule applies
+**Run reviews when:**
+- Adding a new module/file with substantive logic (e.g. a model class, a new analysis method, a data pipeline component)
+- A phase milestone in `THESIS_PLAN.md` becomes complete
+- A new model implementation lands (any anomaly detector or impact-analysis component)
+- A multi-file refactor
+- A major design pivot (changing data schema, switching framework, abandoning an approach)
+- A non-trivial bug fix that touches real logic
+
+**Skip reviews when:**
+- Trivial edits (typos, formatting, single-line tweaks)
+- Todo list updates
+- Memory writes
+- Status messages
+- Cleanup tasks (moving files, renaming directories)
+- Documentation-only changes
+
+If unsure, default to running them.
+
+---
+
+## Key paths
+
+- `src/` — current master's thesis code
+  - `data/` — SEC + stock loaders, panel builder
+  - `features/` — financial ratios, normalization, sequence builder
+  - `models/` — anomaly detectors (Phase 3+)
+  - `impact/` — business-impact analysis (Phase 7)
+  - `evaluation/` — detector comparison + figures (Phase 6)
+  - `utils/paths.py` — canonical filesystem paths
+- `legacy/` — bachelor's thesis code, kept as reference baseline
+- `scripts/` — orchestration scripts (e.g. `build_panel.py`)
+- `sec_data/` — raw SEC EDGAR Financial Statement Data Sets, 44 quarters (2014Q1–2024Q4)
+- `data/stock_data/` — 438 ticker daily price CSVs from yfinance
+- `data/input/companies.csv` — CIK → ticker mapping for the 442-firm universe
+- `data/output/panels/` — derived Parquet panels (built by `scripts/build_panel.py`)
+- `data/output/scores/` — per-detector anomaly scores (created by Phase 3+)
+- `data/output/figures/` — thesis figures
+- `data/output/trained_models/` — saved model checkpoints
+- `thesis/main.tex` — LaTeX thesis source
+
+## Common commands
 
 ```bash
-# Install dependencies
+# Install
 pip install -r requirements.txt
 
-# Install as editable package (enables CLI entry points)
-pip install -e .
+# Build full panels (44 quarters × 442 firms, ~5 min)
+python scripts/build_panel.py
 
-# Download SEC data
-python scripts/download_data.py --user-agent "YourName email@example.com" --latest
-
-# Run batch analysis
-python scripts/run_analysis.py --companies data/input/companies.csv
-
-# Generate visualizations
-python scripts/generate_graphs.py
-
-# Analyze single company
-python examples/analyze_company.py --cik 0000320193
-
-# Run tests
-python -m pytest tests/ -v
-
-# Run single test file
-python -m pytest tests/test_benford.py -v
-
-# Run specific test class
-python -m pytest tests/test_benford.py::TestCalculateBenfordMetrics -v
+# Quick sanity-check (1 quarter + 5 tickers, ~30 sec)
+python scripts/build_panel.py --quick
 ```
 
-### CLI Entry Points (after `pip install -e .`)
+## Tech stack
 
-```bash
-sec-download   # → scripts/download_data.py
-sec-analyze    # → scripts/run_analysis.py
-sec-visualize  # → scripts/generate_graphs.py
-```
+- Python 3.10+
+- PyTorch for all DL models
+- pandas + pyarrow (Parquet) for the panel storage
+- scikit-learn for classical baselines (Isolation Forest, propensity matching, One-Class SVM, LOF)
+- statsmodels for Granger causality, event-study regressions
+- matplotlib + seaborn for figures
 
-## Architecture
+## Conventions
 
-### Data Pipeline
+- Code identifiers, comments, and committed text are in **English** (matches existing codebase).
+- Conversational replies to the user are in **Croatian** unless the user switches.
+- All derived data lives in `data/output/`; never write to `sec_data/` or `data/stock_data/` (raw inputs).
+- Each anomaly detector exposes a uniform API: `fit(X) -> None` and `score(X) -> ndarray` (higher = more anomalous). Scores are written to `data/output/scores/{model_name}.parquet` with schema `(cik, period_end, score)`.
 
-```text
-SEC EDGAR → src/downloader.py → src/parser.py → src/benford.py → src/visualization.py
-   │              │                   │                │                  │
-   │              ▼                   ▼                ▼                  ▼
-   │        ./sec_data/         DataFrames      Chi-square, MAD,    data/output/graphs/
-   │        └─ {YEAR}q{Q}/                       KS-test, p-value
-   │           ├─ sub.txt (submissions)
-   │           ├─ num.txt (numerical facts)
-   │           ├─ tag.txt (tag definitions)
-   │           └─ txt.txt (text facts)
-```
+## STRICT NN-ONLY POLICY (decided 2026-05-10)
 
-### Core Modules (`src/`)
+The thesis is **strictly neural-network + unsupervised** throughout the primary narrative.
 
-- **downloader.py**: `SECDataDownloader` - Downloads quarterly ZIP files from SEC, handles rate limiting
-- **parser.py**: `SECDataParser` - Parses tab-delimited SEC files into DataFrames
-- **benford.py**: Statistical analysis functions:
-  - `calculate_benford_metrics(numbers_series)` - First-digit analysis (chi-square, MAD, KS, p-value)
-  - `calculate_second_digit_benford_metrics(numbers_series)` - Second-digit analysis
-  - `calculate_digit_zscores(numbers_series)` - Per-digit Z-scores showing which digits deviate most
-  - `calculate_anomaly_score(numbers_series)` - Composite 0-100 anomaly score with risk levels
-  - `get_digit_distribution(numbers_series)` - Observed vs expected distribution for visualization
-  - `interpret_results(metrics)` / `interpret_second_digit_results(metrics)` - Human-readable interpretation
-- **batch_analysis.py**: `run_batch_analysis()` - Process multiple companies
-- **visualization.py**: `generate_all_visualizations()` - Create all graphs
+**Primary thesis methods (in `src/`):**
+- 4 NN anomaly detectors (`src/models/`): `autoencoder.py`, `vae.py`, `lstm_autoencoder.py`, `transformer_encoder.py` — all trained unsupervised (reconstruction loss)
+- 1 NN forward-outcome regressor (`src/impact/forward_outcome.py`): MLP that takes (anomaly_score, controls) and predicts next-year outcome with temporal train/test split and out-of-sample delta-R² as headline
 
-### Key Data Files
+**Moved to `legacy/baselines/`:** Benford detector, Isolation Forest, ensemble strategies. Kept as code for reference and bachelor's-thesis baseline reproduction, NOT in the master's primary tables.
 
-- `data/input/companies.csv`: Input company list (columns: CIK, company_name)
-- `data/output/results/benford_analysis.csv`: Output metrics per company/year
-- `config.yaml`: All configurable settings (paths, thresholds, year range)
+**Moved to `legacy/classical_impact/`:** event_study.py, abnormal_returns.py, matching.py, event_dates.py. Classical-statistics impact methods, NOT in the master's primary tables.
 
-## SEC API Requirements
+**Evaluation policy (dual-track, unchanged):** Detector training stays strictly unsupervised. Evaluation has two tracks: unsupervised diagnostics (top-K agreement between the 4 NN detectors, sectoral profile, case studies, stability) and supervised benchmarking against restatement labels at evaluation time only (no labels in training loop).
 
-- User-Agent header required: `"CompanyName contact@email.com"`
-- Rate limit: max 10 requests/second (tool uses 0.15s delay)
-- Data URL: `https://www.sec.gov/files/dera/data/financial-statement-data-sets/{YEAR}q{QUARTER}.zip`
+**Honest framing of NN forward-outcome regressor:** the MLP regressor is *supervised in y* (next-year return), but operates ON TOP of strictly-unsupervised NN anomaly scores. The supervision is in outcome prediction, not anomaly labeling.
 
-## Benford's Law Metrics Thresholds
+## Bachelor's-thesis Benford reference (for baseline reproduction)
 
-### First-Digit Analysis (digits 1-9, 8 df)
+The master's thesis includes a Benford-Law baseline detector that reproduces the prior bachelor's findings on the same data. Reference values from that work:
 
-| Metric | Good Conformance | Concerning |
-|--------|------------------|------------|
-| MAD | < 1.5 | > 2.5 |
-| Chi-square | < 15.507 | > 15.507 |
-| p-value | > 0.05 | < 0.05 |
+- 442 S&P 500 firms × 11 years (2014–2024) = 4,862 firm-year observations
+- 97.5% of firms statistically deviate (p < 0.05); average chi-square 59.83 (critical: 15.507)
+- Linear correlation MAD ↔ annual return: r = 0.03 (negligible)
+- Lagged correlation MAD(N) → return(N+1): r = 0.004, p = 0.827
 
-### Second-Digit Analysis (digits 0-9, 9 df)
+Thresholds (Nigrini, 2012):
+- First digit (8 df): MAD < 1.5 good, > 2.5 concerning; chi-square critical 15.507
+- Second digit (9 df): MAD < 1.2 good; chi-square critical 16.919
 
-| Metric | Good Conformance | Concerning |
-|--------|------------------|------------|
-| MAD | < 1.2 | > 1.2 |
-| Chi-square | < 16.919 | > 16.919 |
-| p-value | > 0.05 | < 0.05 |
-
-## Test CIKs
-
-- Apple: 0000320193
-- Microsoft: 0000789019
-- Tesla: 0001318605
-- Amazon: 0001018724
-- Google: 0001652044
+Test CIKs: Apple 0000320193, Microsoft 0000789019, Oracle 0001341439, Tesla 0001318605, Amazon 0001018724.

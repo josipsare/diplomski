@@ -1,0 +1,100 @@
+\babel@toc {croatian}{}\relax 
+\babel@toc {croatian}{}\relax 
+\babel@toc {croatian}{}\relax 
+\contentsline {chapter}{\numberline {1.}Uvod}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1.}Motivacija}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2.}Istraživačka pitanja}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3.}Doprinosi rada}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4.}Struktura rada}{7}{section.1.4}%
+\contentsline {chapter}{\numberline {2.}Pregled literature}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1.}Klasične metode forenzičkog računovodstva}{8}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1.}Benfordov zakon}{8}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2.}Beneish M-score}{9}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3.}Modeli diskrecijskih accruals-a}{10}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2.}Strojno učenje za otkrivanje anomalija}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1.}Klasične metode}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2.}Duboke neuronske mreže za anomalije}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3.}Primjena DL na forenzičko računovodstvo}{11}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4.}Praznine u literaturi koje ovaj rad zatvara}{12}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3.}Pozicija ovog rada}{13}{section.2.3}%
+\contentsline {chapter}{\numberline {3.}Podaci i značajke}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1.}Izvori podataka}{14}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1.}SEC EDGAR Financial Statement Data Sets}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2.}Yahoo Finance: dnevne cijene i volumeni}{14}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3.}Russell 3000 univerzum}{14}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4.}Oznake revizijskih ispravaka (\emph {restatement labels})}{15}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2.}Izgradnja kvartalnog panela}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1.}Selekcija XBRL tagova}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2.}Dimenzijska deduplikacija}{16}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3.}Kanonska selekcija filinga}{16}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4.}Wide-format pivot}{16}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5.}Godišnja agregacija}{17}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3.}Izvedene financijske značajke (omjeri)}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4.}Sektor-svjesna standardizacija}{18}{section.3.4}%
+\contentsline {section}{\numberline {3.5.}Sekvencijska reprezentacija}{18}{section.3.5}%
+\contentsline {section}{\numberline {3.6.}Konačne dimenzije panela}{19}{section.3.6}%
+\contentsline {chapter}{\numberline {4.}Modeli za detekciju anomalija}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1.}Princip nenadziranog otkrivanja anomalija rekonstrukcijom}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2.}Uniformni API}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3.}Statički autoenkoder (AE)}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4.}Varijacijski autoenkoder (VAE)}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5.}LSTM autoenkoder}{22}{section.4.5}%
+\contentsline {section}{\numberline {4.6.}Transformer enkoder}{23}{section.4.6}%
+\contentsline {section}{\numberline {4.7.}Sažetak parametara modela}{24}{section.4.7}%
+\contentsline {section}{\numberline {4.8.}Treniranje na cijelom uzorku (\emph {transductive setting})}{24}{section.4.8}%
+\contentsline {section}{\numberline {4.9.}Reproducibilnost}{25}{section.4.9}%
+\contentsline {chapter}{\numberline {5.}Predikcija utjecaja: NN regresor}{26}{chapter.5}%
+\contentsline {section}{\numberline {5.1.}Motivacija: zašto NN umjesto OLS-a}{26}{section.5.1}%
+\contentsline {section}{\numberline {5.2.}Specifikacija MLP regresora}{26}{section.5.2}%
+\contentsline {section}{\numberline {5.3.}Ishodi koji se predviđaju}{27}{section.5.3}%
+\contentsline {section}{\numberline {5.4.}Kritična metodološka stavka: kontrola za rast firme}{28}{section.5.4}%
+\contentsline {section}{\numberline {5.5.}Temporalna train/test podjela}{28}{section.5.5}%
+\contentsline {section}{\numberline {5.6.}Glavne metrike}{29}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1.}Out-of-sample delta-$R^2$}{29}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2.}Permutation importance}{29}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3.}Robustnost: 5-seed replikacija}{30}{subsection.5.6.3}%
+\contentsline {chapter}{\numberline {6.}Rezultati}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1.}Detekcijske performanse (RQ1)}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2.}Slaganje između detektora}{32}{section.6.2}%
+\contentsline {section}{\numberline {6.3.}Utjecaj na poslovanje (RQ2): 5-seed replikacija}{34}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1.}Glavni nalazi}{34}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2.}Konvergencija po detektoru i ishodu}{35}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4.}Permutation importance}{36}{section.6.4}%
+\contentsline {section}{\numberline {6.5.}Utjecaj kontrole za rast firme}{37}{section.6.5}%
+\contentsline {chapter}{\numberline {7.}Diskusija}{41}{chapter.7}%
+\contentsline {section}{\numberline {7.1.}Konvergencija arhitektura: strop u ulaznoj modalnosti}{41}{section.7.1}%
+\contentsline {section}{\numberline {7.2.}Growth-confound kao metodološka kontribucija}{42}{section.7.2}%
+\contentsline {section}{\numberline {7.3.}Transformer overfitting: dijagnostička priča}{43}{section.7.3}%
+\contentsline {section}{\numberline {7.4.}Veza s preddiplomskim radom autora}{44}{section.7.4}%
+\contentsline {section}{\numberline {7.5.}Praktične implikacije}{45}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1.}Za forenzičke revizore}{45}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2.}Za upravljače rizikom}{45}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3.}Za akademsku zajednicu}{46}{subsection.7.5.3}%
+\contentsline {chapter}{\numberline {8.}Ograničenja i budući rad}{47}{chapter.8}%
+\contentsline {section}{\numberline {8.1.}Ograničenja}{47}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1.}Metodološka ograničenja}{47}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2.}Računska i podatkovna ograničenja}{48}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3.}Interpretacijska ograničenja}{48}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2.}Smjerovi budućeg rada}{49}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1.}Direktna proširenja}{49}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2.}Šira proširenja}{49}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3.}Sintetska procjena}{50}{section.8.3}%
+\contentsline {chapter}{\numberline {9.}Zaključak}{51}{chapter.9}%
+\contentsline {section}{\numberline {9.1.}Sažetak ključnih nalaza}{51}{section.9.1}%
+\contentsline {section}{\numberline {9.2.}Glavna poruka: veza s preddiplomskim radom}{52}{section.9.2}%
+\contentsline {section}{\numberline {9.3.}Praktične implikacije}{52}{section.9.3}%
+\contentsline {section}{\numberline {9.4.}Završne napomene}{53}{section.9.4}%
+\contentsline {chapter}{\numberline {A:}Klasični baselines (referenca)}{54}{chapter.1}%
+\contentsline {section}{\numberline {A1.}Numerička usporedba na istom panelu (Russell 3000)}{54}{section.1.1}%
+\contentsline {section}{\numberline {A2.}Komentar}{54}{section.1.2}%
+\contentsline {chapter}{Literatura}{56}{chapter*.27}%
+\babel@toc {croatian}{}\relax 
+\contentsline {chapter}{Sa\v {z}etak}{60}{chapter*.28}%
+\babel@toc {croatian}{}\relax 
+\babel@toc {croatian}{}\relax 
+\babel@toc {croatian}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{61}{chapter*.29}%
+\babel@toc {croatian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {croatian}{}\relax 
